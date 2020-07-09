@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 Relatórios e artigos científicos com o rmarkdown | R aplicado a suinocultura</title>
+  <meta name="description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 Relatórios e artigos científicos com o rmarkdown | R aplicado a suinocultura" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 Relatórios e artigos científicos com o rmarkdown | R aplicado a suinocultura" />
+  
+  <meta name="twitter:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
+  
+
+<meta name="author" content="Marcio Valk" />
+
+
+<meta name="date" content="2020-07-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ade.html"/>
+<link rel="next" href="referências.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R aplicado a suinocultura</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-a-academia"><i class="fa fa-check"></i>Sobre a Academia</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem R</a></li>
+<li class="chapter" data-level="1.2" data-path="tuto.html"><a href="tuto.html#instalando-o-r"><i class="fa fa-check"></i><b>1.2</b> Instalando o R</a></li>
+<li class="chapter" data-level="1.3" data-path="tuto.html"><a href="tuto.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>1.3</b> Instalando o RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="tuto.html"><a href="tuto.html#diretório-de-trabalho"><i class="fa fa-check"></i><b>1.4</b> Diretório de trabalho</a></li>
+<li class="chapter" data-level="1.5" data-path="tuto.html"><a href="tuto.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.5</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.6" data-path="tuto.html"><a href="tuto.html#instalação-de-pacotes"><i class="fa fa-check"></i><b>1.6</b> Instalação de pacotes</a></li>
+<li class="chapter" data-level="1.7" data-path="tuto.html"><a href="tuto.html#funcionalidades-básicas"><i class="fa fa-check"></i><b>1.7</b> Funcionalidades básicas</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="tuto.html"><a href="tuto.html#operações"><i class="fa fa-check"></i><b>1.7.1</b> Operações</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tuto.html"><a href="tuto.html#operadores-lógicos"><i class="fa fa-check"></i><b>1.7.2</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="tuto.html"><a href="tuto.html#variáveis-no-r"><i class="fa fa-check"></i><b>1.8</b> Variáveis no R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="tuto.html"><a href="tuto.html#operações-1"><i class="fa fa-check"></i><b>1.8.1</b> Operações</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="tuto.html"><a href="tuto.html#vetores"><i class="fa fa-check"></i><b>1.9</b> Vetores</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="tuto.html"><a href="tuto.html#operações-com-vetores"><i class="fa fa-check"></i><b>1.9.1</b> Operações com vetores</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="tuto.html"><a href="tuto.html#matrizes"><i class="fa fa-check"></i><b>1.10</b> Matrizes</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="tuto.html"><a href="tuto.html#operações-com-matrizes"><i class="fa fa-check"></i><b>1.10.1</b> Operações com Matrizes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="tuto.html"><a href="tuto.html#uso-do-for-loop"><i class="fa fa-check"></i><b>1.11</b> Uso do for (loop)</a></li>
+<li class="chapter" data-level="1.12" data-path="tuto.html"><a href="tuto.html#funções"><i class="fa fa-check"></i><b>1.12</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Importando dados</a><ul>
+<li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#dados-de-diferentes-formatos"><i class="fa fa-check"></i><b>2.1</b> Dados de diferentes formatos</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="import.html"><a href="import.html#dados-no-formato-.txt"><i class="fa fa-check"></i><b>2.1.1</b> Dados no formato .txt</a></li>
+<li class="chapter" data-level="2.1.2" data-path="import.html"><a href="import.html#dados-no-formato-.csv"><i class="fa fa-check"></i><b>2.1.2</b> Dados no formato .csv</a></li>
+<li class="chapter" data-level="2.1.3" data-path="import.html"><a href="import.html#dados-no-formato-.xls-e-.xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Dados no formato .xls e .xlsx</a></li>
+<li class="chapter" data-level="2.1.4" data-path="import.html"><a href="import.html#dados-do-sas-spss-e-stata"><i class="fa fa-check"></i><b>2.1.4</b> Dados do SAS, SPSS e STATA</a></li>
+<li class="chapter" data-level="2.1.5" data-path="import.html"><a href="import.html#dados-de-um-repositório-web"><i class="fa fa-check"></i><b>2.1.5</b> Dados de um repositório web</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#análise-exploratória"><i class="fa fa-check"></i><b>2.2</b> Análise exploratória</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="import.html"><a href="import.html#dados-faltantes"><i class="fa fa-check"></i><b>2.2.1</b> Dados faltantes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#análise-exploratória-1"><i class="fa fa-check"></i><b>2.3</b> Análise exploratória</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="import.html"><a href="import.html#medidas-de-tendência-central"><i class="fa fa-check"></i><b>2.3.1</b> Medidas de tendência central</a></li>
+<li class="chapter" data-level="2.3.2" data-path="import.html"><a href="import.html#plot-simple"><i class="fa fa-check"></i><b>2.3.2</b> Plot simple</a></li>
+<li class="chapter" data-level="2.3.3" data-path="import.html"><a href="import.html#box-plot-simples"><i class="fa fa-check"></i><b>2.3.3</b> Box plot simples</a></li>
+<li class="chapter" data-level="2.3.4" data-path="import.html"><a href="import.html#box-plot-multiplas-váriáveis"><i class="fa fa-check"></i><b>2.3.4</b> Box plot multiplas váriáveis</a></li>
+<li class="chapter" data-level="2.3.5" data-path="import.html"><a href="import.html#scater-plot"><i class="fa fa-check"></i><b>2.3.5</b> Scater plot</a></li>
+<li class="chapter" data-level="2.3.6" data-path="import.html"><a href="import.html#qqplot"><i class="fa fa-check"></i><b>2.3.6</b> QQplot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#análise-estatística-de-dados---modelagem"><i class="fa fa-check"></i><b>2.4</b> Análise estatística de dados - Modelagem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="import.html"><a href="import.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.4.1</b> Regressão linear simples</a></li>
+<li class="chapter" data-level="2.4.2" data-path="import.html"><a href="import.html#regressão-múltipa"><i class="fa fa-check"></i><b>2.4.2</b> Regressão Múltipa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="import.html"><a href="import.html#gráficos-de-resíduos"><i class="fa fa-check"></i><b>2.4.3</b> Gráficos de resíduos</a></li>
+<li class="chapter" data-level="2.4.4" data-path="import.html"><a href="import.html#anova-one-way"><i class="fa fa-check"></i><b>2.4.4</b> Anova one way</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visu.html"><a href="visu.html"><i class="fa fa-check"></i><b>3</b> Visualização de dados com o R</a><ul>
+<li class="chapter" data-level="3.1" data-path="visu.html"><a href="visu.html#ggplot-anatomia-e-a-estrutura-data.frame"><i class="fa fa-check"></i><b>3.1</b> ggplot, anatomia e a estrutura data.frame</a></li>
+<li class="chapter" data-level="3.2" data-path="visu.html"><a href="visu.html#funções-geom-e-aes"><i class="fa fa-check"></i><b>3.2</b> Funções geom e aes</a></li>
+<li class="chapter" data-level="3.3" data-path="visu.html"><a href="visu.html#segmentação-e-junção-de-gráficos-do-ggplot"><i class="fa fa-check"></i><b>3.3</b> Segmentação e junção de gráficos do ggplot</a></li>
+<li class="chapter" data-level="3.4" data-path="visu.html"><a href="visu.html#diferentes-tipos-de-gráficos"><i class="fa fa-check"></i><b>3.4</b> Diferentes tipos de gráficos</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="visu.html"><a href="visu.html#gráfico-de-relacionamento"><i class="fa fa-check"></i><b>3.4.1</b> Gráfico de relacionamento</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visu.html"><a href="visu.html#gráfico-de-barras"><i class="fa fa-check"></i><b>3.4.2</b> Gráfico de barras</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.3</b> Gráfico de séries temporais</a></li>
+<li class="chapter" data-level="3.4.4" data-path="visu.html"><a href="visu.html#mapas-de-calor"><i class="fa fa-check"></i><b>3.4.4</b> Mapas de calor</a></li>
+<li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#box-plot"><i class="fa fa-check"></i><b>3.4.5</b> box plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de delineamento de experimentos</a><ul>
+<li class="chapter" data-level="4.1" data-path="ade.html"><a href="ade.html#delineamento-inteiramente-casualizados"><i class="fa fa-check"></i><b>4.1</b> Delineamento inteiramente casualizados</a></li>
+<li class="chapter" data-level="4.2" data-path="ade.html"><a href="ade.html#delineamento-em-blocos-ao-acaso"><i class="fa fa-check"></i><b>4.2</b> Delineamento em blocos ao acaso</a></li>
+<li class="chapter" data-level="4.3" data-path="ade.html"><a href="ade.html#fatorial"><i class="fa fa-check"></i><b>4.3</b> Fatorial</a></li>
+<li class="chapter" data-level="4.4" data-path="ade.html"><a href="ade.html#parcela-subdividida"><i class="fa fa-check"></i><b>4.4</b> Parcela subdividida</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Relatórios e artigos científicos com o rmarkdown</a><ul>
+<li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#relatório-dinâmico-com-o-rmarkdown"><i class="fa fa-check"></i><b>5.1</b> Relatório dinâmico com o Rmarkdown</a></li>
+<li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#relatórios-em-word-pdf-ou-html"><i class="fa fa-check"></i><b>5.2</b> Relatórios em word, pdf ou html</a></li>
+<li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#apresentações-em-power-point"><i class="fa fa-check"></i><b>5.3</b> Apresentações em Power Point</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R aplicado a suinocultura</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmd" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> Relatórios e artigos científicos com o rmarkdown</h1>
+<div id="relatório-dinâmico-com-o-rmarkdown" class="section level2">
+<h2><span class="header-section-number">5.1</span> Relatório dinâmico com o Rmarkdown</h2>
+</div>
+<div id="relatórios-em-word-pdf-ou-html" class="section level2">
+<h2><span class="header-section-number">5.2</span> Relatórios em word, pdf ou html</h2>
+</div>
+<div id="apresentações-em-power-point" class="section level2">
+<h2><span class="header-section-number">5.3</span> Apresentações em Power Point</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ade.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R-aplicado-a-suinocultura.pdf", "R-aplicado-a-suinocultura.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

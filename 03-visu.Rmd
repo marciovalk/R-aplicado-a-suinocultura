@@ -1,0 +1,22 @@
+# Visualização de dados com o R {#visu}
+ 
+## ggplot, anatomia e a estrutura data.frame
+
+## Funções geom e aes 
+
+## Segmentação e junção de gráficos do ggplot
+
+
+
+## Diferentes tipos de gráficos 
+  
+### Gráfico de relacionamento
+
+### Gráfico de barras
+
+### Gráfico de séries temporais
+
+### Mapas de calor
+
+### box plot
+ 

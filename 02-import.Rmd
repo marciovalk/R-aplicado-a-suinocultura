@@ -1,0 +1,47 @@
+# Importando dados {#import}
+
+## Dados de diferentes formatos
+
+### Dados no formato .txt
+
+### Dados no formato .csv
+
+### Dados no formato .xls e .xlsx
+
+### Dados do SAS, SPSS e STATA
+
+### Dados de um repositório web
+
+
+## Análise exploratória
+
+### Dados faltantes 
+
+
+## Análise exploratória     
+
+### Medidas de tendência central
+
+ Média, mediana, variância     
+
+### Plot simple
+### Box plot simples
+### Box plot multiplas váriáveis
+### Scater plot 
+### QQplot
+
+## Análise estatística de dados - Modelagem
+
+### Regressão linear simples 
+
+### Regressão Múltipa
+
+
+### Gráficos de resíduos 
+
+#### studentized residuals
+
+#### outliers
+#### normalidade
+
+### Anova one way

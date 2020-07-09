@@ -1,0 +1,7 @@
+# Relatórios e artigos científicos com o rmarkdown  {#rmd}
+
+## Relatório dinâmico com o Rmarkdown
+
+## Relatórios em word, pdf ou html    
+
+## Apresentações em Power Point

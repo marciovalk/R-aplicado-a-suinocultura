@@ -1,0 +1,48 @@
+--- 
+title: "R aplicado a suinocultura"
+author: "Marcio Valk"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura"
+---
+
+```{r echo=FALSE}
+#para colorir frases
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+```
+
+
+
+# Objetivo {-}
+
+
+O R tem se caracterizado por ser uma ferramenta completa para quem trabalha com pesquisa, seja aplicada ou teórica. As diversas áreas do conhecimento acabam convergindo para o R, por se tratar de uma linguagem moderna, dinâmica, colaborativa e integradora.
+
+A pesquisa e o desenvolvimento tecnógico na área da suinocultura geram um volume considerável de informações que necessitam ser analisadas. O R é uma ferramenta que permite, ler, integrar e tratar grandes bancos de dados, é bem desenvolvido na área de visualização de dados e possui uma diverside de métodos estatísticos implementados. Além disso, ferramentas para gerar relatórios, apresentações e até mesmo a criação de aplicativos que possibilitam a interação do usuário final, tornam o R uma ferramenta completa. 
+
+## Sobre a Academia {-}
+
+> _A Academia Suína foi fundada em 2018 para revolucionar a disseminação da educação na Suinocultura Brasileira. Contamos os maiores professores da Suinocultura Internacional, representando mais de 28 universidades, e com um foco prático e de alto impacto ao nível de granja_. [@academiasuina]
+
+## Sobre o autor {-}
+
+Meu nome é Marcio, sou professor do Departamento de Estatística da UFRGS e sou um grande fã do R. Encarei esse desafio pois gosto de pensar que outras áreas, além da Estatística, possam usufruir das fantásticas ferramentas que essa linguagem oferece. Além disso, contribuindo para o desenvolvimento tecnológio da área da suinucultura , estaremos contribuindo para o desenvolvimento do país.  
+
+
+
+
+
+
+
+
