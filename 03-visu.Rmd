@@ -12,7 +12,7 @@
   
 ### Gráfico de relacionamento
 
-### Gráfico de barras
+### Gráficos de barras
 
 ### Gráfico de séries temporais
 
