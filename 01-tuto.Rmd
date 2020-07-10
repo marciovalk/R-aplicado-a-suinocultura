@@ -8,7 +8,7 @@ R é uma linguagem de programação caracterizada como Software Livre sob os ter
 
 ## Instalando o R
 
-Para instalar no computador, O R deve ser baixado do [CRAN](https://cran.r-project.org/).
+Para instalar no computador, O R deve ser baixado do  [CRAN](https://cran.r-project.org/).
 
 
 
