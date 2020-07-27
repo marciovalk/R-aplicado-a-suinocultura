@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Análise de delineamento de experimentos | R aplicado a suinocultura</title>
+  <title>Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura</title>
   <meta name="description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado a suinocultura" />
+  <meta property="og:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="Figuras/cover.jpg" />
   <meta property="og:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado a suinocultura" />
+  <meta name="twitter:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura" />
   
   <meta name="twitter:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
-  
+  <meta name="twitter:image" content="Figuras/cover.jpg" />
 
 <meta name="author" content="Marcio Valk" />
 
 
-<meta name="date" content="2020-07-10" />
+<meta name="date" content="2020-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -131,69 +131,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R aplicado a suinocultura</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-a-academia"><i class="fa fa-check"></i>Sobre a Academia</a></li>
+<li><a href="index.html#section"></a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico R e RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem R</a></li>
-<li class="chapter" data-level="1.2" data-path="tuto.html"><a href="tuto.html#instalando-o-r"><i class="fa fa-check"></i><b>1.2</b> Instalando o R</a></li>
+<li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico <code>R</code> e <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem <code>R</code></a></li>
+<li class="chapter" data-level="1.2" data-path="tuto.html"><a href="tuto.html#instalando-o-r"><i class="fa fa-check"></i><b>1.2</b> Instalando o <code>R</code></a></li>
 <li class="chapter" data-level="1.3" data-path="tuto.html"><a href="tuto.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>1.3</b> Instalando o RStudio</a></li>
 <li class="chapter" data-level="1.4" data-path="tuto.html"><a href="tuto.html#diretório-de-trabalho"><i class="fa fa-check"></i><b>1.4</b> Diretório de trabalho</a></li>
 <li class="chapter" data-level="1.5" data-path="tuto.html"><a href="tuto.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.5</b> RStudio Cloud</a></li>
-<li class="chapter" data-level="1.6" data-path="tuto.html"><a href="tuto.html#instalação-de-pacotes"><i class="fa fa-check"></i><b>1.6</b> Instalação de pacotes</a></li>
-<li class="chapter" data-level="1.7" data-path="tuto.html"><a href="tuto.html#funcionalidades-básicas"><i class="fa fa-check"></i><b>1.7</b> Funcionalidades básicas</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="tuto.html"><a href="tuto.html#operações"><i class="fa fa-check"></i><b>1.7.1</b> Operações</a></li>
-<li class="chapter" data-level="1.7.2" data-path="tuto.html"><a href="tuto.html#operadores-lógicos"><i class="fa fa-check"></i><b>1.7.2</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="1.6" data-path="tuto.html"><a href="tuto.html#instalação-de-pacotes"><i class="fa fa-check"></i><b>1.6</b> Instalação de pacotes</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="tuto.html"><a href="tuto.html#carregando-pacotes"><i class="fa fa-check"></i><b>1.6.1</b> Carregando pacotes</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="tuto.html"><a href="tuto.html#variáveis-no-r"><i class="fa fa-check"></i><b>1.8</b> Variáveis no R</a><ul>
-<li class="chapter" data-level="1.8.1" data-path="tuto.html"><a href="tuto.html#operações-1"><i class="fa fa-check"></i><b>1.8.1</b> Operações</a></li>
+<li class="chapter" data-level="1.7" data-path="tuto.html"><a href="tuto.html#ajuda"><i class="fa fa-check"></i><b>1.7</b> Ajuda</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="tuto.html"><a href="tuto.html#google"><i class="fa fa-check"></i><b>1.7.1</b> Google</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tuto.html"><a href="tuto.html#stack-overflow"><i class="fa fa-check"></i><b>1.7.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="1.7.3" data-path="tuto.html"><a href="tuto.html#help-do-r"><i class="fa fa-check"></i><b>1.7.3</b> Help do <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="tuto.html"><a href="tuto.html#vetores"><i class="fa fa-check"></i><b>1.9</b> Vetores</a><ul>
-<li class="chapter" data-level="1.9.1" data-path="tuto.html"><a href="tuto.html#operações-com-vetores"><i class="fa fa-check"></i><b>1.9.1</b> Operações com vetores</a></li>
+<li class="chapter" data-level="1.8" data-path="tuto.html"><a href="tuto.html#funcionalidades-básicas"><i class="fa fa-check"></i><b>1.8</b> Funcionalidades básicas</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="tuto.html"><a href="tuto.html#operações-básicas"><i class="fa fa-check"></i><b>1.8.1</b> Operações básicas</a></li>
+<li class="chapter" data-level="1.8.2" data-path="tuto.html"><a href="tuto.html#operadores-lógicos"><i class="fa fa-check"></i><b>1.8.2</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="1.8.3" data-path="tuto.html"><a href="tuto.html#tipos-de-dados"><i class="fa fa-check"></i><b>1.8.3</b> Tipos de dados</a></li>
+<li class="chapter" data-level="1.8.4" data-path="tuto.html"><a href="tuto.html#valores-especiais"><i class="fa fa-check"></i><b>1.8.4</b> Valores especiais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="tuto.html"><a href="tuto.html#matrizes"><i class="fa fa-check"></i><b>1.10</b> Matrizes</a><ul>
-<li class="chapter" data-level="1.10.1" data-path="tuto.html"><a href="tuto.html#operações-com-matrizes"><i class="fa fa-check"></i><b>1.10.1</b> Operações com Matrizes</a></li>
+<li class="chapter" data-level="1.9" data-path="tuto.html"><a href="tuto.html#estrutura-dos-dados"><i class="fa fa-check"></i><b>1.9</b> Estrutura dos dados</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="tuto.html"><a href="tuto.html#vetores"><i class="fa fa-check"></i><b>1.9.1</b> Vetores</a></li>
+<li class="chapter" data-level="1.9.2" data-path="tuto.html"><a href="tuto.html#tarefa-2"><i class="fa fa-check"></i><b>1.9.2</b> Tarefa 2</a></li>
+<li class="chapter" data-level="1.9.3" data-path="tuto.html"><a href="tuto.html#matrizes"><i class="fa fa-check"></i><b>1.9.3</b> Matrizes</a></li>
+<li class="chapter" data-level="1.9.4" data-path="tuto.html"><a href="tuto.html#arrays"><i class="fa fa-check"></i><b>1.9.4</b> Arrays</a></li>
+<li class="chapter" data-level="1.9.5" data-path="tuto.html"><a href="tuto.html#listas"><i class="fa fa-check"></i><b>1.9.5</b> Listas</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="tuto.html"><a href="tuto.html#uso-do-for-loop"><i class="fa fa-check"></i><b>1.11</b> Uso do for (loop)</a></li>
-<li class="chapter" data-level="1.12" data-path="tuto.html"><a href="tuto.html#funções"><i class="fa fa-check"></i><b>1.12</b> Funções</a></li>
+<li class="chapter" data-level="1.10" data-path="tuto.html"><a href="tuto.html#programação-básica"><i class="fa fa-check"></i><b>1.10</b> Programação básica</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="tuto.html"><a href="tuto.html#variáveis"><i class="fa fa-check"></i><b>1.10.1</b> Variáveis</a></li>
+<li class="chapter" data-level="1.10.2" data-path="tuto.html"><a href="tuto.html#laços-loops-for-e-while"><i class="fa fa-check"></i><b>1.10.2</b> Laços (<em>Loops</em>), <code>for</code> e <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="tuto.html"><a href="tuto.html#funções"><i class="fa fa-check"></i><b>1.11</b> Funções</a></li>
+<li class="chapter" data-level="1.12" data-path="tuto.html"><a href="tuto.html#operador-pipe"><i class="fa fa-check"></i><b>1.12</b> Operador <code>Pipe</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Importando dados</a><ul>
 <li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#dados-de-diferentes-formatos"><i class="fa fa-check"></i><b>2.1</b> Dados de diferentes formatos</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="import.html"><a href="import.html#dados-no-formato-.txt"><i class="fa fa-check"></i><b>2.1.1</b> Dados no formato .txt</a></li>
-<li class="chapter" data-level="2.1.2" data-path="import.html"><a href="import.html#dados-no-formato-.csv"><i class="fa fa-check"></i><b>2.1.2</b> Dados no formato .csv</a></li>
-<li class="chapter" data-level="2.1.3" data-path="import.html"><a href="import.html#dados-no-formato-.xls-e-.xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Dados no formato .xls e .xlsx</a></li>
-<li class="chapter" data-level="2.1.4" data-path="import.html"><a href="import.html#dados-do-sas-spss-e-stata"><i class="fa fa-check"></i><b>2.1.4</b> Dados do SAS, SPSS e STATA</a></li>
-<li class="chapter" data-level="2.1.5" data-path="import.html"><a href="import.html#dados-de-um-repositório-web"><i class="fa fa-check"></i><b>2.1.5</b> Dados de um repositório web</a></li>
+<li class="chapter" data-level="2.1.1" data-path="import.html"><a href="import.html#dados-no-formato-.txt"><i class="fa fa-check"></i><b>2.1.1</b> Dados no formato <code>.txt</code></a></li>
+<li class="chapter" data-level="2.1.2" data-path="import.html"><a href="import.html#dados-no-formato-.csv"><i class="fa fa-check"></i><b>2.1.2</b> Dados no formato <code>.csv</code></a></li>
+<li class="chapter" data-level="2.1.3" data-path="import.html"><a href="import.html#dados-no-formato-.xls-e-.xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Dados no formato <code>.xls</code> e <code>.xlsx</code></a></li>
+<li class="chapter" data-level="2.1.4" data-path="import.html"><a href="import.html#dados-de-um-repositório-web"><i class="fa fa-check"></i><b>2.1.4</b> Dados de um repositório web</a></li>
+<li class="chapter" data-level="2.1.5" data-path="import.html"><a href="import.html#dados-do-sas-spss-e-stata"><i class="fa fa-check"></i><b>2.1.5</b> Dados do <code>SAS</code>, <code>SPSS</code> e <code>STATA</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#análise-exploratória"><i class="fa fa-check"></i><b>2.2</b> Análise exploratória</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="import.html"><a href="import.html#dados-faltantes"><i class="fa fa-check"></i><b>2.2.1</b> Dados faltantes</a></li>
+<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#dataframes"><i class="fa fa-check"></i><b>2.2</b> Data Frames</a></li>
+<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#análise-exploratória"><i class="fa fa-check"></i><b>2.3</b> Análise exploratória</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="import.html"><a href="import.html#dados-faltantes"><i class="fa fa-check"></i><b>2.3.1</b> Dados faltantes</a></li>
+<li class="chapter" data-level="2.3.2" data-path="import.html"><a href="import.html#fatores"><i class="fa fa-check"></i><b>2.3.2</b> Fatores</a></li>
+<li class="chapter" data-level="2.3.3" data-path="import.html"><a href="import.html#medidas-de-tendência-central"><i class="fa fa-check"></i><b>2.3.3</b> Medidas de tendência central</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#análise-exploratória-1"><i class="fa fa-check"></i><b>2.3</b> Análise exploratória</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="import.html"><a href="import.html#medidas-de-tendência-central"><i class="fa fa-check"></i><b>2.3.1</b> Medidas de tendência central</a></li>
-<li class="chapter" data-level="2.3.2" data-path="import.html"><a href="import.html#plot-simples"><i class="fa fa-check"></i><b>2.3.2</b> Plot simples</a></li>
-<li class="chapter" data-level="2.3.3" data-path="import.html"><a href="import.html#box-plot-simples"><i class="fa fa-check"></i><b>2.3.3</b> Box plot simples</a></li>
-<li class="chapter" data-level="2.3.4" data-path="import.html"><a href="import.html#box-plot-multiplas-váriáveis"><i class="fa fa-check"></i><b>2.3.4</b> Box plot multiplas váriáveis</a></li>
-<li class="chapter" data-level="2.3.5" data-path="import.html"><a href="import.html#scater-plot"><i class="fa fa-check"></i><b>2.3.5</b> Scater plot</a></li>
-<li class="chapter" data-level="2.3.6" data-path="import.html"><a href="import.html#qqplot"><i class="fa fa-check"></i><b>2.3.6</b> QQplot</a></li>
+<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#gráficos-simples-scatter-plot"><i class="fa fa-check"></i><b>2.4</b> Gráficos simples (<code>scatter plot</code>)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="import.html"><a href="import.html#plot-simples"><i class="fa fa-check"></i><b>2.4.1</b> Plot simples</a></li>
+<li class="chapter" data-level="2.4.2" data-path="import.html"><a href="import.html#scatterplot"><i class="fa fa-check"></i><b>2.4.2</b> Scatterplot</a></li>
+<li class="chapter" data-level="2.4.3" data-path="import.html"><a href="import.html#boxplot-simples"><i class="fa fa-check"></i><b>2.4.3</b> Boxplot simples</a></li>
+<li class="chapter" data-level="2.4.4" data-path="import.html"><a href="import.html#box-plot-multiplas-váriáveis"><i class="fa fa-check"></i><b>2.4.4</b> Box plot multiplas váriáveis</a></li>
+<li class="chapter" data-level="2.4.5" data-path="import.html"><a href="import.html#histogramas"><i class="fa fa-check"></i><b>2.4.5</b> Histogramas</a></li>
+<li class="chapter" data-level="2.4.6" data-path="import.html"><a href="import.html#gráfico-de-densidades"><i class="fa fa-check"></i><b>2.4.6</b> Gráfico de densidades</a></li>
+<li class="chapter" data-level="2.4.7" data-path="import.html"><a href="import.html#qqplot"><i class="fa fa-check"></i><b>2.4.7</b> QQplot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#análise-estatística-de-dados---modelagem"><i class="fa fa-check"></i><b>2.4</b> Análise estatística de dados - Modelagem</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="import.html"><a href="import.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.4.1</b> Regressão linear simples</a></li>
-<li class="chapter" data-level="2.4.2" data-path="import.html"><a href="import.html#regressão-múltipa"><i class="fa fa-check"></i><b>2.4.2</b> Regressão Múltipa</a></li>
-<li class="chapter" data-level="2.4.3" data-path="import.html"><a href="import.html#gráficos-de-resíduos"><i class="fa fa-check"></i><b>2.4.3</b> Gráficos de resíduos</a></li>
-<li class="chapter" data-level="2.4.4" data-path="import.html"><a href="import.html#anova-one-way"><i class="fa fa-check"></i><b>2.4.4</b> Anova one way</a></li>
+<li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#análise-estatística-de-dados---modelagem"><i class="fa fa-check"></i><b>2.5</b> Análise estatística de dados - Modelagem</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="import.html"><a href="import.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.5.1</b> Regressão linear simples</a></li>
+<li class="chapter" data-level="2.5.2" data-path="import.html"><a href="import.html#regressão-múltipa"><i class="fa fa-check"></i><b>2.5.2</b> Regressão Múltipa</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visu.html"><a href="visu.html"><i class="fa fa-check"></i><b>3</b> Visualização de dados com o R</a><ul>
-<li class="chapter" data-level="3.1" data-path="visu.html"><a href="visu.html#ggplot-anatomia-e-a-estrutura-data.frame"><i class="fa fa-check"></i><b>3.1</b> ggplot, anatomia e a estrutura data.frame</a></li>
-<li class="chapter" data-level="3.2" data-path="visu.html"><a href="visu.html#funções-geom-e-aes"><i class="fa fa-check"></i><b>3.2</b> Funções geom e aes</a></li>
-<li class="chapter" data-level="3.3" data-path="visu.html"><a href="visu.html#segmentação-e-junção-de-gráficos-do-ggplot"><i class="fa fa-check"></i><b>3.3</b> Segmentação e junção de gráficos do ggplot</a></li>
+<li class="chapter" data-level="3.1" data-path="visu.html"><a href="visu.html#gráficos-com-o-ggplot2"><i class="fa fa-check"></i><b>3.1</b> Gráficos com o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="3.2" data-path="visu.html"><a href="visu.html#funções-geom-e-aes"><i class="fa fa-check"></i><b>3.2</b> Funções geom e aes</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="visu.html"><a href="visu.html#estética"><i class="fa fa-check"></i><b>3.2.1</b> Estética</a></li>
+<li class="chapter" data-level="3.2.2" data-path="visu.html"><a href="visu.html#curva-de-tendência"><i class="fa fa-check"></i><b>3.2.2</b> Curva de tendência</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visu.html"><a href="visu.html#segmentação-e-junção-de-gráficos-do-ggplot"><i class="fa fa-check"></i><b>3.3</b> Segmentação e junção de gráficos do <code>ggplot</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visu.html"><a href="visu.html#segmentação"><i class="fa fa-check"></i><b>3.3.1</b> Segmentação</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visu.html"><a href="visu.html#junção-de-gráficos"><i class="fa fa-check"></i><b>3.3.2</b> Junção de gráficos</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visu.html"><a href="visu.html#salvando-um-gráfico"><i class="fa fa-check"></i><b>3.3.3</b> Salvando um gráfico</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="visu.html"><a href="visu.html#diferentes-tipos-de-gráficos"><i class="fa fa-check"></i><b>3.4</b> Diferentes tipos de gráficos</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="visu.html"><a href="visu.html#gráfico-de-relacionamento"><i class="fa fa-check"></i><b>3.4.1</b> Gráfico de relacionamento</a></li>
-<li class="chapter" data-level="3.4.2" data-path="visu.html"><a href="visu.html#gráficos-de-barras"><i class="fa fa-check"></i><b>3.4.2</b> Gráficos de barras</a></li>
-<li class="chapter" data-level="3.4.3" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.3</b> Gráfico de séries temporais</a></li>
-<li class="chapter" data-level="3.4.4" data-path="visu.html"><a href="visu.html#mapas-de-calor"><i class="fa fa-check"></i><b>3.4.4</b> Mapas de calor</a></li>
-<li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#box-plot"><i class="fa fa-check"></i><b>3.4.5</b> box plot</a></li>
+<li class="chapter" data-level="3.4.1" data-path="visu.html"><a href="visu.html#linhas-retas-horizontais-e-verticais"><i class="fa fa-check"></i><b>3.4.1</b> Linhas, retas horizontais e verticais</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visu.html"><a href="visu.html#box-plot"><i class="fa fa-check"></i><b>3.4.2</b> Box plot</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visu.html"><a href="visu.html#gráficos-de-barras"><i class="fa fa-check"></i><b>3.4.3</b> Gráficos de barras</a></li>
+<li class="chapter" data-level="3.4.4" data-path="import.html"><a href="import.html#histogramas"><i class="fa fa-check"></i><b>3.4.4</b> Histogramas</a></li>
+<li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.5</b> Gráfico de séries temporais</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de delineamento de experimentos</a><ul>
@@ -220,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R aplicado a suinocultura</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R aplicado à suinocultura</a>
           </h1>
         </div>
 
@@ -276,7 +296,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "cerulean",
 "family": "sans",
 "size": 2
 },
@@ -300,6 +320,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

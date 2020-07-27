@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 3 Visualização de dados com o R | R aplicado a suinocultura</title>
+  <title>Capítulo 3 Visualização de dados com o R | R aplicado à suinocultura</title>
   <meta name="description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 3 Visualização de dados com o R | R aplicado a suinocultura" />
+  <meta property="og:title" content="Capítulo 3 Visualização de dados com o R | R aplicado à suinocultura" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="Figuras/cover.jpg" />
   <meta property="og:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 3 Visualização de dados com o R | R aplicado a suinocultura" />
+  <meta name="twitter:title" content="Capítulo 3 Visualização de dados com o R | R aplicado à suinocultura" />
   
   <meta name="twitter:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
-  
+  <meta name="twitter:image" content="Figuras/cover.jpg" />
 
 <meta name="author" content="Marcio Valk" />
 
 
-<meta name="date" content="2020-07-10" />
+<meta name="date" content="2020-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -131,69 +131,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R aplicado a suinocultura</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-a-academia"><i class="fa fa-check"></i>Sobre a Academia</a></li>
+<li><a href="index.html#section"></a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico R e RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem R</a></li>
-<li class="chapter" data-level="1.2" data-path="tuto.html"><a href="tuto.html#instalando-o-r"><i class="fa fa-check"></i><b>1.2</b> Instalando o R</a></li>
+<li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico <code>R</code> e <code>RStudio</code></a><ul>
+<li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem <code>R</code></a></li>
+<li class="chapter" data-level="1.2" data-path="tuto.html"><a href="tuto.html#instalando-o-r"><i class="fa fa-check"></i><b>1.2</b> Instalando o <code>R</code></a></li>
 <li class="chapter" data-level="1.3" data-path="tuto.html"><a href="tuto.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>1.3</b> Instalando o RStudio</a></li>
 <li class="chapter" data-level="1.4" data-path="tuto.html"><a href="tuto.html#diretório-de-trabalho"><i class="fa fa-check"></i><b>1.4</b> Diretório de trabalho</a></li>
 <li class="chapter" data-level="1.5" data-path="tuto.html"><a href="tuto.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.5</b> RStudio Cloud</a></li>
-<li class="chapter" data-level="1.6" data-path="tuto.html"><a href="tuto.html#instalação-de-pacotes"><i class="fa fa-check"></i><b>1.6</b> Instalação de pacotes</a></li>
-<li class="chapter" data-level="1.7" data-path="tuto.html"><a href="tuto.html#funcionalidades-básicas"><i class="fa fa-check"></i><b>1.7</b> Funcionalidades básicas</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="tuto.html"><a href="tuto.html#operações"><i class="fa fa-check"></i><b>1.7.1</b> Operações</a></li>
-<li class="chapter" data-level="1.7.2" data-path="tuto.html"><a href="tuto.html#operadores-lógicos"><i class="fa fa-check"></i><b>1.7.2</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="1.6" data-path="tuto.html"><a href="tuto.html#instalação-de-pacotes"><i class="fa fa-check"></i><b>1.6</b> Instalação de pacotes</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="tuto.html"><a href="tuto.html#carregando-pacotes"><i class="fa fa-check"></i><b>1.6.1</b> Carregando pacotes</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="tuto.html"><a href="tuto.html#variáveis-no-r"><i class="fa fa-check"></i><b>1.8</b> Variáveis no R</a><ul>
-<li class="chapter" data-level="1.8.1" data-path="tuto.html"><a href="tuto.html#operações-1"><i class="fa fa-check"></i><b>1.8.1</b> Operações</a></li>
+<li class="chapter" data-level="1.7" data-path="tuto.html"><a href="tuto.html#ajuda"><i class="fa fa-check"></i><b>1.7</b> Ajuda</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="tuto.html"><a href="tuto.html#google"><i class="fa fa-check"></i><b>1.7.1</b> Google</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tuto.html"><a href="tuto.html#stack-overflow"><i class="fa fa-check"></i><b>1.7.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="1.7.3" data-path="tuto.html"><a href="tuto.html#help-do-r"><i class="fa fa-check"></i><b>1.7.3</b> Help do <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="tuto.html"><a href="tuto.html#vetores"><i class="fa fa-check"></i><b>1.9</b> Vetores</a><ul>
-<li class="chapter" data-level="1.9.1" data-path="tuto.html"><a href="tuto.html#operações-com-vetores"><i class="fa fa-check"></i><b>1.9.1</b> Operações com vetores</a></li>
+<li class="chapter" data-level="1.8" data-path="tuto.html"><a href="tuto.html#funcionalidades-básicas"><i class="fa fa-check"></i><b>1.8</b> Funcionalidades básicas</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="tuto.html"><a href="tuto.html#operações-básicas"><i class="fa fa-check"></i><b>1.8.1</b> Operações básicas</a></li>
+<li class="chapter" data-level="1.8.2" data-path="tuto.html"><a href="tuto.html#operadores-lógicos"><i class="fa fa-check"></i><b>1.8.2</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="1.8.3" data-path="tuto.html"><a href="tuto.html#tipos-de-dados"><i class="fa fa-check"></i><b>1.8.3</b> Tipos de dados</a></li>
+<li class="chapter" data-level="1.8.4" data-path="tuto.html"><a href="tuto.html#valores-especiais"><i class="fa fa-check"></i><b>1.8.4</b> Valores especiais</a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="tuto.html"><a href="tuto.html#matrizes"><i class="fa fa-check"></i><b>1.10</b> Matrizes</a><ul>
-<li class="chapter" data-level="1.10.1" data-path="tuto.html"><a href="tuto.html#operações-com-matrizes"><i class="fa fa-check"></i><b>1.10.1</b> Operações com Matrizes</a></li>
+<li class="chapter" data-level="1.9" data-path="tuto.html"><a href="tuto.html#estrutura-dos-dados"><i class="fa fa-check"></i><b>1.9</b> Estrutura dos dados</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="tuto.html"><a href="tuto.html#vetores"><i class="fa fa-check"></i><b>1.9.1</b> Vetores</a></li>
+<li class="chapter" data-level="1.9.2" data-path="tuto.html"><a href="tuto.html#tarefa-2"><i class="fa fa-check"></i><b>1.9.2</b> Tarefa 2</a></li>
+<li class="chapter" data-level="1.9.3" data-path="tuto.html"><a href="tuto.html#matrizes"><i class="fa fa-check"></i><b>1.9.3</b> Matrizes</a></li>
+<li class="chapter" data-level="1.9.4" data-path="tuto.html"><a href="tuto.html#arrays"><i class="fa fa-check"></i><b>1.9.4</b> Arrays</a></li>
+<li class="chapter" data-level="1.9.5" data-path="tuto.html"><a href="tuto.html#listas"><i class="fa fa-check"></i><b>1.9.5</b> Listas</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="tuto.html"><a href="tuto.html#uso-do-for-loop"><i class="fa fa-check"></i><b>1.11</b> Uso do for (loop)</a></li>
-<li class="chapter" data-level="1.12" data-path="tuto.html"><a href="tuto.html#funções"><i class="fa fa-check"></i><b>1.12</b> Funções</a></li>
+<li class="chapter" data-level="1.10" data-path="tuto.html"><a href="tuto.html#programação-básica"><i class="fa fa-check"></i><b>1.10</b> Programação básica</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="tuto.html"><a href="tuto.html#variáveis"><i class="fa fa-check"></i><b>1.10.1</b> Variáveis</a></li>
+<li class="chapter" data-level="1.10.2" data-path="tuto.html"><a href="tuto.html#laços-loops-for-e-while"><i class="fa fa-check"></i><b>1.10.2</b> Laços (<em>Loops</em>), <code>for</code> e <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="tuto.html"><a href="tuto.html#funções"><i class="fa fa-check"></i><b>1.11</b> Funções</a></li>
+<li class="chapter" data-level="1.12" data-path="tuto.html"><a href="tuto.html#operador-pipe"><i class="fa fa-check"></i><b>1.12</b> Operador <code>Pipe</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Importando dados</a><ul>
 <li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#dados-de-diferentes-formatos"><i class="fa fa-check"></i><b>2.1</b> Dados de diferentes formatos</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="import.html"><a href="import.html#dados-no-formato-.txt"><i class="fa fa-check"></i><b>2.1.1</b> Dados no formato .txt</a></li>
-<li class="chapter" data-level="2.1.2" data-path="import.html"><a href="import.html#dados-no-formato-.csv"><i class="fa fa-check"></i><b>2.1.2</b> Dados no formato .csv</a></li>
-<li class="chapter" data-level="2.1.3" data-path="import.html"><a href="import.html#dados-no-formato-.xls-e-.xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Dados no formato .xls e .xlsx</a></li>
-<li class="chapter" data-level="2.1.4" data-path="import.html"><a href="import.html#dados-do-sas-spss-e-stata"><i class="fa fa-check"></i><b>2.1.4</b> Dados do SAS, SPSS e STATA</a></li>
-<li class="chapter" data-level="2.1.5" data-path="import.html"><a href="import.html#dados-de-um-repositório-web"><i class="fa fa-check"></i><b>2.1.5</b> Dados de um repositório web</a></li>
+<li class="chapter" data-level="2.1.1" data-path="import.html"><a href="import.html#dados-no-formato-.txt"><i class="fa fa-check"></i><b>2.1.1</b> Dados no formato <code>.txt</code></a></li>
+<li class="chapter" data-level="2.1.2" data-path="import.html"><a href="import.html#dados-no-formato-.csv"><i class="fa fa-check"></i><b>2.1.2</b> Dados no formato <code>.csv</code></a></li>
+<li class="chapter" data-level="2.1.3" data-path="import.html"><a href="import.html#dados-no-formato-.xls-e-.xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Dados no formato <code>.xls</code> e <code>.xlsx</code></a></li>
+<li class="chapter" data-level="2.1.4" data-path="import.html"><a href="import.html#dados-de-um-repositório-web"><i class="fa fa-check"></i><b>2.1.4</b> Dados de um repositório web</a></li>
+<li class="chapter" data-level="2.1.5" data-path="import.html"><a href="import.html#dados-do-sas-spss-e-stata"><i class="fa fa-check"></i><b>2.1.5</b> Dados do <code>SAS</code>, <code>SPSS</code> e <code>STATA</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#análise-exploratória"><i class="fa fa-check"></i><b>2.2</b> Análise exploratória</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="import.html"><a href="import.html#dados-faltantes"><i class="fa fa-check"></i><b>2.2.1</b> Dados faltantes</a></li>
+<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#dataframes"><i class="fa fa-check"></i><b>2.2</b> Data Frames</a></li>
+<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#análise-exploratória"><i class="fa fa-check"></i><b>2.3</b> Análise exploratória</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="import.html"><a href="import.html#dados-faltantes"><i class="fa fa-check"></i><b>2.3.1</b> Dados faltantes</a></li>
+<li class="chapter" data-level="2.3.2" data-path="import.html"><a href="import.html#fatores"><i class="fa fa-check"></i><b>2.3.2</b> Fatores</a></li>
+<li class="chapter" data-level="2.3.3" data-path="import.html"><a href="import.html#medidas-de-tendência-central"><i class="fa fa-check"></i><b>2.3.3</b> Medidas de tendência central</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#análise-exploratória-1"><i class="fa fa-check"></i><b>2.3</b> Análise exploratória</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="import.html"><a href="import.html#medidas-de-tendência-central"><i class="fa fa-check"></i><b>2.3.1</b> Medidas de tendência central</a></li>
-<li class="chapter" data-level="2.3.2" data-path="import.html"><a href="import.html#plot-simples"><i class="fa fa-check"></i><b>2.3.2</b> Plot simples</a></li>
-<li class="chapter" data-level="2.3.3" data-path="import.html"><a href="import.html#box-plot-simples"><i class="fa fa-check"></i><b>2.3.3</b> Box plot simples</a></li>
-<li class="chapter" data-level="2.3.4" data-path="import.html"><a href="import.html#box-plot-multiplas-váriáveis"><i class="fa fa-check"></i><b>2.3.4</b> Box plot multiplas váriáveis</a></li>
-<li class="chapter" data-level="2.3.5" data-path="import.html"><a href="import.html#scater-plot"><i class="fa fa-check"></i><b>2.3.5</b> Scater plot</a></li>
-<li class="chapter" data-level="2.3.6" data-path="import.html"><a href="import.html#qqplot"><i class="fa fa-check"></i><b>2.3.6</b> QQplot</a></li>
+<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#gráficos-simples-scatter-plot"><i class="fa fa-check"></i><b>2.4</b> Gráficos simples (<code>scatter plot</code>)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="import.html"><a href="import.html#plot-simples"><i class="fa fa-check"></i><b>2.4.1</b> Plot simples</a></li>
+<li class="chapter" data-level="2.4.2" data-path="import.html"><a href="import.html#scatterplot"><i class="fa fa-check"></i><b>2.4.2</b> Scatterplot</a></li>
+<li class="chapter" data-level="2.4.3" data-path="import.html"><a href="import.html#boxplot-simples"><i class="fa fa-check"></i><b>2.4.3</b> Boxplot simples</a></li>
+<li class="chapter" data-level="2.4.4" data-path="import.html"><a href="import.html#box-plot-multiplas-váriáveis"><i class="fa fa-check"></i><b>2.4.4</b> Box plot multiplas váriáveis</a></li>
+<li class="chapter" data-level="2.4.5" data-path="import.html"><a href="import.html#histogramas"><i class="fa fa-check"></i><b>2.4.5</b> Histogramas</a></li>
+<li class="chapter" data-level="2.4.6" data-path="import.html"><a href="import.html#gráfico-de-densidades"><i class="fa fa-check"></i><b>2.4.6</b> Gráfico de densidades</a></li>
+<li class="chapter" data-level="2.4.7" data-path="import.html"><a href="import.html#qqplot"><i class="fa fa-check"></i><b>2.4.7</b> QQplot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#análise-estatística-de-dados---modelagem"><i class="fa fa-check"></i><b>2.4</b> Análise estatística de dados - Modelagem</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="import.html"><a href="import.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.4.1</b> Regressão linear simples</a></li>
-<li class="chapter" data-level="2.4.2" data-path="import.html"><a href="import.html#regressão-múltipa"><i class="fa fa-check"></i><b>2.4.2</b> Regressão Múltipa</a></li>
-<li class="chapter" data-level="2.4.3" data-path="import.html"><a href="import.html#gráficos-de-resíduos"><i class="fa fa-check"></i><b>2.4.3</b> Gráficos de resíduos</a></li>
-<li class="chapter" data-level="2.4.4" data-path="import.html"><a href="import.html#anova-one-way"><i class="fa fa-check"></i><b>2.4.4</b> Anova one way</a></li>
+<li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#análise-estatística-de-dados---modelagem"><i class="fa fa-check"></i><b>2.5</b> Análise estatística de dados - Modelagem</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="import.html"><a href="import.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.5.1</b> Regressão linear simples</a></li>
+<li class="chapter" data-level="2.5.2" data-path="import.html"><a href="import.html#regressão-múltipa"><i class="fa fa-check"></i><b>2.5.2</b> Regressão Múltipa</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visu.html"><a href="visu.html"><i class="fa fa-check"></i><b>3</b> Visualização de dados com o R</a><ul>
-<li class="chapter" data-level="3.1" data-path="visu.html"><a href="visu.html#ggplot-anatomia-e-a-estrutura-data.frame"><i class="fa fa-check"></i><b>3.1</b> ggplot, anatomia e a estrutura data.frame</a></li>
-<li class="chapter" data-level="3.2" data-path="visu.html"><a href="visu.html#funções-geom-e-aes"><i class="fa fa-check"></i><b>3.2</b> Funções geom e aes</a></li>
-<li class="chapter" data-level="3.3" data-path="visu.html"><a href="visu.html#segmentação-e-junção-de-gráficos-do-ggplot"><i class="fa fa-check"></i><b>3.3</b> Segmentação e junção de gráficos do ggplot</a></li>
+<li class="chapter" data-level="3.1" data-path="visu.html"><a href="visu.html#gráficos-com-o-ggplot2"><i class="fa fa-check"></i><b>3.1</b> Gráficos com o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="3.2" data-path="visu.html"><a href="visu.html#funções-geom-e-aes"><i class="fa fa-check"></i><b>3.2</b> Funções geom e aes</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="visu.html"><a href="visu.html#estética"><i class="fa fa-check"></i><b>3.2.1</b> Estética</a></li>
+<li class="chapter" data-level="3.2.2" data-path="visu.html"><a href="visu.html#curva-de-tendência"><i class="fa fa-check"></i><b>3.2.2</b> Curva de tendência</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visu.html"><a href="visu.html#segmentação-e-junção-de-gráficos-do-ggplot"><i class="fa fa-check"></i><b>3.3</b> Segmentação e junção de gráficos do <code>ggplot</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visu.html"><a href="visu.html#segmentação"><i class="fa fa-check"></i><b>3.3.1</b> Segmentação</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visu.html"><a href="visu.html#junção-de-gráficos"><i class="fa fa-check"></i><b>3.3.2</b> Junção de gráficos</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visu.html"><a href="visu.html#salvando-um-gráfico"><i class="fa fa-check"></i><b>3.3.3</b> Salvando um gráfico</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="visu.html"><a href="visu.html#diferentes-tipos-de-gráficos"><i class="fa fa-check"></i><b>3.4</b> Diferentes tipos de gráficos</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="visu.html"><a href="visu.html#gráfico-de-relacionamento"><i class="fa fa-check"></i><b>3.4.1</b> Gráfico de relacionamento</a></li>
-<li class="chapter" data-level="3.4.2" data-path="visu.html"><a href="visu.html#gráficos-de-barras"><i class="fa fa-check"></i><b>3.4.2</b> Gráficos de barras</a></li>
-<li class="chapter" data-level="3.4.3" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.3</b> Gráfico de séries temporais</a></li>
-<li class="chapter" data-level="3.4.4" data-path="visu.html"><a href="visu.html#mapas-de-calor"><i class="fa fa-check"></i><b>3.4.4</b> Mapas de calor</a></li>
-<li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#box-plot"><i class="fa fa-check"></i><b>3.4.5</b> box plot</a></li>
+<li class="chapter" data-level="3.4.1" data-path="visu.html"><a href="visu.html#linhas-retas-horizontais-e-verticais"><i class="fa fa-check"></i><b>3.4.1</b> Linhas, retas horizontais e verticais</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visu.html"><a href="visu.html#box-plot"><i class="fa fa-check"></i><b>3.4.2</b> Box plot</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visu.html"><a href="visu.html#gráficos-de-barras"><i class="fa fa-check"></i><b>3.4.3</b> Gráficos de barras</a></li>
+<li class="chapter" data-level="3.4.4" data-path="import.html"><a href="import.html#histogramas"><i class="fa fa-check"></i><b>3.4.4</b> Histogramas</a></li>
+<li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.5</b> Gráfico de séries temporais</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de delineamento de experimentos</a><ul>
@@ -220,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R aplicado a suinocultura</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R aplicado à suinocultura</a>
           </h1>
         </div>
 
@@ -230,33 +250,318 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="visu" class="section level1">
 <h1><span class="header-section-number">Capítulo 3</span> Visualização de dados com o R</h1>
-<div id="ggplot-anatomia-e-a-estrutura-data.frame" class="section level2">
-<h2><span class="header-section-number">3.1</span> ggplot, anatomia e a estrutura data.frame</h2>
+<p>Uma revolução na vizualização de dados aconteceu com a criação do pacote <code>ggplot2</code> de autoria de <a href="https://github.com/hadley">Hadley Wickham</a>. A partir da definição de gráfico apresentada em <span class="citation">Wilkinson and others (<a href="#ref-wilkinson2005" role="doc-biblioref">2005</a>)</span>, uma nova concepção de gráfico foi proposta em <span class="citation">Wickham (<a href="#ref-wickham2010" role="doc-biblioref">2010</a>)</span>, que basicamente divide o gráfico em camadas que podem ser construídas por etapas.</p>
+<div class="figure"><span id="fig:pigb"></span>
+<img src="Figuras/pigb2.png" alt="Veja bem" width="90%" />
+<p class="caption">
+Figura 3.1: Veja bem
+</p>
+</div>
+<p>Essa abordagem torna a construção do gráfico intuitiva e permite a criação de gráficos bonitos, padronizados, flexíveis e com poucas linhas de código. Para isso é necessário a instalação do pacote <code>ggplot2</code>.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
+<a class="sourceLine" id="cb353-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb353-3" title="3"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div id="gráficos-com-o-ggplot2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Gráficos com o <code>ggplot2</code></h2>
+<p>Os gráficos do <code>ggplot2</code> são construídos camada por camada. Assim, a ideia é ir adicionando novos elementos através do operador <code>+</code>. Para exemplificar o uso do <code>ggplot2</code> vamos usar os dados de <em>dietas e idades</em>.
+<br></p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1">g1=<span class="kw">ggplot</span>(<span class="dt">data =</span> idades_dietas)</a>
+<a class="sourceLine" id="cb354-2" title="2">g1</a></code></pre></div>
+<div class="figure"><span id="fig:gbs0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gbs0-1.png" alt="Base de um gráfico no ggplot" width="672" />
+<p class="caption">
+Figura 3.2: Base de um gráfico no ggplot
+</p>
+</div>
+<p>Essa é a primeira camada do gráfico gerada pela função <code>ggplot</code>. Agora novos elementos podem ser adicionados ao gráfio <code>g1</code>.</p>
+<p><br></p>
 </div>
 <div id="funções-geom-e-aes" class="section level2">
 <h2><span class="header-section-number">3.2</span> Funções geom e aes</h2>
+<p>Duas funções fundamentais no conceito <code>ggplot</code> são a função <code>geom()</code> responsável pela especificação da forma geométrica utilizada no mapeamento das observações e a função <code>aes()</code> que especifica quais variáveis serão mapeadas no gráfico.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" title="1">g1 &lt;-<span class="st"> </span>g1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado, <span class="dt">y=</span>Peso13))</a>
+<a class="sourceLine" id="cb355-2" title="2">g1</a></code></pre></div>
+<div class="figure"><span id="fig:gsct0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gsct0-1.png" alt="Scatter plot do Peso pelo Consumo" width="672" />
+<p class="caption">
+Figura 3.3: Scatter plot do Peso pelo Consumo
+</p>
+</div>
+<p>Com a segunda camada é feita usando-se o <code>geom_point</code> a qual adiciona pontos ao gráfico <code>g1</code> de acordo com as variáveis especificadas no <code>aes()</code>.</p>
+<p>Podemos personalizar o gráfico mexendo nas cores, lables, etc.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">g1 &lt;-<span class="st"> </span>g1 <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)</a>
+<a class="sourceLine" id="cb356-2" title="2">g1</a></code></pre></div>
+<div class="figure"><span id="fig:glb0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/glb0-1.png" alt="Alterando os labels do gráfico" width="672" />
+<p class="caption">
+Figura 3.4: Alterando os labels do gráfico
+</p>
+</div>
+<p>Pode-se alterar parâmetros como <code>colour</code> que muda a cor do objeto plotado, <code>shape</code> que altera o formato do objeto plotado, <code>size</code> que determina o tamanho do objeto e <code>alpha</code> que muda a intensidade da cor.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> idades_dietas,<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado, <span class="dt">y=</span>Peso13))<span class="op">+</span></a>
+<a class="sourceLine" id="cb357-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>,  <span class="dt">shape =</span> <span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">2.5</span>)<span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)</a>
+<a class="sourceLine" id="cb357-3" title="3"></a>
+<a class="sourceLine" id="cb357-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> idades_dietas,<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado, <span class="dt">y=</span>Peso13))<span class="op">+</span></a>
+<a class="sourceLine" id="cb357-5" title="5"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>,  <span class="dt">shape =</span> <span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">8</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)<span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:gfr0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gfr0-1.png" alt="Colorindo e alterando os objetos plotados" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/gfr0-2.png" alt="Colorindo e alterando os objetos plotados" width="45%" />
+<p class="caption">
+Figura 3.5: Colorindo e alterando os objetos plotados
+</p>
+</div>
+<p><br></p>
+<div id="estética" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Estética</h3>
+<p>Com a função <code>aes()</code> (de <em>aesthetics</em>) podemos alterar a cor, tipo de gráfico, relacionar as variáveis no gráfico à fatores no conjunto de dados. Esses parâmetros também podem (recomendável) ser passados diretamente para a função <code>ggplot()</code>. Por exemplo, podemos colorir o gráfico de acordo com o fator <em>Dieta</em>.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1">g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas,<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado, <span class="dt">y=</span>Peso13,<span class="dt">color=</span>Dieta)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb358-2" title="2"><span class="st">      </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb358-3" title="3"><span class="st">      </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)</a>
+<a class="sourceLine" id="cb358-4" title="4">g2</a></code></pre></div>
+<div class="figure"><span id="fig:gcg0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gcg0-1.png" alt="Colorindo o gráfico de acordo com os níveis do fator Dieta" width="672" />
+<p class="caption">
+Figura 3.6: Colorindo o gráfico de acordo com os níveis do fator Dieta
+</p>
+</div>
+<p><br></p>
+<p>Agora vamos colorir pelo fator <em>Grupo</em>.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" title="1">g3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas,<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado,<span class="dt">y=</span>Peso13,<span class="dt">color=</span>Grupo)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb359-2" title="2"><span class="st">      </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb359-3" title="3"><span class="st">      </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)</a>
+<a class="sourceLine" id="cb359-4" title="4">g3</a></code></pre></div>
+<div class="figure"><span id="fig:gcg"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gcg-1.png" alt="Colorindo o gráfico de acordo com os níveis do fator Grupo" width="672" />
+<p class="caption">
+Figura 3.7: Colorindo o gráfico de acordo com os níveis do fator Grupo
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="curva-de-tendência" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Curva de tendência</h3>
+<p>Uma curva de tendencia, com ou sem margem de erro, pode ser adicionada usando o metodo de regressao linear.</p>
+<p><br></p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">g2 &lt;-<span class="st"> </span>g2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb360-2" title="2">g2</a>
+<a class="sourceLine" id="cb360-3" title="3">g3 &lt;-<span class="st"> </span>g3 <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb360-4" title="4">g3</a></code></pre></div>
+<div class="figure"><span id="fig:gsm1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gsm1-1.png" alt="Gráfico com  tendência com e sem intervalo de confiânça" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/gsm1-2.png" alt="Gráfico com  tendência com e sem intervalo de confiânça" width="45%" />
+<p class="caption">
+Figura 3.8: Gráfico com tendência com e sem intervalo de confiânça
+</p>
+</div>
+<p><br></p>
+</div>
 </div>
 <div id="segmentação-e-junção-de-gráficos-do-ggplot" class="section level2">
-<h2><span class="header-section-number">3.3</span> Segmentação e junção de gráficos do ggplot</h2>
+<h2><span class="header-section-number">3.3</span> Segmentação e junção de gráficos do <code>ggplot</code></h2>
+<p><br></p>
+<div id="segmentação" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Segmentação</h3>
+<p>Para separar o gráfico de <em>Peso x Consumo</em>, por Dieta, por exemplo, usamos a função <code>facet_wrap()</code></p>
+<p><br></p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" title="1">g4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas,<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado,<span class="dt">y=</span>Peso13,<span class="dt">color=</span>Dieta)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb361-2" title="2"><span class="st">      </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb361-3" title="3"><span class="st">      </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Consumo&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Peso Final&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb361-4" title="4"><span class="st">      </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Dieta)</a>
+<a class="sourceLine" id="cb361-5" title="5">g4</a></code></pre></div>
+<div class="figure"><span id="fig:gsp0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gsp0-1.png" alt="Separando gráficos de acordo com a Dieta" width="90%" />
+<p class="caption">
+Figura 3.9: Separando gráficos de acordo com a Dieta
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="junção-de-gráficos" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Junção de gráficos</h3>
+<p>O pacote <code>patchwork</code> facilita imensamente a junção de dois ou mais gráficos.</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;patchwork&quot;</span>)</a>
+<a class="sourceLine" id="cb362-2" title="2"><span class="kw">library</span>(<span class="st">&quot;patchwork&quot;</span>)</a></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" title="1">g1 <span class="op">+</span><span class="st"> </span>g2 </a></code></pre></div>
+<div class="figure"><span id="fig:gcol0"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gcol0-1.png" alt="Juntando dos gráficos de maneira fácil" width="672" />
+<p class="caption">
+Figura 3.10: Juntando dos gráficos de maneira fácil
+</p>
+</div>
+<p><br></p>
+<p>Para colocar os gráfico em colunas, pode-se usar a função <code>plot_layout(ncol = 1)</code></p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1">g3 <span class="op">+</span><span class="st"> </span>g4 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:gcol1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gcol1-1.png" alt="Juntando dois gráficos em uma coluna" width="672" />
+<p class="caption">
+Figura 3.11: Juntando dois gráficos em uma coluna
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="salvando-um-gráfico" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Salvando um gráfico</h3>
+<p>Além da opção <em>export</em> disponível no Tools, podemos usar uma linha de comando para salvar um gráfico no diretório de trabalho. Algums opções podem ser modificadas, como <code>scale</code>, <code>width</code> e <code>height</code>. No seguinte exemplo, essas opções ficaram <code>default</code>.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" title="1"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;meugrafico.png&quot;</span>, <span class="dt">plot =</span> g4)</a></code></pre></div>
+<p><br></p>
+</div>
 </div>
 <div id="diferentes-tipos-de-gráficos" class="section level2">
 <h2><span class="header-section-number">3.4</span> Diferentes tipos de gráficos</h2>
-<div id="gráfico-de-relacionamento" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Gráfico de relacionamento</h3>
+<p>Existem várias variações da função <code>geom</code>. dentre as mais usadads podemos destacar:</p>
+<ul>
+<li>geom_abline - para retas definidas por um intercepto e uma inclinação.</li>
+<li>geom_hline - para retas horizontais.</li>
+<li>geom_boxplot - para boxplots.</li>
+<li>geom_density - para densidades.</li>
+<li>geom_area - para áreas.</li>
+<li>geom_bar - para barras.</li>
+<li>geom_histogram - para histogramas.</li>
+</ul>
+<p><br></p>
+<div id="linhas-retas-horizontais-e-verticais" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Linhas, retas horizontais e verticais</h3>
+<p>Nesse exemplo é <em>plotado</em> inicialmente um gráfico de linhas representando a relação entre <em>Peso13</em> e <em>ConsumoAcumulado</em>. Em cima desse gráfico, foi construido retas horizontal e vertical que representam as médias das respectivas variáveis nos eixos <code>x</code> e <code>y</code>. Nesse caso, a linha horizontal em vermelho representa a média da variável <em>Peso13</em> enquanto a reta vertical em azul representa a média da variável <em>ConsumoAcumulado</em>.</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas)<span class="op">+</span></a>
+<a class="sourceLine" id="cb366-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x=</span>ConsumoAcumulado,<span class="dt">y=</span>Peso13))<span class="op">+</span></a>
+<a class="sourceLine" id="cb366-3" title="3"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(ConsumoAcumulado)),<span class="dt">size=</span><span class="dv">1</span>,<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb366-4" title="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co">#remove legenda</span></a>
+<a class="sourceLine" id="cb366-5" title="5"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(Peso13)),<span class="dt">size=</span><span class="fl">1.5</span>,<span class="dt">col=</span><span class="st">&#39;red&#39;</span>) </a></code></pre></div>
+<div class="figure"><span id="fig:gvhline"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gvhline-1.png" alt="Linha Horizontal e linha vertical em um scatter plot conectado por linhas" width="672" />
+<p class="caption">
+Figura 3.12: Linha Horizontal e linha vertical em um scatter plot conectado por linhas
+</p>
 </div>
-<div id="gráficos-de-barras" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Gráficos de barras</h3>
-</div>
-<div id="gráfico-de-séries-temporais" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Gráfico de séries temporais</h3>
-</div>
-<div id="mapas-de-calor" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Mapas de calor</h3>
+<p><br></p>
 </div>
 <div id="box-plot" class="section level3">
-<h3><span class="header-section-number">3.4.5</span> box plot</h3>
+<h3><span class="header-section-number">3.4.2</span> Box plot</h3>
+<p>Para fazer um box plot usa-se a função <code>geom_boxplot()</code>. Parâmetros como <code>fill</code> e <code>col</code> ajudam a colorir o gráfico.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" title="1">bp1=<span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas)<span class="op">+</span></a>
+<a class="sourceLine" id="cb367-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Dieta,<span class="dt">y=</span>Peso13,<span class="dt">fill=</span>Dieta))</a>
+<a class="sourceLine" id="cb367-3" title="3">bp2=<span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas)<span class="op">+</span></a>
+<a class="sourceLine" id="cb367-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Grupo,<span class="dt">y=</span>Peso13,<span class="dt">fill=</span>Grupo))</a>
+<a class="sourceLine" id="cb367-5" title="5">bp1</a>
+<a class="sourceLine" id="cb367-6" title="6">bp2</a></code></pre></div>
+<div class="figure"><span id="fig:gbp13"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gbp13-1.png" alt="Box plot por Dieta e Box plot por Grupo" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/gbp13-2.png" alt="Box plot por Dieta e Box plot por Grupo" width="45%" />
+<p class="caption">
+Figura 3.13: Box plot por Dieta e Box plot por Grupo
+</p>
+</div>
+<p><br></p>
+<div id="legendas-do-box-plot" class="section level4">
+<h4><span class="header-section-number">3.4.2.1</span> Legendas do Box plot</h4>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1">bp2<span class="op">+</span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="co">#remove legenda</span></a>
+<a class="sourceLine" id="cb368-2" title="2"></a>
+<a class="sourceLine" id="cb368-3" title="3">bp2<span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#CC9900&quot;</span>, <span class="st">&quot;#FF3399&quot;</span>, <span class="st">&quot;#CCFF00&quot;</span>, <span class="st">&quot;#339999&quot;</span>),<span class="dt">name=</span><span class="st">&quot;GRUPO&quot;</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;G1&quot;</span>,<span class="st">&quot;G2&quot;</span>,<span class="st">&quot;G3&quot;</span>,<span class="st">&quot;G4&quot;</span>))</a></code></pre></div>
+<div class="figure"><span id="fig:lgbp1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/lgbp1-1.png" alt="Alterando a legenda do Box plot" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/lgbp1-2.png" alt="Alterando a legenda do Box plot" width="45%" />
+<p class="caption">
+Figura 3.14: Alterando a legenda do Box plot
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="escala-de-cinza" class="section level4">
+<h4><span class="header-section-number">3.4.2.2</span> Escala de cinza</h4>
+<p>Em muitas situações é exigido figuras em escala cinza. Isso pode ser facilmente feito no <code>ggplot</code>.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" title="1"><span class="co"># Box plot</span></a>
+<a class="sourceLine" id="cb369-2" title="2">bp2 <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_grey</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()</a>
+<a class="sourceLine" id="cb369-3" title="3"><span class="co"># Scatter plot</span></a>
+<a class="sourceLine" id="cb369-4" title="4">g2 <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_grey</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="figure"><span id="fig:gbp1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gbp1-1.png" alt="Box plot em escala cinza" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/gbp1-2.png" alt="Box plot em escala cinza" width="45%" />
+<p class="caption">
+Figura 3.15: Box plot em escala cinza
+</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="gráficos-de-barras" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Gráficos de barras</h3>
+<p>Gráficos de barras são interessantes paa comparar as variáeis, identificar proporções, etc. Nesse exemplo, mostramos como fazer um gráfico de barras de uma variável, separando por níveis de um fator e colorí-lo.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" title="1"> <span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas, <span class="kw">aes</span>(<span class="dt">x =</span> Grupo, <span class="dt">y =</span> Peso13)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb371-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>()</a>
+<a class="sourceLine" id="cb371-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data=</span>idades_dietas, <span class="kw">aes</span>(<span class="dt">x =</span> Grupo, <span class="dt">y =</span> Peso13,<span class="dt">fill=</span>Grupo)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb371-4" title="4"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
+<div class="figure"><span id="fig:gb1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gb1-1.png" alt="Gráfico de barras simples e gráfico de barras colorido por Dieta" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/gb1-2.png" alt="Gráfico de barras simples e gráfico de barras colorido por Dieta" width="45%" />
+<p class="caption">
+Figura 3.16: Gráfico de barras simples e gráfico de barras colorido por Dieta
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="histogramas" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Histogramas</h3>
+<p>Para construir histogramas mais elaborados no <code>R</code>, podemos usar o <code>ggplot</code> alterando oparâmetro <code>fill</code>. Ao colocarmos o parâmetro <code>fill=Dieta</code>, termeos o histograma colorido por Dieta.</p>
+<p>Para esse exemplo vamos usar um banco de dados simulados especialmente para melhor visualização.</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" title="1"><span class="co"># load(dados_sim)</span></a>
+<a class="sourceLine" id="cb372-2" title="2"><span class="kw">str</span>(dados_sim)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:	4400 obs. of  4 variables:
+##  $ Id   : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Dias : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ Dieta: Factor w/ 4 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;: 3 3 3 2 3 2 2 2 3 1 ...
+##  $ Peso : num  -4.131 5.205 -3.672 7.457 -0.408 ...</code></pre>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" title="1"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x =</span> Peso)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb374-2" title="2"></a>
+<a class="sourceLine" id="cb374-3" title="3"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Peso,<span class="dt">fill=</span>Dieta))<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">25</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:ghs1"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/ghs1-1.png" alt="Histograma simples e separado por Dieta" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/ghs1-2.png" alt="Histograma simples e separado por Dieta" width="45%" />
+<p class="caption">
+Figura 3.17: Histograma simples e separado por Dieta
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="gráfico-de-séries-temporais" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Gráfico de séries temporais</h3>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" title="1">dados_sim <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb375-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso, <span class="dt">group=</span>Id, <span class="dt">color=</span>Dieta)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo para diferentes dietas&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:gts2"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gts2-1.png" alt="Desenpenho dos indivíduos ao longo do tempo, colorido por Dieta." width="95%" />
+<p class="caption">
+Figura 3.18: Desenpenho dos indivíduos ao longo do tempo, colorido por Dieta.
+</p>
+</div>
+<p>Para fazer o gráfico evolunido no tempo dos indivíduos somente da Dieta A, usamos o comando <code>pipe</code> para filtrar os dados. Além disso, usamos o <code>scale_color_discrete</code> para refazer a legenda do gráfico;</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1">dados_sim<span class="op">%&gt;%</span><span class="kw">filter</span>(Dieta<span class="op">==</span><span class="st">&quot;A&quot;</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb376-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb376-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo somente dieta A&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb376-4" title="4"><span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;DIETA&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>))</a></code></pre></div>
+<div class="figure"><span id="fig:gts23"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gts23-1.png" alt="Desenpenho dos indivíduos ao longo do tempo somente para a dieta A." width="95%" />
+<p class="caption">
+Figura 3.19: Desenpenho dos indivíduos ao longo do tempo somente para a dieta A.
+</p>
+</div>
+<p>Usando o <code>facet_wrap()</code> podemos plotar o desempenho dos indivíduos ao longo do tempo, separando por Dietas.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>dados_sim) <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">colour=</span>Dieta)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sepando por dietas&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-4" title="4"><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Dieta, <span class="dt">ncol=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:gts03"></span>
+<img src="R-aplicado-a-suinocultura_files/figure-html/gts03-1.png" alt="Desenpenho dos indivíduos ao longo do tempo para todas as dietas em gráfico separados." width="95%" />
+<p class="caption">
+Figura 3.20: Desenpenho dos indivíduos ao longo do tempo para todas as dietas em gráfico separados.
+</p>
+</div>
 
 </div>
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-wickham2010">
+<p>Wickham, Hadley. 2010. “A Layered Grammar of Graphics.” <em>Journal of Computational and Graphical Statistics</em> 19 (1): 3–28.</p>
+</div>
+<div id="ref-wilkinson2005">
+<p>Wilkinson, Leland, and others. 2005. “The Grammar of Graphics.” Springer,</p>
 </div>
 </div>
             </section>
@@ -291,7 +596,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "cerulean",
 "family": "sans",
 "size": 2
 },
@@ -315,6 +620,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -131,17 +131,15 @@
 
 \title{R aplicado a suinocultura}
 \author{Marcio Valk}
-\date{2020-07-10}
+\date{2020-07-13}
 
 \begin{document}
-\frontmatter
 \maketitle
 
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\mainmatter
 \hypertarget{objetivo}{%
 \chapter*{Objetivo}\label{objetivo}}
 \addcontentsline{toc}{chapter}{Objetivo}
@@ -165,35 +163,35 @@ A pesquisa e o desenvolvimento tecnógico na área da suinocultura geram um volu
 Meu nome é Marcio, sou professor do Departamento de Estatística da UFRGS e sou um grande fã do R. Encarei esse desafio pois gosto de pensar que outras áreas, além da Estatística, possam usufruir das fantásticas ferramentas que essa linguagem oferece. Além disso, contribuindo para o desenvolvimento tecnológio da área da suinucultura , estaremos contribuindo para o desenvolvimento do país.
 
 \hypertarget{tuto}{%
-\chapter{Tutorial básico R e RStudio}\label{tuto}}
+\chapter{\texorpdfstring{Tutorial básico \texttt{R} e RStudio}{Tutorial básico R e RStudio}}\label{tuto}}
 
 \hypertarget{apresentauxe7uxe3o-da-linguagem-r}{%
-\section{Apresentação da linguagem R}\label{apresentauxe7uxe3o-da-linguagem-r}}
+\section{\texorpdfstring{Apresentação da linguagem \texttt{R}}{Apresentação da linguagem R}}\label{apresentauxe7uxe3o-da-linguagem-r}}
 
-R é uma linguagem de programação caracterizada como Software Livre sob os termos da \emph{General Public License (GNU)} da \emph{Free Software Foundation} no formato \emph{open source}. É voltada a manipulação, análise e vizualização de dados e tem como característica o aspecto colaborativo, sendo que as ferramentas desenvolvidas são compartilhadas online pelos desenvolvedores, podendo ter acesso a elas qualquer pessoa, sem restrições. Uma breve história do R pode ser encontrada no \href{https://pt.wikipedia.org/wiki/R_(linguagem_de_programa\%C3\%A7\%C3\%A3o)}{wikipedia}.
+\texttt{R} é uma linguagem de programação caracterizada como Software Livre sob os termos da \emph{General Public License (GNU)} da \emph{Free Software Foundation} no formato \emph{open source}. É voltada a manipulação, análise e vizualização de dados e tem como característica o aspecto colaborativo, sendo que as ferramentas desenvolvidas são compartilhadas online pelos desenvolvedores, podendo ter acesso a elas qualquer pessoa, sem restrições. Uma breve história do R pode ser encontrada no \href{https://pt.wikipedia.org/wiki/R_(linguagem_de_programa\%C3\%A7\%C3\%A3o)}{wikipedia}.
 
 \hypertarget{instalando-o-r}{%
-\section{Instalando o R}\label{instalando-o-r}}
+\section{\texorpdfstring{Instalando o \texttt{R}}{Instalando o R}}\label{instalando-o-r}}
 
-Para instalar no computador, O R deve ser baixado do \href{https://cran.r-project.org/}{CRAN}.
+Para instalar no computador, o \texttt{R} deve ser baixado do \href{https://cran.r-project.org/}{CRAN}.
 
 \begin{figure}
 \includegraphics[width=0.9\linewidth]{Figuras/CRAN} \caption{Comprehensive R archive network (CRAN)}\label{fig:cran}
 \end{figure}
 
-Se o sistema operacional for Linux, uma versão \emph{base} do R ja vem instalada. No cado de outros sistemas operacionais, como o Windows, é necessário instalar o R \href{https://cran.r-project.org/bin/windows/base/}{base}.
+Se o sistema operacional for Linux, uma versão \emph{base} do \texttt{R} já vem instalada. No cado de outros sistemas operacionais, como o Windows, é necessário instalar o \texttt{R} \href{https://cran.r-project.org/bin/windows/base/}{base}.
 
 \hypertarget{instalando-o-rstudio}{%
 \section{Instalando o RStudio}\label{instalando-o-rstudio}}
 
-Como quase toda linguagem \emph{Open Source} a utilização se dá por meio de linhas de comando. Para tornar a linguagem mais amigável aos usuários, várias IDEs (\emph{integrated development environment}) são utilizadas. No caso do R, a mais desenvolvida e utilizada é o \href{https://rstudio.com/products/rstudio/}{RStudio}.
+Como quase toda linguagem \emph{Open Source} a utilização se dá por meio de linhas de comando. Para tornar a linguagem mais amigável aos usuários, várias IDEs (\emph{integrated development environment}) são utilizadas. No caso do \texttt{R}, a mais desenvolvida e utilizada é o \href{https://rstudio.com/products/rstudio/}{RStudio}.
 
 Uma versão \emph{Free} do RStudio para o seu desktop pode ser baixado de \url{https://rstudio.com/products/rstudio/download/}.
 
-Depois de instalar o R, o RStudio já estará integrado ao R e terá uma interface intuitiva e amigável ao usuário.
+Depois de instalar o \texttt{R}, o RStudio já estará integrado ao \texttt{R} e terá uma interface intuitiva e amigável ao usuário.
 
 \begin{quote}
-Ainda assim, é importante ressaltar que na linguagem R não encontraremos \emph{botões} para realizar as análises.
+\emph{Ainda assim, é importante ressaltar que na linguagem \texttt{R} não encontraremos \textbf{botões} para realizar as análises.}
 \end{quote}
 
 \begin{figure}
@@ -214,7 +212,7 @@ Um ação importante que deve ser realizada pelo usuário é \emph{setar o diret
 Outra opção é através do \emph{Go to directory} que está disponível no Workspace do RStudio, conforme figura \ref{fig:rstudio2}. Nessa opção o usuário escolhe o diretório de trabalho e depois usando a opção \emph{set as working directory} esse diretório será ``\emph{settado}'' como diretório de trabalho.
 
 \begin{quote}
-Todas os arquivos gerados, como figuras serão salvos nesse diretório. Para abrir um conjunto de dados, por exemplo, será muito mais simples se este também estiver salvo no mesmo diretório ou um subdiretório. Além disso, toda vez que o RStudio for reinicializado, esse procedimento terá que ser refeito.
+\emph{Todas os arquivos gerados, como figuras serão salvos nesse diretório. Para abrir um conjunto de dados, por exemplo, será muito mais simples se este também estiver salvo no mesmo diretório ou um subdiretório. Além disso, toda vez que o RStudio for reinicializado, esse procedimento terá que ser refeito.}
 \end{quote}
 
 \begin{figure}
@@ -224,7 +222,7 @@ Todas os arquivos gerados, como figuras serão salvos nesse diretório. Para abr
 \hypertarget{rstudio-cloud}{%
 \section{RStudio Cloud}\label{rstudio-cloud}}
 
-Outra forma simples e prática para usar o R e o RStudio é usar o \href{https://rstudio.cloud/}{RStudio Cloud}.
+Outra forma simples e prática para usar o \texttt{R} e o RStudio é usar o \href{https://rstudio.cloud/}{RStudio Cloud}.
 
 \begin{quote}
 \emph{THE MISSION
@@ -244,22 +242,116 @@ Na núvem é possível usar o RStudio utilizando um login através da conta goog
 \hypertarget{instalauxe7uxe3o-de-pacotes}{%
 \section{Instalação de pacotes}\label{instalauxe7uxe3o-de-pacotes}}
 
-Na versão \emph{base} do R, uma série de ferramentas, funções e métodos estatísticos são disponibilizados. Além disso, alguns pacotes também compõe a versão \emph{base} do R. Depois de instalado, o usuário pode verificar quais pacotes estão instalados acessando o ícone \emph{Packages} n
+Na versão \emph{base} do \texttt{R}, uma série de ferramentas, funções e métodos estatísticos são disponibilizados. Além disso, alguns pacotes também compõe a versão \emph{base} do \texttt{R}. Depois de instalado, o usuário pode verificar quais pacotes estão instalados acessando o ícone \emph{Packages} em \emph{Tools} ou digitando \emph{installed.packages()} no \emph{console}.
+
+Para instalar um novo pacote, o usuário pode acessar o ícone \emph{Packages} e depois clicar em \emph{Install} ou digitar no console \emph{install.packages(``nome do pacote'')} . Como exemplo, podemos instalar o pacote usado para vizualização de dados chamado \emph{ggplot2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{funcionalidades-buxe1sicas}{%
 \section{Funcionalidades básicas}\label{funcionalidades-buxe1sicas}}
 
-\hypertarget{operauxe7uxf5es}{%
-\subsection{Operações}\label{operauxe7uxf5es}}
+Para maior agilidade é importante que o usuário conheça algumas teclas de atalho. Apertando simultaneamente \textbf{\emph{Alt + Shift + K}} o usuário tem acesso à uma grande quantidade de atalhos. Ou clicado em \emph{Tools} no menu de ícones do RStudio.
+Um comando de atalho que destacaria por ser extremamaente útil é o \textbf{\emph{Ctrl + Enter}}. Esse comando executa a linha do \emph{script} em que o cursor está.
+
+Para começar, usaremos o \texttt{R} como uma calculadora simples. Execute o código a seguir diretamente do console do RStudio ou no RStudio, escrevendo-os em um script e executando-os usando \textbf{\emph{Ctrl + Enter}}.
+
+\hypertarget{operauxe7uxf5es-buxe1sicas}{%
+\subsection{Operações básicas}\label{operauxe7uxf5es-buxe1sicas}}
+
+\hypertarget{as-quatro-operauxe7uxf5es}{%
+\subsubsection*{As quatro operações}\label{as-quatro-operauxe7uxf5es}}
+\addcontentsline{toc}{subsubsection}{As quatro operações}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Operação & código \texttt{R} & Resultado\tabularnewline
+\midrule
+\endhead
+\(3 + 2\) & \texttt{3\ +\ 2} & 5\tabularnewline
+\(3 - 2\) & \texttt{3\ -\ 2} & 1\tabularnewline
+\(3 \cdot2\) & \texttt{3\ *\ 2} & 6\tabularnewline
+\(3 / 2\) & \texttt{3\ /\ 2} & 1.5\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{exponenciauxe7uxe3o}{%
+\subsubsection*{Exponenciação}\label{exponenciauxe7uxe3o}}
+\addcontentsline{toc}{subsubsection}{Exponenciação}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Operação & código \texttt{R} & Resultado\tabularnewline
+\midrule
+\endhead
+\(3^2\) & \texttt{3\ \^{}\ 2} & 9\tabularnewline
+\(2^{(-3)}\) & \texttt{2\ \^{}\ (-3)} & 0.125\tabularnewline
+\(100^{1/2}\) & \texttt{100\ \^{}\ (1\ /\ 2)} & 10\tabularnewline
+\(\sqrt{100}\) & \texttt{sqrt(100)} & 10\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{logaruxedtimos}{%
+\subsubsection*{Logarítimos}\label{logaruxedtimos}}
+\addcontentsline{toc}{subsubsection}{Logarítimos}
+
+Observe que não existe \texttt{ln()} no \texttt{R}. Usa-se \texttt{log()} para significar logarítimo natural. Para as demais bases, é necessário especificar a base desejada.
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Operação & código \texttt{R} & Resultado\tabularnewline
+\midrule
+\endhead
+\(\log(e)\) & \texttt{log(exp(1))} & 1\tabularnewline
+\(\log_{10}(100)\) & \texttt{log10(100)} & 2\tabularnewline
+\(\log_{2}(16)\) & \texttt{log2(16)} & 4\tabularnewline
+\(\log_{4}(16)\) & \texttt{log(16,\ base\ =\ 4)} & 2\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{constantes-matemuxe1ticas}{%
+\subsubsection*{Constantes Matemáticas}\label{constantes-matemuxe1ticas}}
+\addcontentsline{toc}{subsubsection}{Constantes Matemáticas}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Constante & código \texttt{R} & Resultado\tabularnewline
+\midrule
+\endhead
+\(\pi\) & \texttt{pi} & 3.1415927\tabularnewline
+\(e\) & \texttt{exp(1)} & 2.7182818\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{operadores-luxf3gicos}{%
 \subsection{Operadores lógicos}\label{operadores-luxf3gicos}}
 
+\begin{longtable}[]{@{}lccc@{}}
+\toprule
+Operador & Significado & Exemplo & Resultado\tabularnewline
+\midrule
+\endhead
+\texttt{x\ \textless{}\ y} & \texttt{x} menor do que \texttt{y} & \texttt{3\ \textless{}\ 42} & TRUE\tabularnewline
+\texttt{x\ \textgreater{}\ y} & \texttt{x} maior do que \texttt{y} & \texttt{3\ \textgreater{}\ 42} & FALSE\tabularnewline
+\texttt{x\ \textless{}=\ y} & \texttt{x} menor ou igual à \texttt{y} & \texttt{3\ \textless{}=\ 42} & TRUE\tabularnewline
+\texttt{x\ \textgreater{}=\ y} & \texttt{x} menor ou igual à\texttt{y} & \texttt{3\ \textgreater{}=\ 42} & FALSE\tabularnewline
+\texttt{x\ ==\ y} & \texttt{x} igual à \texttt{y} & \texttt{3\ ==\ 42} & FALSE\tabularnewline
+\texttt{x\ !=\ y} & \texttt{x} diferente de \texttt{y} & \texttt{3\ !=\ 42} & TRUE\tabularnewline
+\texttt{!x} & não \texttt{x} & \texttt{!(3\ \textgreater{}\ 42)} & TRUE\tabularnewline
+\texttt{x\ \textbar{}\ y} & \texttt{x} ou \texttt{y} & \texttt{(3\ \textgreater{}\ 42)\ \textbar{}\ TRUE} & TRUE\tabularnewline
+\texttt{x\ \&\ y} & \texttt{x} e \texttt{y} & \texttt{(3\ \textless{}\ 4)\ \&\ (\ 42\ \textgreater{}\ 13)} & TRUE\tabularnewline
+\bottomrule
+\end{longtable}
+
 \hypertarget{variuxe1veis-no-r}{%
 \section{Variáveis no R}\label{variuxe1veis-no-r}}
 
-\hypertarget{operauxe7uxf5es-1}{%
-\subsection{Operações}\label{operauxe7uxf5es-1}}
+\hypertarget{operauxe7uxf5es}{%
+\subsection{Operações}\label{operauxe7uxf5es}}
 
 \hypertarget{vetores}{%
 \section{Vetores}\label{vetores}}
@@ -410,7 +502,6 @@ Média, mediana, variância
 \hypertarget{apresentauxe7uxf5es-em-power-point}{%
 \section{Apresentações em Power Point}\label{apresentauxe7uxf5es-em-power-point}}
 
-\backmatter
   \bibliography{book.bib,packages.bib}
 
 \end{document}
