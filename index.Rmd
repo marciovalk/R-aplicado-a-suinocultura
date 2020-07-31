@@ -1,14 +1,22 @@
 --- 
-title: "R aplicado a suinocultura"
+title: "R aplicado à suinocultura"
 author: "Marcio Valk"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+bibliography:
+- book.bib
+- packages.bib
+description: Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
+cover-image: "Figuras/cover.jpg"
 link-citations: yes
-description: "Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura"
+site: bookdown::bookdown_site
+biblio-style: apalike
+geometry: margin=0.8in 
 ---
+
+
+
+![book cover](cover.jpg)
 
 ```{r echo=FALSE}
 #para colorir frases
@@ -22,18 +30,21 @@ colorize <- function(x, color) {
 }
 ```
 
+# {-}
+
+![book cover](cover.jpg)
+
+## Objetivo {-}
 
 
-# Objetivo {-}
 
+A era da **_ciência de dados_** tem mudado a maneira como fazemos as coisas. A integração entre as áreas é necessária para acompanhar a dinâmica do desenvolvimento de novas tecnologias. Não é diferente na área da suinocultura, onde a realização de pesquisas têm demandado cada vez mais por ferramentas e profissionais com essa característica de _interdisciplinar_. 
 
 O R tem se caracterizado por ser uma ferramenta completa para quem trabalha com pesquisa, seja aplicada ou teórica. As diversas áreas do conhecimento acabam convergindo para o R, por se tratar de uma linguagem moderna, dinâmica, colaborativa e integradora.
 
 A pesquisa e o desenvolvimento tecnógico na área da suinocultura geram um volume considerável de informações que necessitam ser analisadas. O R é uma ferramenta que permite, ler, integrar e tratar grandes bancos de dados, é bem desenvolvido na área de visualização de dados e possui uma diverside de métodos estatísticos implementados. Além disso, ferramentas para gerar relatórios, apresentações e até mesmo a criação de aplicativos que possibilitam a interação do usuário final, tornam o R uma ferramenta completa. 
 
-## Sobre a Academia {-}
 
-> _A Academia Suína foi fundada em 2018 para revolucionar a disseminação da educação na Suinocultura Brasileira. Contamos os maiores professores da Suinocultura Internacional, representando mais de 28 universidades, e com um foco prático e de alto impacto ao nível de granja_. [@academiasuina]
 
 ## Sobre o autor {-}
 
@@ -41,7 +52,9 @@ Meu nome é Marcio, sou professor do Departamento de Estatística da UFRGS e sou
 
 
 
-
+```{r cpf2, echo=FALSE, out.width = '110%'}
+knitr::include_graphics("Figuras/pigsi3_1.png")
+```
 
 
 

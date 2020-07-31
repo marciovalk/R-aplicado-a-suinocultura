@@ -1,4 +1,66 @@
-# Análise de delineamento de experimentos {#ade}  
+# Análise de experimentos {#ade}
+
+Nesse capítulo vamos assumir que o delineamento, planejamento ou *design* do experimento foi adequado e que o experimento foi corretamente conduzido. Pretendemos aqui realizar a **análise** dos dados e fazer a **interpretação** dos testes estatísticos usados para avaliar os fatores que controlam um parâmetro ou um grupo de parâmetros. Esses múltiplos fatores de entrada podem ter sido manipulados para permitir avaliar seus efeitos na variável de saída ou resposta. 
+
+
+No livro de @lawson2014 temos um dicionário de termos técnicos que permite um melhor acompanhamento da leitura.   
+
+
+- **Experimento** (também chamado de *run*) é uma ação em que o pesquisador
+altera pelo menos uma das variáveis em estudo e depois observa o efeito de suas ações. 
+
+> *Observe que coleta dados observacionais  não é experimentação.*
+
+- **Unidade Experimental** (ou parcela) é a unidade/indivíduo ao  qual o tratamento será aplicado. Em geral, na suinocultura a unidade experimental é um suino. 
+
+- **Subamostra**, **subunidade** ou **unidade observacional**. Quando a unidade experimental é dividida, após a ação ter sido tomada. Isso é chamado de subamostra
+ou subunidade. Por exemplo, se a *unidade experimental fosse uma granja*, poderia-se considerar, após o experimento realizado, medir a quantidade de determinado hormônio entre os machos que tiveram algum problema com a castração.  
+
+> *Às vezes, só é possível medir uma característica separadamente para cada subunidade; por esse motivo, são frequentemente chamadas de unidades observacionais. Medições em subamostras ou subunidades da mesma unidade experimental, são geralmente correlacionados e as estatísticas, como a média, devem ser calculadas antes da análise dos dados, ao invés de ser tratado como resultados independentes. Quando as subunidades podem ser consideradas independentes e existe interesse em determinar a variância nas subamostras, para não gerar nenhuma confusão no teste F para fatores de tratamento, o modelo misto deve ser usado em vez de simplesmente calcular a média das subamostras.*
+
+- **Variável Independente** (*Variável preditora, Tratamento ou Fator*) pode ser  uma das variáveis em estudo que está sendo controlada durante o experimento, como nível, quantidade, genética. Objetivo é verificar qual o efeito que uma mudança nessa variável causa na variável resposta. 
+
+- **Variável oculta** (*Background Variable ou Lurking Variable*). Uma *Variável independente* também pode ser oculta, não controlada no experimento, mas que também pode ter efeito sobre a variável resposta. Ex: Temperatura. Em um experimento bem planejado o efeito dessa variável oculta deve estar acomodado nas demais variáveis não sendo determinante para a conclusão do estudo sobre as demais variáveis. 
+
+- **Variável dependente** (ou resposta, geralmente denotada por $y$) é a característica daunidade experimental que é medida após cada realização do experimento. Em algumas situações podemos ter mais de uma variável resposta.
+
+- **Efeito** é a mudança na resposta causada pela mudança em um fator ou em uma variável independente/preditora. Após a realização do experimento, a análise dos dados pode chega-se a conclusão de que o efeito é estatisticamente significativo, no entanto é importante que o pesquisador tenha capacidade de dizer se esse efeito tem importância prática. Isso é chamado de **Efeito prático**. 
+
+- **Replicate runs** são duas ou mais realizações de um experimento com as mesmas configurações dos fatores ou variáveis independentes mas com diferentes unidades experimentais. As medidas da variável dependente podem variar entre replicações (*replicates runs*) devido à mudanças nas variáveis exógenas (*lurking variables*) e diferenças inerentes às unidades experimentais.
+
+
+- **Duplicates (medidas repetidas?)** refere-se à medidas duplicadas da mesma unidade experimental para a mesma realização de um experimento. Por exemplo, se a variável resposta for o *Peso*, realiza-se a pesagem duas vezes para eleminar algum possível viés do equipamento. É necessário fazer a média das medições e não tratar como duas variáveis respostas. 
+
+
+- **Delineamento de Experimentos** é uma coleção de experimentos ou execuções planejada antes da execução real. Nessa etapa são definidas a organização das unidades e a forma como estas receberão os tratamentos. 
+
+
+
+- **Fatores Confundidor** surgem quando uma alteração que um experimentador faz em um fator, entre as execuções,  causa uma alteração em outro fator. Ou seja, esse fator tem influência sobre a variável resposta e também sobre uma variável preditora. 
+
+
+
+
+- **Fator de Vício** resulta de uma ação do experimentador sobre uma variável independente no momento exato em que uma variável oculta (lurking variable) também muda. Dessa forma o efeito observado na variável resposta também pode ser devido a mudança na variável oculta, causando assim um viés. 
+
+
+- **Erro Experimental**  é a diferença entre a resposta observada para
+um experimento específico e a média de longo prazo de todos os experimentos
+conduzidos nas mesmas configurações das variáveis ou fatores independentes. O fato
+de ser chamado *"erro"* não quer dizer que devemos abandonar tudo. Erros experimentais não são todos iguais a zero devido ao fato de que variáveis ocultas causam variações entre realizações do experimento.
+
+
+
+
+
+
+
+
+
+## ANOVA *1 Fator*
+
+
+
 
 ## Delineamento inteiramente casualizados     
 

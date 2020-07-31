@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura</title>
+  <title>Capítulo 4 Análise de experimentos | R aplicado à suinocultura</title>
   <meta name="description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura" />
+  <meta property="og:title" content="Capítulo 4 Análise de experimentos | R aplicado à suinocultura" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="Figuras/cover.jpg" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Análise de delineamento de experimentos | R aplicado à suinocultura" />
+  <meta name="twitter:title" content="Capítulo 4 Análise de experimentos | R aplicado à suinocultura" />
   
   <meta name="twitter:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
   <meta name="twitter:image" content="Figuras/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Marcio Valk" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,11 +216,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.5" data-path="visu.html"><a href="visu.html#gráfico-de-séries-temporais"><i class="fa fa-check"></i><b>3.4.5</b> Gráfico de séries temporais</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de delineamento de experimentos</a><ul>
-<li class="chapter" data-level="4.1" data-path="ade.html"><a href="ade.html#delineamento-inteiramente-casualizados"><i class="fa fa-check"></i><b>4.1</b> Delineamento inteiramente casualizados</a></li>
-<li class="chapter" data-level="4.2" data-path="ade.html"><a href="ade.html#delineamento-em-blocos-ao-acaso"><i class="fa fa-check"></i><b>4.2</b> Delineamento em blocos ao acaso</a></li>
-<li class="chapter" data-level="4.3" data-path="ade.html"><a href="ade.html#fatorial"><i class="fa fa-check"></i><b>4.3</b> Fatorial</a></li>
-<li class="chapter" data-level="4.4" data-path="ade.html"><a href="ade.html#parcela-subdividida"><i class="fa fa-check"></i><b>4.4</b> Parcela subdividida</a></li>
+<li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de experimentos</a><ul>
+<li class="chapter" data-level="4.1" data-path="ade.html"><a href="ade.html#anova-1-fator"><i class="fa fa-check"></i><b>4.1</b> ANOVA <em>1 Fator</em></a></li>
+<li class="chapter" data-level="4.2" data-path="ade.html"><a href="ade.html#delineamento-inteiramente-casualizados"><i class="fa fa-check"></i><b>4.2</b> Delineamento inteiramente casualizados</a></li>
+<li class="chapter" data-level="4.3" data-path="ade.html"><a href="ade.html#delineamento-em-blocos-ao-acaso"><i class="fa fa-check"></i><b>4.3</b> Delineamento em blocos ao acaso</a></li>
+<li class="chapter" data-level="4.4" data-path="ade.html"><a href="ade.html#fatorial"><i class="fa fa-check"></i><b>4.4</b> Fatorial</a></li>
+<li class="chapter" data-level="4.5" data-path="ade.html"><a href="ade.html#parcela-subdividida"><i class="fa fa-check"></i><b>4.5</b> Parcela subdividida</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Relatórios e artigos científicos com o rmarkdown</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#relatório-dinâmico-com-o-rmarkdown"><i class="fa fa-check"></i><b>5.1</b> Relatório dinâmico com o Rmarkdown</a></li>
@@ -249,19 +250,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="ade" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Análise de delineamento de experimentos</h1>
+<h1><span class="header-section-number">Capítulo 4</span> Análise de experimentos</h1>
+<p>Nesse capítulo vamos assumir que o delineamento, planejamento ou <em>design</em> do experimento foi adequado e que o experimento foi corretamente conduzido. Pretendemos aqui realizar a <strong>análise</strong> dos dados e fazer a <strong>interpretação</strong> dos testes estatísticos usados para avaliar os fatores que controlam um parâmetro ou um grupo de parâmetros. Esses múltiplos fatores de entrada podem ter sido manipulados para permitir avaliar seus efeitos na variável de saída ou resposta.</p>
+<p>No livro de <span class="citation">Lawson (<a href="#ref-lawson2014" role="doc-biblioref">2014</a>)</span> temos um dicionário de termos técnicos que permite um melhor acompanhamento da leitura.</p>
+<ul>
+<li><strong>Experimento</strong> (também chamado de <em>run</em>) é uma ação em que o pesquisador
+altera pelo menos uma das variáveis em estudo e depois observa o efeito de suas ações.</li>
+</ul>
+<blockquote>
+<p><em>Observe que coleta dados observacionais não é experimentação.</em></p>
+</blockquote>
+<ul>
+<li><p><strong>Unidade Experimental</strong> (ou parcela) é a unidade/indivíduo ao qual o tratamento será aplicado. Em geral, na suinocultura a unidade experimental é um suino.</p></li>
+<li><p><strong>Subamostra</strong>, <strong>subunidade</strong> ou <strong>unidade observacional</strong>. Quando a unidade experimental é dividida, após a ação ter sido tomada. Isso é chamado de subamostra
+ou subunidade. Por exemplo, se a <em>unidade experimental fosse uma granja</em>, poderia-se considerar, após o experimento realizado, medir a quantidade de determinado hormônio entre os machos que tiveram algum problema com a castração.</p></li>
+</ul>
+<blockquote>
+<p><em>Às vezes, só é possível medir uma característica separadamente para cada subunidade; por esse motivo, são frequentemente chamadas de unidades observacionais. Medições em subamostras ou subunidades da mesma unidade experimental, são geralmente correlacionados e as estatísticas, como a média, devem ser calculadas antes da análise dos dados, ao invés de ser tratado como resultados independentes. Quando as subunidades podem ser consideradas independentes e existe interesse em determinar a variância nas subamostras, para não gerar nenhuma confusão no teste F para fatores de tratamento, o modelo misto deve ser usado em vez de simplesmente calcular a média das subamostras.</em></p>
+</blockquote>
+<ul>
+<li><p><strong>Variável Independente</strong> (<em>Variável preditora, Tratamento ou Fator</em>) pode ser uma das variáveis em estudo que está sendo controlada durante o experimento, como nível, quantidade, genética. Objetivo é verificar qual o efeito que uma mudança nessa variável causa na variável resposta.</p></li>
+<li><p><strong>Variável oculta</strong> (<em>Background Variable ou Lurking Variable</em>). Uma <em>Variável independente</em> também pode ser oculta, não controlada no experimento, mas que também pode ter efeito sobre a variável resposta. Ex: Temperatura. Em um experimento bem planejado o efeito dessa variável oculta deve estar acomodado nas demais variáveis não sendo determinante para a conclusão do estudo sobre as demais variáveis.</p></li>
+<li><p><strong>Variável dependente</strong> (ou resposta, geralmente denotada por <span class="math inline">\(y\)</span>) é a característica daunidade experimental que é medida após cada realização do experimento. Em algumas situações podemos ter mais de uma variável resposta.</p></li>
+<li><p><strong>Efeito</strong> é a mudança na resposta causada pela mudança em um fator ou em uma variável independente/preditora. Após a realização do experimento, a análise dos dados pode chega-se a conclusão de que o efeito é estatisticamente significativo, no entanto é importante que o pesquisador tenha capacidade de dizer se esse efeito tem importância prática. Isso é chamado de <strong>Efeito prático</strong>.</p></li>
+<li><p><strong>Replicate runs</strong> são duas ou mais realizações de um experimento com as mesmas configurações dos fatores ou variáveis independentes mas com diferentes unidades experimentais. As medidas da variável dependente podem variar entre replicações (<em>replicates runs</em>) devido à mudanças nas variáveis exógenas (<em>lurking variables</em>) e diferenças inerentes às unidades experimentais.</p></li>
+<li><p><strong>Duplicates (medidas repetidas?)</strong> refere-se à medidas duplicadas da mesma unidade experimental para a mesma realização de um experimento. Por exemplo, se a variável resposta for o <em>Peso</em>, realiza-se a pesagem duas vezes para eleminar algum possível viés do equipamento. É necessário fazer a média das medições e não tratar como duas variáveis respostas.</p></li>
+<li><p><strong>Delineamento de Experimentos</strong> é uma coleção de experimentos ou execuções planejada antes da execução real. Nessa etapa são definidas a organização das unidades e a forma como estas receberão os tratamentos.</p></li>
+<li><p><strong>Fatores Confundidor</strong> surgem quando uma alteração que um experimentador faz em um fator, entre as execuções, causa uma alteração em outro fator. Ou seja, esse fator tem influência sobre a variável resposta e também sobre uma variável preditora.</p></li>
+<li><p><strong>Fator de Vício</strong> resulta de uma ação do experimentador sobre uma variável independente no momento exato em que uma variável oculta (lurking variable) também muda. Dessa forma o efeito observado na variável resposta também pode ser devido a mudança na variável oculta, causando assim um viés.</p></li>
+<li><p><strong>Erro Experimental</strong> é a diferença entre a resposta observada para
+um experimento específico e a média de longo prazo de todos os experimentos
+conduzidos nas mesmas configurações das variáveis ou fatores independentes. O fato
+de ser chamado <em>“erro”</em> não quer dizer que devemos abandonar tudo. Erros experimentais não são todos iguais a zero devido ao fato de que variáveis ocultas causam variações entre realizações do experimento.</p></li>
+</ul>
+<div id="anova-1-fator" class="section level2">
+<h2><span class="header-section-number">4.1</span> ANOVA <em>1 Fator</em></h2>
+</div>
 <div id="delineamento-inteiramente-casualizados" class="section level2">
-<h2><span class="header-section-number">4.1</span> Delineamento inteiramente casualizados</h2>
+<h2><span class="header-section-number">4.2</span> Delineamento inteiramente casualizados</h2>
 </div>
 <div id="delineamento-em-blocos-ao-acaso" class="section level2">
-<h2><span class="header-section-number">4.2</span> Delineamento em blocos ao acaso</h2>
+<h2><span class="header-section-number">4.3</span> Delineamento em blocos ao acaso</h2>
 </div>
 <div id="fatorial" class="section level2">
-<h2><span class="header-section-number">4.3</span> Fatorial</h2>
+<h2><span class="header-section-number">4.4</span> Fatorial</h2>
 </div>
 <div id="parcela-subdividida" class="section level2">
-<h2><span class="header-section-number">4.4</span> Parcela subdividida</h2>
+<h2><span class="header-section-number">4.5</span> Parcela subdividida</h2>
 
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-lawson2014">
+<p>Lawson, John. 2014. <em>Design and Analysis of Experiments with R</em>. Vol. 115. CRC press.</p>
 </div>
 </div>
             </section>
