@@ -1,0 +1,264 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Introdução aos delineamentos fatoriais (cont.)
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: pygments
+    center: true
+    # self_contained: false
+    # reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Estimação dos parâmetros
+
+## Relembrando
+
+![Tab5_2](images/Tab5_2.png)
+
+- O __modelo de efeitos__:
+
+$$
+y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ijk}, i = 1, \ldots, a, j = 1,\ldots, b, k = 1, \ldots, n.
+$$
+
+## Efeitos fixos e de interação
+
+- $\tau_i = \mu_{i.} - \mu$;
+- $\beta_j = \mu_{.j} - \mu$;
+- $(\tau\beta)_{ij} = \mu_{ij} - (\mu + \tau_i + \beta_j) = \mu_{ij} - \mu_{i.} - \mu_{.j} + \mu$.
+
+## Suposições associadas ao modelo
+
+Das definições do modelo seguem-se as seguintes restrições:
+
+- $\sum_{i=1}^a{\tau_i} = 0$;
+- $\sum_{j=1}^b{\beta_j} = 0$;
+- $\sum_{i=1}^a{(\tau\beta)_{ij}} = 0$;
+- $\sum_{j=1}^b{(\tau\beta)_{ij}} = 0$.
+
+## Estimação dos parâmetros do modelo
+
+- Os estimadores de mínimos quadrados dos parâmetros do modelo são obtidos minimizando-se a expressão:
+
+$$
+\sum_{i=1}^a{\sum_{j=1}^b{\sum_{k=1}^n{[y_{ijk} - (\mu + \tau_i + \beta_j + (\tau\beta)_{ij})]^2}}}
+$$
+
+sob as restrições:
+
+$\sum_{i=1}^a{\tau_i} = 0, \sum_{j=1}^b{\beta_j} = 0, \sum_{i=1}^a{(\tau\beta)_{ij}} = 0, \sum_{j=1}^b{(\tau\beta)_{ij}} = 0$.
+
+## Estimação dos parâmetros do modelo
+
+- Assim procedendo obtemos os estimadores a seguir
+    + $\hat{\mu} = \bar{y}_{...}$
+    + $\hat{\tau}_i = \bar{y}_{i..} - \bar{y}_{...}$
+    + $\hat{\beta}_j = \bar{y}_{.j.} - \bar{y}_{...}$
+    + $(\hat{\tau\beta})_{ij} = \bar{y}_{ij.} - \bar{y}_{i..} - \bar{y}_{.j.} + \bar{y}_{...}$
+- Note que
+    + $\hat{\mu}_{i.} = \bar{y}_{i..}$
+    + $\hat{\mu}_{.j} = \bar{y}_{.j.}$
+    + $\hat{y}_{ijk} = \hat{\mu}_{ij} = \bar{y}_{ij.}$
+- A $k$-ésima observação na $ij$-ésima célula é estimada (predita) pela média das $n$ observações nesta célula.
+    + Este resultado foi usado para obter os resíduos modelo fatorial de dois fatores.
+        - $\hat{\epsilon}_{ijk} = y_{ijk} -\hat{y}_{ijk} = y_{ijk} - \bar{y}_{ij.}$.
+
+## Estimação dos parâmetros do modelo
+
+- __Exercício:__ encontre os estimadores de mínimos quadrados do modelo fatorial de dois fatores.
+    + _Dica:_ veja minimização de uma função com restrições.
+- __Exercício:__ encontre as estimativas dos efeitos principais e de interação, médias global, de linha e coluna e resíduos para o exemplo da bateria.
+
+## Estimação dos parâmetros do modelo
+
+```{r, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+D <- expand.grid(MT = 1:3, T = c(15, 70, 125))
+D <- rbind(D, D, D, D)
+D$y <- c(130, 150, 138,
+         34, 136, 174,
+         20, 25, 96,
+         155, 188, 110,
+         40, 122, 120,
+         70, 70, 104,
+         74, 159, 168,
+         80, 106, 150,
+         82, 58, 82,
+         180, 126, 160,
+         75, 115, 139,
+         58, 45, 60)
+D$MT <- factor(D$MT)
+D$T <- factor(D$T)
+```
+
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+exbat.av <- aov(y ~ MT*T, data = D)
+modt <- model.tables(exbat.av, type = "means", se = F)
+modt$tables
+```
+
+## Estimação dos parâmetros do modelo
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+mu.chap <- modt$tables$`Grand mean`
+mui.chap <- modt$tables$`MT`
+mu.jchap <- modt$tables$`T`
+muij.chap <- modt$tables$`MT:T`
+tau.chap <- mui.chap - mu.chap
+beta.chap <- mu.jchap - mu.chap
+taubeta.chap <- muij.chap - rbind(mui.chap,mui.chap,mui.chap) - cbind(mu.jchap,mu.jchap,mu.jchap) + matrix(mu.chap, ncol = 3, nrow = 3)
+
+mu.chap
+mui.chap
+mu.jchap
+muij.chap
+tau.chap
+beta.chap
+taubeta.chap
+```
+
+# A suposição de não interação no modelo de dois fatores
+
+## A suposição de não interação no modelo de dois fatores
+
+- Ocasionalmente, um pesquisador pensa que um __modelo de dois fatores sem interação__ é apropriado.
+
+$$
+y_{ijk} = \mu + \tau_i + \beta_j + \epsilon_{ijk}, i = 1, \ldots, a, j = 1,\ldots, b, k = 1, \ldots, n.
+$$
+
+- Devemos ter muito cuidado em dispensar o termo de interação do modelo, pois a presença de interação significativa tem um grande impacto na interpretação dos resultados.
+
+## A suposição de não interação no modelo de dois fatores
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+exbat.av.si <- aov(y ~ MT + T, data = D)
+summary(exbat.av.si)
+```
+
+## A suposição de não interação no modelo de dois fatores
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+par(mfrow = c(2,2))
+plot(exbat.av.si)
+```
+
+<!-- ## A suposição de não interação no modelo de dois fatores -->
+
+<!-- ```{r, message=FALSE, warning=FALSE, paged.print=FALSE} -->
+<!-- exbat.av.si <- aov(y ~ MT + T, data = D) -->
+<!-- summary(exbat.av.si) -->
+<!-- ``` -->
+
+# Uma observação por célula
+
+## Uma observação por célula
+
+- Ocasionalmente, encontraremos um experimento com dois fatores com apenas __uma replicação__, ou seja, uma observação por célula.
+    + Se existir poder suficiente para detectar os efeitos principais com $n=1$ replicações por célula, poderá fazer sentido realizar um experimento com delineamento experimental com apenas uma observação por célula e $a\times b$ observações.
+    + Realizar uma replicação adicional em cada célula iria duplicar os esforços, e usualmente não seria necessário.
+
+## Uma observação por célula
+
+- O __modelo de efeitos__:
+
+$$
+y_{ij} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ij}, i = 1, \ldots, a, j = 1,\ldots, b.
+$$
+
+- Neste modelo, __não é possível computar__ a soma de quadrado do erro ($SS_E$).
+    + Assim, não é possível realizar o teste $F$ para os efeitos principais e de interação.
+
+```{r, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+D <- expand.grid(MT = 1:3, T = c(15, 70, 125))
+D <- rbind(D, D, D, D)
+D$y <- c(130, 150, 138,
+         34, 136, 174,
+         20, 25, 96,
+         155, 188, 110,
+         40, 122, 120,
+         70, 70, 104,
+         74, 159, 168,
+         80, 106, 150,
+         82, 58, 82,
+         180, 126, 160,
+         75, 115, 139,
+         58, 45, 60)
+D$MT <- factor(D$MT)
+D$T <- factor(D$T)
+Cellmeans <- tapply( D$y, list(D$MT, D$T), mean )
+dim(Cellmeans) <- NULL
+MT <- factor(rep(c(1, 2, 3), 3))
+T <- factor(rep(c(15,70,125), each=3))
+cells <- data.frame( MT, T, Cellmeans )
+```
+
+## Uma observação por célula
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+Cellmeans
+modnr <- lm(Cellmeans ~ MT*T, data = cells)
+anova(modnr)
+```
+
+## Uma observação por célula
+
+- Se não há nenhuma interação no modelo, então $(\tau\beta)_{ij} = 0$, e um modelo plausível é 
+
+$$
+y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij}, i = 1, \ldots, a, j = 1,\ldots, b.
+$$
+
+## Uma observação por célula
+
+- Se este modelo estiver correto, então
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+modnr2 <- lm(Cellmeans ~ MT + T, data = cells)
+anova(modnr2)
+```
+
+- Como saber se este modelo é adequado?
+
+## Uma observação por célula
+
+- __Tukey__ desenvolveu um teste para testar $H_0:(\tau\beta)_{ij} = 0$, assumindo que $(\tau\beta)_{ij}= \gamma\tau_i\beta_j$, em que $\gamma$ é uma constante desconhecida.
+- Desta forma, a soma de quadrados fica
+
+$$
+SS_{AB} = \frac{\left[\sum_{i=1}^a{\sum_{j=1}^b{y_{ij}y_{i.}y_{.j}}} - y_{..}(SS_A + SS_{B} + y^2_{..}/ab)\right]^2}{abSS_ASS_B}
+$$
+
+com um grau de liberdade.
+
+## Uma observação por célula
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+Tukey1df(cells[c(3,2,1)])
+```
+
+## Para casa (para aula)
+
+- Interprete os resultados do modelo de dois fatores com uma observação por célula.
+
+![statcaco](images/stat_caco.gif)

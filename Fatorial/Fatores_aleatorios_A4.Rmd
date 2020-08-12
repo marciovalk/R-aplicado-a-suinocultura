@@ -1,0 +1,169 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Experimentos com fatores aleatórios
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Introdução
+
+## Modelos de efeitos aleatórios
+
+- Quando o objetivo do experimento é estudar a variância na resposta causada pela variação dos níveis de dois fatores independentes, o delineamento é similar ao delineamento fatorial de dois fatores que discutimos anteriormente.
+- No entanto, no delineamento apresentado anteriormente, os níveis dos fatores seriam selecionados pelo pesquisador porque este estaria interssado na comparação de respostas médias entre estes níveis.
+- Nos modelos de efeitos aleatórios os níveis dos fatores são apenas uma __amostra representativa__ ou __aleatória__ dos __níveis possíveis__.
+    + O objetivo é determinar quanto da variância na resposta pode ser atribuída à variação dos níveis dos fatores.
+
+## Efeitos fixos _vs_ efeitos aleatórios
+
+Duas situações:
+
+> 1. Uma indústria de parafusos adquiriu 5 máquinas de uma determinada marca para produzir parafusos, e está interessada em realizar um experimento para verificar se as 5 máquinas são homogêneas com relação a resistência média dos parafusos por elas produzidos.
+> 2. A indústria de máquinas do exemplo anterior está interessada em realizar um experimento para verificar se as máquinas produzidas por ela são homogêneas com relação à resistência média dos parafusos que estas máquinas irão produzir. Como a população de máquinas produzidas pela indústria é muito grande o pesquisador quer realizar o experimento com uma amostra de máquinas (5, por exemplo), mas a conclusões devem ser estendidas para a população de máquinas.
+
+## Exemplo (Gage R & R)
+
+- _Gage_: __(Gauge?)__, "bitola" ou "medidor".
+- _R & R_: repetibilidade e reprodutibilidade.
+- Estudos _Gage R & R_ são comuns nos departamentos de qualidade das indústrias.
+- Nestes estudos o objetivo é classificar a variabilidade em características medidas de produtos fabricados ou componentes de produtos.
+- Assumindo que o medidor, ou o instrumento de medida está devidamente calibrado, um valor medido determinado durante uma inspeção de qualidade pode ser considerado uma função da verdadeira dimensão da característica, a __repetibilidade do medidor__, e a __reprodutibilidade do medidor__.
+
+## Exemplo (Gage R & R)
+
+- A repetibilidade do medidor é a habilidade de um único operador obter o mesmo valor medido múltiplas vezes usando o mesmo instrumento de medida (medidor).
+- A reprodutibilidade do medidor é a habilidade de diferentes operadores de obter o mesmo valor medido múltiplas vezes usando o mesmo medidor na mesma _parte_.
+    + Se a variabilidade nas medidas causadas pela repetibilidade do medidor mais a reprodutibilidade __é maior que 10% variação tolerada__, as __medições não devem ser precisas (acuradas)__ o suficiente para serem usadas no monitoramento da qualidade do produto.
+    
+## Exemplo (Gage R & R)
+
+![Vall1](images/Vall1.png)
+
+## Exemplo (Gage R & R)
+
+![gaugerr](images/Gaugerr.png)
+
+## Exemplo (Gage R & R)
+
+- O estudo Gage R & R consiste na seleção de um conjunto de partes (ou componentes) manufaturadas que são representativas da variabilidade "parte-a-parte" da fabricação normal.
+    + No exemplo, 10 partes foram selecionadas e estas partes representam os níveis do primeiro fator no experimento.
+- A seguir, uma amostra aleatória ou representativa de inspetores (operadores) é selecionado.
+    + Os inspetores representam os níveis do segundo fator no experimento.
+- Por fim, cada inspetor mede cada parte duas vezes.
+
+## Exemplo (Gage R & R)
+
+### _Das model_
+
+![dasmodel](images/dasmodel.jpg)
+
+## Exemplo (Gage R & R)
+
+### _Das model_
+
+$$
+y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ijk}, i = 1, \ldots, a, j = 1,\ldots, b, k = 1, \ldots, n.
+$$
+
+## Exemplo (Gage R & R)
+
+### _Das model_
+
+- A __diferença__ para o modelo que especificamos para delineamento fatorial de _efeitos fixos_ é que assume-se que $\tau_i, \beta_j$ e $(\tau\beta)_{ij}$ são variáveis aleatórias independentes e normalmente distribuídas com médias zero e variâncias $\sigma^2_{\tau}, \sigma^2_{\beta}$ e $\sigma^2_{\tau\beta}$.
+
+$$
+\Rightarrow Var(y) = \sigma^2_y = \sigma^2_{\tau} + \sigma^2_{\beta} + \sigma^2_{\tau\beta} + \sigma^2
+$$
+
+## Exemplo (Gage R & R)
+
+### _Das model_
+
+- $\sigma^2_{\tau}$ representa a porção da variância total devida a diferenças nas partes.
+- $\sigma^2_{\beta}$ é a porção da variância causada pelas diferenças entre operadores.
+- $\sigma^2_{\tau\beta}$ é a porção da variância causada pela interação operador e parte.
+- $\sigma^2$ é a porção da variância causada pela medidas replicadas ou __repetibilidade do medidor__.
+- A soma $\sigma^2_{\beta} + \sigma^2_{\tau\beta}$ é a reprodutibilidade do medidor.
+- A repetibilidade mais a reprodutibilidade, $\sigma^2_{\beta} + \sigma^2_{\tau\beta} + \sigma^2$, é uma medida da variância atribuível ao erro de medição.
+
+## Estimando os componentes de variância
+
+- Para o caso com número igual de replicações por subclasse é conveniente usar o __método dos momentos__ ou __máxima verossimilhança restrita__ (REML).
+
+![ems_rf](images/ems_rf.png)
+
+## Estimando os componentes de variância
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+head(gagerr)
+```
+
+## Estimando os componentes de variância
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+modr1 <- aov( y ~ part + oper + part:oper,
+              data = gagerr)
+summary(modr1)
+```
+
+## Estimando os componentes de variância
+
+### Método dos momentos
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+sigma2 <- .000752
+sigma2po <- (0.026885 - sigma2) / 2
+sigma2o <- (0.014852 - sigma2 - 2 * sigma2po ) / 20
+sigma2p <- (.160991 - sigma2 - 2 * sigma2po ) / 6
+cat("Method of Moments Variance Component Estimates","\n",
+    "Var(error)=",sigma2,"\n","Var(part x oper)=",sigma2po,"\n",
+    "Var(oper)=",sigma2o,"\n","Var(part)=",sigma2p,"\n")
+```
+
+## Estimando os componentes de variância
+
+### Método dos momentos
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(lme4)
+modr2 <- lmer(y ~ 1 + (1|part) + (1|oper) + (1|part:oper),
+              data = gagerr)
+summary(modr2)
+```
+
+## Estimando os componentes de variância
+
+### Exemplo (Gage R & R)
+
+- Dos resultados, podemos ver que $94.3\% = 100 \times [0.01247/(0.01247 + 0.0007517)]$ do erro de medição é devido a reprodutibilidade.
+- Assim, para __reduzir__ o erro de medição, os esforços devem se concentrar em treinamentos para os operadores ao invés de investir em medidores (_gages_) mais precisos.
+
+## Para casa (para aula)
+
+- Discuta outras aplicações que você considera que o delineamento de fatores aleatórios é apropriado.
+
+![statcaco](images/stat_caco.gif)

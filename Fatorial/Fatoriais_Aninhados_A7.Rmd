@@ -1,0 +1,281 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Efeitos aninhados
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+## Onde estamos?
+
+- Até aqui:
+    + Efeitos fixos
+    + Efeitos aleatórios
+    + Ambos no contexto de delineamentos __fatoriais cruzados__
+- Agora:
+    + Estrutura de __fatores aninhados__
+    + __Modelos mistos:__ uma combinação de efeitos fixos e aleatórios.
+
+# Delineamentos fatoriais com efeitos aninhados
+
+## Relembrando: fatores cruzados
+
+- Com os __fatores cruzados__ $A$ e $B$, __vemos__ (por definição) __todas as combinações possíveis__ de níveis de fatores, ou seja, podemos configurar uma tabela de dados da seguinte forma
+
+![](images/Tab5_2.png)
+
+## Relembrando: fatores cruzados
+
+- Isto significa: vemos __cada nível__ do fator $A$ em __todos os níveis__ do fator $B$ (e vice-versa).
+- O nível 1 do fator $A$ tem o mesmo significado em __todos os níveis__ do fator $B$.
+
+## Exemplo: desempenho de alunos
+
+- Queremos analisar o desempenho de alunos.
+- Dados de diferentes __turmas__ de diferentes __escolas__ (a nível de __aluno__).
+- Qual o (grau) de variabilidade
+    + entre diferentes escolas?
+    + entre turmas __dentro__ da mesma escola?
+    + entre alunos __dentro__ da mesma turma?
+- Isso parece um __novo delineamento__, pois as turmas claramente __não__ são cruzadas com escolas, similarmente para alunos.
+- Isso nos leva a uma nova definição ...
+
+## Estrutura de fatores aninhados
+
+- Nós chamamos fator $B$ __aninhado__ no fator $A$ se tivermos níveis diferentes de $B$ dentro de cada nível de $A$.
+
+![](images/Tab_aninhado.png)
+
+- Por exemplo, pense em 
+    + $A$: escola
+    + $B$: turma
+- Também escrevemos $B(A)$.
+- Os dados não são necessariamente apresentados neste formato.
+
+## Fatores aninhados: exemplo
+
+- Dados apresentados
+
+![](images/Tab_aninhado2.png)
+
+- Estrutura dos dados subjacente
+
+![](images/Tab_aninhado3.png)
+
+- Portanto, a turma é aninhada na escola, pois a classe 1 na escola 1 não tem nada a ver com classe 1 na escola 2.
+
+## Fatores aninhados
+
+- Só porque as turmas são rotuladas 1 e 2 não significa que é um delineamento fatorial cruzado.
+- Portanto, pergunte-se sempre se o nível 1 do fator realmente corresponde ao mesmo objeto em todos os níveis do outro fator.
+- Geralmente, usamos parênteses no índice para indicar aninhamento, ou seja, o modelo é escrito como
+
+$$
+Y_{ijk} = \mu + \alpha_i + \beta_{j(i)} + \epsilon_{k(ij)}
+$$
+
++ $\alpha_{i}$: efeito de escola
++ $\beta_{j(i)}$: efeito de turma dentro de escola
++ $\epsilon_{k(ij)}$: erro aleatório; também escritos na "notação aninhada"
+
+## Por que aninhar?
+
+- Tipicamente usamos uma estrutura aninhada devido a restrições práticas/logísticas.
+- Por exemplo:
+    + Pacientes são aninhados em hospitais, pois não iremos enviar pacientes para todas as clínicas.
+    + As amostras são aninhadas em lotes (controle de qualidade).
+
+## Exemplo: delineamento completamente aninhado
+
+- Chamamos um delineamento completamente aninhado se cada fator estiver aninhado em seu predecessor.
+
+### Exemplo de genômica:
+
+- Considere três subespécies.
+- Escolha aleatoriamente cinco machos de cada subespécie (= 15 machos).
+- Cada macho é acasalado com quatro fêmeas diferentes da mesma subespécie (= 60 fêmeas).
+- Observe 3 filhotes por acasalamento (= 180 filhotes).
+- Faça duas medições por filhote (= 360 medições)
+
+![](images/Fig_aninhado.png)
+
+## Exemplo: delineamento completamente aninhado
+
+- Usamos o modelo
+
+$$
+Y_{ijklm} = \mu + \alpha_i + \beta_{j(i)} + \gamma_{k(ij)} + \delta_{l(ijk)} + \epsilon_{m(ijkl)}
+$$
+
++ __Exercício:__ liste os efeitos do modelo para o exemplo discutido.
+- Para calcular a correspondente soma de quadrados, usamos a decomposição
+
+\begin{eqnarray*}
+(y_{ijklm} - \bar{y}_{.....}) &=& (\bar{y}_{i....} - \bar{y}_{.....}) + (\bar{y}_{ij...} - \bar{y}_{i....})\\
+&&\quad + (\bar{y}_{ijk..} - \bar{y}_{ij...}) + (\bar{y}_{ijkl.} - \bar{y}_{ijk..}) \\
+&&\quad + (\bar{y}_{ijklm} -\bar{y}_{ijkl.}).
+\end{eqnarray*}
+
+elevamos ao quadrado e somamos sobre todos os índices.
+
+## Tabela de ANOVA para delineamentos completamente aninhados
+
+- Temos a seguinte decomposição
+
+$$
+SS_T = SS_A + SS_{B(A)} + SS_{C(AB)} ++ SS_{D(ABC)} + SS_E
+$$
+
+- Assumindo que temos apenas __efeitos aleatórios__ e um delineamento __balanceado__, temos a seguinte tabela de ANOVA
+
+![](images/anova_aninhado.png)
+
+- Com esta informação podemos construir __testes__ e __estimadores__ para diferentes componentes de variância.
+
+## Tabela de ANOVA para delineamentos completamente aninhados
+
+- Testes $F$ são construídos considerando a razão dos quadrados médios dos erros "vizinhos", já que eles diferem apenas pelo componente de variação de interesse.
+- Isso significa que sempre usamos o quadrado médio do do sucessor na hierárquia como denominador.
+- Por exemplo, $F = \frac{MS_A}{MS_{B(A)}}$ para testar $H_0: \sigma^2_{\alpha} = 0$ _vs._ $H_1: \sigma^2_{\alpha} > 0$.
+
+## Exemplo: força da pasta
+
+- Conjunto de dados do pacote `lme4`.
+- Produto de pasta química contido em barris.
+- 10 __entregas__ (__lotes__) foram selecionadas __aleatoriamente__.
+- De cada entrega, 3 __barris__ foram selecionados __aleatoriamente__.
+- Por barril: faça duas __medições__.
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(lme4)
+data(Pastes)
+head(Pastes)
+tail(Pastes)
+```
+
+## Exemplo (R)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+## Visualize data (code taken from help file) ####
+require(lattice)
+dotplot(cask ~ strength | reorder(batch, strength), Pastes,
+        strip = FALSE, strip.left = TRUE, layout = c(1, 10),
+        ylab = "Cask within batch",
+        xlab = "Paste strength", jitter.y = TRUE)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+fit <- aov(strength ~ batch + batch:cask, data = Pastes)
+#fit <- aov(strength ~ batch/cask, data = Pastes) ## equivalent formulation
+#fit <- aov(strength ~ batch + cask %in% batch, data = Pastes)
+summary(fit)
+```
+
+## Exemplo (R)
+
+![](images/exemplo_aninhado.png)
+
+- Da saída podemos manualmente calcular os diferentes componentes de variância resolvendo as equações que correspondem às esperanças dos quadrados médios.
+- __Exercício:__ (1) qual é este método de estimação? (2) Estime os componentes de variância.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+summary(fit)
+```
+
+## Exemplo (R)
+
+### Método dos momentos
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+sigma2 <- .678
+sigma2bc <- (17.545 - sigma2) / 2
+sigma2b <- (27.489 - sigma2 - 2 * sigma2bc ) / (2*3)
+cat("Method of Moments Variance Component Estimates","\n",
+    "Var(error)=",sigma2,"\n","Var(C(B))=",sigma2bc,"\n",
+    "Var(B)=",sigma2b,"\n")
+```
+
+## Exemplo (R)
+
+- Similarmente, testes têm que ser computados manualmente.
+- Por exemplo, para o componente de variância de lote:
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+pf(27.489 / 17.545, 9, 20, lower.tail = FALSE)
+```
+
+- Assim, não podemos rejeitar $H_0: \sigma^2_A = 0$.
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+## lmer approaches (all equivalent) ####
+fm1 <- lmer(strength ~ (1 | batch/cask), data = Pastes)
+summary(fm1)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+confint(fm1, oldNames = FALSE)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+fm2 <- lmer(strength ~ (1 | batch) + (1 | cask:batch), data = Pastes)
+library(lmerTest)
+rand(fm2)
+```
+
+## Exemplo
+
+- __Pergunta:__ o que podemos concluir?
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+## residual analysis ####
+plot(fm1) ## Tukey-Anscombe plot
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+par(mfrow = c(2,2))
+qqnorm(ranef(fm1)$batch[,1], main = "batch")
+qqnorm(ranef(fm1)$'cask:batch'[,1], main = "cask")
+qqnorm(resid(fm1), main = "residuals")
+```
+
+## Próxima aula
+
+- Lista de exercícios 2 __(não haverá aula presencial)__
+
+![statcaco](images/stat_caco.gif)

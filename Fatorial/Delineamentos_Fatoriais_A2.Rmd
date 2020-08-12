@@ -1,0 +1,219 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Introdução aos delineamentos fatoriais (cont.)
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: pygments
+    center: true
+    # self_contained: false
+    # reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Análise estatística do modelo de efeitos fixos
+
+## Relembrando
+
+![Tab5_2](images/Tab5_2.png)
+
+- O __modelo de efeitos__:
+
+$$
+y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ijk}, i = 1, \ldots, a, j = 1,\ldots, b, k = 1, \ldots, n.
+$$
+
+## Somas de quadrados
+
+- $y_{i..}$ denota o total de todas as observações sob o $i$-ésimo nível do fator $A$;
+- $y_{.j.}$ denota o total de todas as observações sob o $j$-ésimo nível do fator $B$;
+- $y_{ij.}$ denota o total de todas as observações na $ij$-ésima célula;
+- $y_{...}$ denota o total global de todas as observações.
+
+## Somas de quadrados
+
+- Defina $\bar{y}_{i..}$, $\bar{y}_{.j.}$, $\bar{y}_{ij.}$ e $\bar{y}_{...}$ como as correspondentes médias da linha, coluna, célula e global:
+
+$$
+y_{i..} = \sum_{j=1}^b{\sum_{k=1}^n{y_{ijk}}}\quad \bar{y}_{i..} = \frac{y_{i..}}{bn}, i = 1,2,\ldots, a 
+$$
+
+$$
+y_{.j.} = \sum_{i=1}^a{\sum_{k=1}^n{y_{ijk}}}\quad \bar{y}_{.j.} = \frac{y_{i..}}{an}, j = 1,2,\ldots, b 
+$$
+
+$$
+y_{ij.} = \sum_{k=1}^n{y_{ijk}}\quad \bar{y}_{ij.} = \frac{y_{ij.}}{n}, i = 1,2,\ldots, a, j = 1,2,\ldots, b  
+$$
+
+$$
+y_{...} = \sum_{i=1}^a{\sum_{j=1}^b{\sum_{k=1}^n{y_{ijk}}}}\quad \bar{y}_{...} = \frac{y_{...}}{abn}
+$$
+
+## Somas de quadrados
+
+- A __soma de quadrados total__ deve ser escrita como:
+
+\begin{eqnarray}
+\sum_{i=1}^a{\sum_{j=1}^b{\sum_{k=1}^n{\left(y_{ijk} - \bar{y}_{...}\right)^2}}} &=& bn\sum_{i=1}^a{\left(\bar{y}_{i..} - \bar{y}_{...}\right)^2} + an\sum_{j=1}^b{\left(\bar{y}_{.j.} - \bar{y}_{...}\right)^2}\\
+&& n\sum_{i=1}^a{\sum_{j=1}^b{\left(\bar{y}_{ij.} - \bar{y}_{i..} - \bar{y}_{.j.} + \bar{y}_{...}\right)^2}}\\
+&& \sum_{i=1}^a{\sum_{j=1}^b{\sum_{k=1}^n{\left(y_{ijk} - \bar{y}_{...}\right)^2}}}
+\end{eqnarray}
+
+$$
+SS_T = SS_A + SS_B + SS_{AB} + SS_E.
+$$
+
+## Graus de liberdade
+
+```{r df, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+knitr::kable(matrix(c(c("A","B", "AB", "Erro", "Total"), c("a - 1", "b - 1", "(a - 1)(b - 1)", "ab(n - 1)", "abn - 1")), ncol = 2, byrow = F), col.names = c("Efeito", "Graus de liberdade"), align = "c", format = "pandoc")
+```
+
+## Quadrados médios
+
+- Cada soma de quadrados dividida por seus graus de liberdade é um __quadrado médio__.
+    + Os valores esperados dos quadrados médios são:
+    
+$$
+    E[MS_A] = E\left[\frac{SS_A}{a-1}\right] = \sigma^2 + \frac{bn\sum_{i=1}^a{\tau_i^2}}{a-1}
+$$
+    
+$$
+    E[MS_B] = E\left[\frac{SS_B}{b-1}\right] = \sigma^2 + \frac{an\sum_{j=1}^b{\beta_j^2}}{b-1}
+$$
+    
+$$
+    E[MS_{AB}] = E\left[\frac{SS_{AB}}{(a-1)(b-1)}\right] = \sigma^2 + \frac{n\sum_{i=1}^a{\sum_{j=1}^b{(\tau\beta)_{ij}^2}}}{(a-1)(b-1)}
+$$
+    
+$$
+    E[MS_E] = E\left[\frac{SS_E}{ab(n-1)}\right] = \sigma^2
+$$
+
+## Análise de variância
+
+- Note que se a hipótese nula de _nenhum efeito de tratamento de linha_, _nenhum efeito de tratamento de coluna_ e _nenhuma interação_, então $MS_A$, $MS_B$, $MS_{AB}$ e $MS_E$ todos estimam $\sigma^2$.
+    + No entanto, se existem diferenças entre os efeitos de tratamento de linha, então $MS_A$ é maior que $MS_E$.
+    + De maneira similar, se existem diferenças entre os efeitos de tratamento de coluna, então $MS_B$ é maior que $MS_E$.
+- Assim, para testar a significância dos efeitos principais e do efeito de interação, basta dividir o correspondente quadrado médio pelo quadrado médio do erro.
+    + Grandes valores desta razão indicam indícios contra a hipótese nula.
+
+## Análise de variância
+
+- Se assumimos que o modelo de efeitos é adequado e que os termos de erro $\epsilon_{ijk}$ são independentes com distribuição normal com variância constante $\sigma^2$, então:
+    + $MS_A/MS_E\sim F_{a-1,ab(n-1)}$,
+    + $MS_B/MS_E\sim F_{b-1,ab(n-1)}$
+    + $MS_{AB}/MS_E\sim F_{b-1,ab(n-1)}$
+
+## Análise de variância
+
+![Tab5.3](images/twowayanova.png)
+
+## Exemplo da bateria
+
+![FigBateria](images/bateria.jpg)
+
+```{r ExBateria, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+D <- expand.grid(MT = 1:3, T = c(15, 70, 125))
+D <- rbind(D, D, D, D)
+D$y <- c(130, 150, 138,
+         34, 136, 174,
+         20, 25, 96,
+         155, 188, 110,
+         40, 122, 120,
+         70, 70, 104,
+         74, 159, 168,
+         80, 106, 150,
+         82, 58, 82,
+         180, 126, 160,
+         75, 115, 139,
+         58, 45, 60)
+D$MT <- factor(D$MT)
+D$T <- factor(D$T)
+```
+
+```{r ExBateria2, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+head(D)
+```
+
+## Exemplo da bateria
+
+```{r ExBateria3, message=FALSE, warning=FALSE, paged.print=FALSE}
+exbat.av <- aov(y ~ MT*T, data = D)
+summary(exbat.av)
+```
+
+## Exemplo da bateria
+
+```{r ExBateria4, message=FALSE, warning=FALSE, paged.print=FALSE}
+model.tables(exbat.av, type = "means", se = F)
+```
+
+## Exemplo da bateria
+
+```{r ExBateria6, message=FALSE, warning=FALSE, paged.print=FALSE}
+with(D, (interaction.plot(T, MT, y, type = "b", pch = c(18,24,22), leg.bty = "o", main = "", xlab = "Temperatura", ylab = "Tipo de material")))
+```
+
+## Exemplo da bateria
+
+```{r ExBateria7, message=FALSE, warning=FALSE, paged.print=FALSE}
+par(mfrow = c(2,2))
+plot(exbat.av)
+```
+
+## Comparações múltiplas
+
+- Quando a análise de variância indica que as médias de linha ou coluna diferem, usualmente é de interesse fazer comparações entre médias individuais de linha ou coluna para descobrir diferenças específicas.
+    + Métodos de comparações múltiplas.
+
+## Comparações múltiplas
+
+### Exemplo da bateria
+
+- Suponha que estejamos interessados em detectar diferenças entre as médias dos três tipos de materiais.
+    + Como a interação é significativa, faremos esta comparação em apenas um nível de temperatura (nível 2: 70ºF).
+- O __teste de Tukey__ pode ser utilizado para comparar os níveis do fator "Tipo de material" mantendo fixa a temperatura.
+- Assumiremos que a melhor estimativa para a variância do erro é o $MS_E$.
+- Ao nível de significância de 5% 
+
+$$
+T_{0,05} = q_{0,05}(3,27)\sqrt{\frac{MS_E}{n}},
+$$
+em que $q_{0,05}(3,27)$ é o percentil 95% da distribuição $q$ (_distribuição da estatística da amplitude studentizada_) com três comparações e 27 graus de liberdade (associados ao $MS_E$).
+
+## Comparações múltiplas
+
+```{r ExBateria8, message=FALSE, warning=FALSE, paged.print=FALSE}
+qtukey(0.95, 3, 27) * sqrt(sum(exbat.av$residuals^2)/(3*3*3)/4)
+model.tables(exbat.av, "means")$tables$`MT:T`[,2][3] - model.tables(exbat.av, "means")$tables$`MT:T`[,2][c(2,1)]
+model.tables(exbat.av, "means")$tables$`MT:T`[,2][2] - model.tables(exbat.av, "means")$tables$`MT:T`[,2][c(1)]
+
+```
+
+## Para casa (para aula)
+
+- Realize o procedimento de comparações múltiplas para comparar as médias dos tipos de materiais nos outros níveis de temperatura.
+- Realize o procedimento de comparações múltiplas para comparar as médias das temperaturas fixando os níveis de tipo de material.
+- Pense de que outra forma você poderia avaliar a estatística de teste $F_0$.
+    + Implemente sua ideia.
+
+![statcaco](images/stat_caco.gif)

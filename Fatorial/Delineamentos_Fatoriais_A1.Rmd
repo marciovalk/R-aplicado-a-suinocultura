@@ -1,0 +1,308 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Introdução aos delineamentos fatoriais
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: pygments
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Príncipios e definições básicas
+
+## Fatores e delineamentos fatoriais
+
+- Muitos experimentos envolvem o estudo de efeitos de dois ou mais __fatores__.
+- Em geral, __delineamentos fatoriais__ são mais eficientes para este tipo de experimento.
+- Por delineamento fatorial, queremos dizer que em cada replicação completa do experimento todas as possíveis combinações são investigadas.
+    + Por exemplo, se existem $a$ níveis do fator $A$ e $b$ níveis do fator $B$, cada replicação contém todas as combinações de tratamentos $ab$.
+- Quando os fatores são organizados em um delineamento fatorial, eles costumam ser __cruzados__.
+
+## Fatores e delineamentos fatoriais (comentários)
+
+- De maneira geral, quando se fala de fatoriais não se está falando em delineamentos de experimentos, e sim em __delineamentos de tratamentos__.
+    + No entanto, como será visto no curso, existem algumas modificações nos delineamentos básicos que só podem ser aplicadas aos ensaios fatoriais.
+
+## Fatores e delineamentos fatoriais (comentários)
+
+- Chama-se de fator àquilo que se quer testar e de níveis às suas diferentes manifestações.
+    + Por exemplo, em estudos de adubação de plantas, três elementos - nitrogênio (N), fósforo (P) e potássio (K) - são considerados os macronutrientes.
+        - Assim, cada elemento é considerado um fator, e suas diferentes doses de aplicação níveis.
+        - Se apenas um elemento for testado num ensaio, cada nível será chamado de tratamento.
+        - Por sua vez, se dois ou três elementos forem testados, cada combinação entre seus níveis é que será declarada como um tratamento.
+- Os fatores podem ser __quantitativos__: doses, espaçamento entre plantas, etc; ou __qualitativos__: cultivares, etc.
+
+## Efeitos principais
+
+- O efeito de um fator é definido como a mudança na resposta produzida pela mudança no nível do fator.
+    + Este é frequentemente chamado de __efeito principal__ porque se refere aos principais fatores no experimento.
+
+### Experimento fatorial com dois fatores com dois níveis
+
+![Fig5.1](images/Fig5_1.png)
+
+## Efeitos principais
+
+$$
+A = \bar{y}_{A^{+}} - \bar{y}_{A^{-}} = \frac{40 + 52}{2} - \frac{20 + 30}{2} = 21
+$$
+
+- __Aumento na média da resposta__ de 21 unidades.
+- Similarmente, temos que o efeito principal de $B$ é
+
+$$
+B = \bar{y}_{B^{+}} - \bar{y}_{B^{-}} = \frac{30 + 52}{2} - \frac{20 + 40}{2} = 11
+$$
+
+## Efeito de interação
+
+- Em alguns experimentos, nós poderemos encontrar que a diferença na resposta entre os níveis de um fator não é o mesmo em todos os níveis dos outros fatores.
+- Quando isto ocorre, existe uma __interação__ entre os fatores.
+
+### Outro experimento fatorial com dois fatores com dois níveis
+
+![Fig5.2](images/Fig5_2.png)
+
+## Efeito de interação
+
+- No nível $B^{-}$, o efeito de $A$ é
+
+$$
+A = 50 - 20 = 30
+$$
+
+- No nível $B^{+}$, o efeito de $A$ é
+
+$$
+A = 12 - 40 = - 28
+$$
+
+- A magnitude do efeito de interação é a diferença média desses dois efeitos $A$, ou
+
+$$
+AB = \frac{-28 - 30}{2} = -29
+$$
+
+## Efeito de interação
+
+<div id="left">
+![Fig5.3](images/Fig5_3.png)
+</div>
+
+<div id="right">
+![Fig5.4](images/Fig5_4.png)
+</div>
+
+## Representação por modelo de regressão
+
+$$
+y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_{12}x_1x_2 + \epsilon
+$$
+
+- $y$ é a resposta
+- $\beta$'s são parâmetros
+- $x_1$ representa o fator $A$ (escala contínua de -1 a 1)
+- $x_2$ representa o fator $B$ (escala contínua de -1 a 1)
+- $\epsilon$ é o erro aleatório
+
+## Representação por modelo de regressão (ausência de interação)
+
+$$
+\hat{y} = 35.5 + 10.5x_1 + 5.5x_2 + 0.5x_1x_2 \approx 35.5 + 10.5x_1 + 5.5x_2
+$$
+
+<div id="left">
+```{r Fig5_5, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+x1 <- seq(-1, 1, by = 0.01)
+x2 <- seq(-1, 1, by = 0.01)
+y <- matrix(0, nrow=length(x1), ncol=length(x2))
+for (i in 1:length(x1)){
+  for (j in 1:length(x2)){
+    y[i,j] <- 35.5 + 10.5*x1[i] + 5.5*x2[j]
+  }
+}
+
+persp(x1, x2, y,
+      theta = 40, phi = 30, expand = 0.5,
+      col = "lightblue", ticktype = "detailed",
+      xlab = "x_1", ylab = "x_2", zlab = "y")
+
+```
+</div>
+
+<div id="right">
+```{r Fig5_5b, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+contour(x1, x2, y, 
+        main = "Gráfico de contorno",
+        xlab = expression(x[1]),
+        ylab = expression(x[2]),
+        col = "#005dc4", lwd = 2)
+```
+</div>
+
+## Representação por modelo de regressão (presença de interação)
+
+$$
+\hat{y} = 35.5 + 10.5x_1 + 5.5x_2 + 8x_1x_2
+$$
+
+<div id="left">
+```{r Fig5_6, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+x1 <- seq(-1, 1, by = 0.01)
+x2 <- seq(-1, 1, by = 0.01)
+y <- matrix(0, nrow=length(x1), ncol=length(x2))
+for (i in 1:length(x1)){
+  for (j in 1:length(x2)){
+    y[i,j] <- 35.5 + 10.5*x1[i] + 5.5*x2[j] + 8*x1[i]*x2[j]
+  }
+}
+
+persp(x1, x2, y,
+      theta = 40, phi = 30, expand = 0.5,
+      col = "lightblue", ticktype = "detailed",
+      xlab = "x_1", ylab = "x_2", zlab = "y")
+
+```
+</div>
+
+<div id="right">
+```{r Fig5_6b, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+contour(x1, x2, y, 
+        main = "Gráfico de contorno",
+        xlab = expression(x[1]),
+        ylab = expression(x[2]),
+        col = "#005dc4", lwd = 2)
+```
+</div>
+
+__"Interação é uma forma de curvatura"__
+
+## Efeitos principais _vs_ efeito de interação
+
+- Geralmente quando um efeito de interação é grande, os efeitos principais correspondentes têm pouco significado prático.
+
+<div id="left">
+![Fig5.2](images/Fig5_2.png)
+</div>
+
+<div id="right">
+- $A = \bar{y}_{A^{+}} - \bar{y}_{A^{-}} = \frac{50 + 12}{2} - \frac{20 + 40}{2} = 1$, que é bem pequeno, e nós ficamos tentados a concluir que não existe efeito devido ao $A$.
+- No entanto, quando examinamos os efeitos de $A$ em _diferentes níveis do fator $B$_, vemos que isto não se confirma.
+    + O fator $A$ tem um efeito, mas _depende do nível do fator $B$_.
+</div>
+
+## Efeitos principais _vs_ efeito de interação
+
+- Ou seja, o conhecimento da interação $AB$ é mais útil que o conhecimento do efeito principal.
+- Uma interação significativa geralmente irá __mascarar__ a significância dos efeitos principais.
+- Na presença de interação significativa, o pesquisador deve usualmente examinar os níveis de um fator, fator $A$, com os níveis do outro fator fixados para obter conclusões sobre efeito principal de $A$.
+
+# Delineamento fatorial com dois fatores
+
+## Delineamento fatorial com dois fatores
+
+- Os tipos de delineamentos fatoriais mais simples envolvem apenas dois fatores ou conjuntos de tratamentos.
+- Existem $a$ níveis do fator $A$ e $b$ níveis do fator $B$, e estes são organizados em um delineamento fatorial.
+
+## Exemplo da bateria
+
+![FigBateria](images/bateria.jpg)
+
+- Um engenheiro está desenhando uma bateria para ser usada em um dispositivo que estará sujeita a variações de temperatura.
+    + Três tipos de materiais (MT) são possíveis para a fabricação da bateria.
+    + Três temperaturas, consistentes com as temperaturas do ambiente de uso.
+    + Quatro baterias foram testadas em cada combinação de material e temperatura.
+- __Delineamento fatorial $3^2$__.
+
+## Exemplo da bateria
+
+![Tab5_1](images/Tab5_1.png)
+
+> 1. Quais os efeitos do tipo e temperatura do material na vida?
+> 2. Existe uma escolha de material que daria vida longa, independentemente da temperatura (um __produto robusto__)?
+
+## Exemplo da bateria
+
+![Tab5_2](images/Tab5_2.png)
+
+- $a$ níveis do fator $A$; $b$ níveis do fator $B$; $n$ replicações.
+- Este é um __delineamento completamente aleatorizado__.
+
+## Exemplo da bateria
+
+![Tab5_2](images/Tab5_2.png)
+
+- O __modelo de efeitos__:
+
+$$
+y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \epsilon_{ijk}, i = 1, \ldots, a, j = 1,\ldots, b, k = 1, \ldots, n.
+$$
+
+## Exemplo da bateria
+
+- Em um experimento fatorial com dois fatores, os fatores $A$ e $B$ são de igual interesse.
+- Especificamente, estamos interessados em __testar hipóteses__ sobre a igualdade dos efeitos de tratamento das linhas
+
+$$
+H_0: \tau_1 = \tau_2 = \ldots = \tau_a = 0\quad vs.\quad H_1:\mbox{pelo menos um } \tau_i \neq 0
+$$
+e a igualdade dos efeitos de tratamento das colunas
+
+$$
+H_0: \beta_1 = \beta_2 = \ldots = \beta_b = 0\quad vs.\quad H_1:\mbox{pelo menos um } \beta_j \neq 0
+$$
+
+- Também estamos interessados em determinar em que linha e coluna os tratamentos _interagem_
+
+$$
+H_0: (\tau\beta)_{ij} = 0\quad vs.\quad H_1:\mbox{pelo menos um } (\tau\beta)_{ij} \neq 0
+$$
+- __Pergunta:__ O que estas hipóteses representam na prática?
+- _Cenas dos próximos capítulos:_ __Análise de variância de dois fatores__
+
+# Criando um planejamento fatorial com dois fatores no `R`
+
+## Exemplo da bateria
+
+```{r Fatorial32, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+D <- expand.grid(MT = 1:3, T = c(15, 70, 125))
+D
+```
+
+```{r Fatorial32_2, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+D <- rbind(D, D, D, D)
+set.seed(2591)
+D <- D[order(sample(1:36)), ]
+BatteryDes <- D[ c( "MT", "T" )]
+BatteryDes
+write.csv(BatteryDes, file = "BatteryDes.csv", row.names = FALSE)
+```
+
+# As vantagens dos delineamentos fatoriais
+
+## Para casa
+
+- Discuta as vantagens dos delineamentos fatoriais em comparação com o delineamento _um fator por vez_.
+    + Veja Czitrom, V. "One-Factor-at-a-Time Versus Designed Experiments". _The American Statistician_, 53:126-131, 1999.
+
+![statcaco](images/stat_caco.gif)

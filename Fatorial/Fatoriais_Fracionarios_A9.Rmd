@@ -1,0 +1,1009 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Delineamentos fatoriais fracionários
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Introdução
+
+## Introdução
+
+- __Benefícios__ dos delineamentos fatoriais __(com múltiplos fatores)__:
+    1. Podemos detectar o efeito conjunto __(interação)__.
+    2. Eficiência.
+- Maior o número de fatores:
+    + Maior a eficiência;
+    + Maior o número de interações que podem ser detectadas;
+    + __Maior o número de experimentos!__
+
+## Introdução
+
+- Uma forma de reduzir o número de execuções do experimento é usar apenas __dois níveis__ para cada fator e executar somente um experimento por célula.
+- Na fase inicial de um experimento, em que o objetivo pode ser determinar quais fatores são importantes de uma longa lista de candidadtos, um delineamento fatorial pode necessitar de muitos experimentos para realizar, mesmo com apenas dois níveis e uma repetição por célula.
+
+## Introdução
+
+![](images/Tab6_1.png)
+
+## Introdução
+
+- Um delineamento com 7 ou mais fatores torna o __experimento impraticável__.
+- Soluções __"menos que ótimas"__:
+    + Delineamento __"um por vez"__
+    + Escolha de um subconjunto de fatores.
+
+## Introdução
+
+- __Uma solução melhor:__ usar uma __fração__ de experimentos, ou execuções, necessárias para um __experimento fatorial completo__.
+- Para ser efetiva, a fração de execuções usada deve ser cuidadosamente selecionada, a fim de preservar alguns benefícios dos experimentos fatoriais completos.
+    + Uma das propriedades desejáveis de um fatorial $2^k$ é a __ortogonalidade__.
+
+#  Frações $\frac{1}{2}$ de delineamentos $2^k$
+    
+## Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Considere a escolha de metade de um delineamento $2^k$.
+    + Uma escolha descuidada de metade de $n = 2^k$ execuções pode não manter a propriedade da ortogonalidade de um delineamento $2^k$.
+- Uma maneira de preservar esta propriedade, é escolher as execuções em que os níveis dos fatores codificados para um termo de interação (de preferência, a intereção de ordem mais alta) são constantes.
+
+## Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+![](images/Tab6_2.png)
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Com 16 execuções em fatorial $2^4$ completo, 15 efeitos podem ser estimados, além da média global:
+    + 4 efeitos principais
+    + 6 efeitos de interação dois-a-dois
+    + 4 efeitos de interação de três fatores
+    + 1 efeito de interação de ordem quatro
+- Em um delineamento fatorial de fração $1/2$ temos apenas 8 execuções.
+    + Somente 7 efeitos podem ser estimados, além da média global.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Escolhendo as execuções de um fatorial completo que tem valor constante para uma interação, nós automaticamente perdemos a habilidade de estimar este efeito de interação.
+- Além disso, podemos perceber que
+
+$$
+X_D = X_A\times X_B\times X_C.
+$$
+
+- Assim, o efeito que podemos estimar para $X_D$ está completamente confundido pela interação $X_AX_BX_C$.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Ainda há mais!
+    - Cada efeito principal e interação no delineamento é confundido com uma outra interação.
+- Esse é o preço que pagamos por executar metade do número total de experimentos.
+- No entanto, em experimentos preliminares, em que um grande número de fatores é incluído, a fim de descobrir quais deles são realmente importantes, isso pode não ser um preço sério a ser pago.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+1. _Princípio de dispersão de efeito_ __(Box e Meyer, 1986)__.
+    + Em experimentos preliminares envolvendo um grande número de fatores, geralmente apenas uma pequena proporção dos fatores terá efeitos significativos.
+2. _Princípio hierárquico de ordenação_ __(Wu e Hamada, 2000)__.
+    + Assim como dois planetas se alinharão com a lua no céu noturno com mais frequência do que três planetas, os efeitos principais têm maior probabilidade de serem importantes do que as interações de dois fatores, e as interações de dois fatores têm maior probabilidade de serem importantes que as de três fatores interações e assim por diante. 
+    
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Portanto, se as frações de experimentos fatoriais puderem ser planejadas de forma que os efeitos principais sejam confundidos com interações de três fatores e ordem mais alta, a quantidade de informação perdida pelo fracionamento do número de execuções será pequena em comparação com o benefício de um número reduzido de execuções.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- A maneira como um fatorial fracionário de um $2^k$ é criado na prática é, na verdade, a ordem oposta do que foi mostrado anteriormente.
+- Em vez de começar com um fatorial completo e eliminar as execuções para obter a fração desejada, inicie com um fatorial completo contendo o número desejado de execuções e adicione outros fatores ao delineamento.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Para construir uma fração de metade de um delineamento $2^k$, denotado por $\frac{1}{2}2^k$ ou $2^{k − 1}$, o procedimento é o seguinte:
+
+1. Escreva o delineamento de base: um delineamento fatorial completo com $k-1$ fatores usando os níveis dos fatores codificados $(-)$ e $(+)$.
+2. Adicione o fator $k$ ao delineamento, tornando seus níveis de fator codificados iguais ao produto dos níveis dos outros fatores (ou seja, a interação de ordem mais alta).
+3. Use estas colunas para definir o delineamento.
+
+- __Exercício:__ Refaça o delineamento $2^{4-1}$, a partir dos fatores A, B e C.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Uma lista completa de interações confundidas com cada efeito principal e interação em um fatorial de fração $1/2$ é chamada de __padrão de confusão__ ou __estrutura de aliases__ do delineamento.
+- Essa lista é fácil de construir com base na atribuição do fator $k$ no item 2 da lista apresentada anteriormente.
+- Por exemplo, no delineamento $2^{4−1}$, se os níveis do quarto fator são iguais ao produto dos níveis dos três primeiros fatores do delineamento, escrevemos simbolicamente $D = ABC$.
+    + Este é chamado de __gerador do delineamento__.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Multiplicando nos dois lados do gerador, obtemos:
+
+$$
+D^2 = ABCD
+$$
+
+ou
+
+$$
+I = ABCD
+$$
+
+em que $I$ representa uma coluna de sinais positivos e é a identidade multiplicativa para produtos elemento a elemento de colunas de níveis codificados de factores.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- A equação, $I = ABCD$, é chamada de __relação de definição__ para o delineamento fatorial fracionário e, multiplicando-se em ambos os lados dessa equação, a interação confundida com qualquer efeito principal ou interação pode ser determinada.
+- Por exemplo, multiplicando pelo primeiro fator em ambos os lados da relação de definição, vemos:
+
+$$
+A(I) = A(ABCD)
+$$
+
+ou
+
+$$
+A = BCD
+$$
+
+- Isso significa que o efeito do primeiro fator A é confundido com a interação de três fatores BCD.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Quando os dados são coletados, o efeito do fator A é estimado como a diferença na resposta média nos níveis alto e baixo do fator A.
+    + No entanto, esse efeito realmente estima a __soma dos efeitos__ do fator A e da interação de três fatores.
+    + Portanto, escrevemos como $A + BCD$.
+    
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- O padrão de aliases completo para este design $2^{4−1}$ pode ser determinado multiplicando-se a relação de definição por cada efeito principal e interação resultando em:
+
+\begin{eqnarray*}
+I + ABCD\\
+A + BCD\\
+B + ACD\\
+C + ABD\\
+D + ABC\\
+AB + CD\\
+AC + BD\\
+AD + BC\\
+\end{eqnarray*}
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Existem apenas oito resultados únicos neste padrão de aliases, e eles representam os oito efeitos ($I$ sendo a média geral) que podem ser estimados a partir do delineamento fatorial fracionário de 8 execuções.
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Figure 6.1 p. 197
+library(FrF2)
+design <- FrF2(8, 4, randomize = FALSE)
+library(daewr)
+colormap(design, mod=3)
+```
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+- Criando um delineamento fatorial $2^{k-1}$ no `R` com o pacote `FrF2` __(Fractional Factorial Designs with 2-Level Factors)__.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+# help(package = "FrF2")
+design <- FrF2(nruns =  8,
+               nfactors = 4,
+               generators = "ABC",
+               randomize = FALSE)
+design
+```
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+set.seed(2018)
+design.random <- FrF2(nruns =  8,
+                      nfactors = 4,
+                      generators = "ABC",
+                      randomize = TRUE)
+design.random
+```
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+design.info(design) # Função do pacote DoE.base
+```
+
+##  Frações $\frac{1}{2}$ de delineamentos $2^k$
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+y <- runif(8, 0, 1)
+aliases( lm( y~ (.)^3, data = design))
+```
+
+# Um exemplo: sopa em pó
+
+## Exemplo
+
+<!-- - Um fabricante de misturas de sopa seca embalada estava experimentando uma variabilidade excessiva nos pesos da embalagem de um componente seco de mistura de sopa chamado "mistura". A mistura é uma mistura de ingredientes saborosos, como óleo vegetal, sal e assim por diante. Muito mistura em um pacote de sopa dá-lhe um sabor muito forte, e não o suficiente dá um sabor muito fraco. Foi um processo de duas etapas para fazer a mistura de sopa embalada. O primeiro passo era fazer um lote grande de sopa e secá-lo em um secador rotativo. Em seguida, o caldo de sopa seco foi colocado em um misturador, onde a mistura foi adicionada através de portas quando foi misturado. Em seguida, foi embalado em sacos selados de peso uniforme -->
+
+- Para ilustrar a análise de um delineamento $2^{k − 1}$, considere um exemplo da mistura de sopa.
+- Um fabricante de misturas de sopa seca embalada estava experimentando uma variabilidade excessiva nos pesos da embalagem de uma sopa chamada "intermix".
+
+## Exemplo
+
+![](images/sopa_seca.jpg)
+
+## Exemplo
+
+![](images/sopa_seca_2.jpg)
+
+## Exemplo
+
+- A intermix é uma mistura de ingredientes saborosos, como óleo vegetal, sal e assim por diante.
+    + Muito mistura em um pacote de sopa dá-lhe um sabor muito forte, e pouca mistura dá um sabor muito fraco.
+    + Nesse exemplo, a maioria da variabilidade na sopa "intermix" foi encontrada dentro de um lote e não entre lotes.
+
+## Exemplo
+
+- Os pesquisadores responsáveis pelo projeto fizeram uma lista de fatores que eles achavam que poderiam influenciar a variabilidade dentro de um lote.
+- Estas eram opções que poderiam ser mudadas no misturador onde um lote foi misturado e o intermix foi adicionado através de portas.
+
+## Exemplo
+
+![](images/misturador2.jpg)
+
+## Exemplo
+
+![](images/misturador.jpg)
+
+## Exemplo
+
+- A lista consistiu em:
+    + (1) o número de portas onde o intermix foi adicionado
+    + (2) a temperatura do misturador (isso poderia ser controlado adicionando água de resfriamento ao revestimento ao redor do misturador)
+    + (3) o tempo de mistura
+    + (4) peso do lote
+    + (5) o tempo de atraso entre a mistura e a embalagem.
+
+## Exemplo
+
+- A resposta ou variabilidade em todos os pesos da mistura foi obtida tomando-se cinco amostras da mistura de sopa a cada 15 minutos enquanto o lote estava sendo empacotado.
+
+![](images/Tab6_3.png)
+
+## Exemplo
+
+- O tamanho normal de lote era 2000 lb e o tempo de mistura normal era de 60 segundos.
+    + Como esse experimento deveria ser executado em uma instalação de produção, as equipes de pesquisa e produção tinham que concordar com o plano.
+    + O plano acordado foi o $2^{5−1}$.
+
+## Exemplo
+
+![](images/Tab6_4.png)
+
+## Exemplo
+
+- Todos os níveis de fator poderiam ser alterados entre lotes com relativamente pouco esforço e a aleatorização não era um problema.
+- A redução solicitada no peso do lote e o aumento no tempo de mistura para alguns lotes na lista planejada de experimentos não interfeririam seriamente no cronograma de produção se a lista fosse curta.
+    + Mas diminuiria a produção se um delineamento de 32 execuções fosse usado.
+    + Por essa razão, o fatorial fracionário de 16 execuções foi acordado.
+
+## Exemplo
+
+- A unidade experimental para este experimento foi o lote de mistura de sopa seca colocada no misturador.
+- A resposta foi uma estimativa do desvio padrão de todo o peso dentro de um lote, calculado a partir de um estudo de amostragem feito durante a embalagem de cada lote.
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+soup <- FrF2(nruns = 16,
+             nfactors = 5, generators = "ABCD",
+             factor.names = list(Ports = c(1, 3),
+                                 Temp = c("Cool", "Ambient"),
+                                 MixTime = c(60, 80),
+                                 BatchWt = c(1500, 2000),
+                                 delay = c(7, 1)),
+             randomize = FALSE)
+soup
+```
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+y <- c(1.13, 1.25, .97, 1.70, 1.47, 1.28, 1.18, .98, .78,
+       1.36, 1.85, .62, 1.09, 1.10, .76, 2.10)
+library(DoE.base)
+soup <- add.response(soup , y)
+soup
+```
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+soupc <- FrF2(nruns = 16,
+              nfactors = 5,
+              generators = "ABCD",
+              randomize = FALSE)
+soupc <- add.response(soupc, y)
+```
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+aliases(lm( y ~ (.)^4, data = soupc))
+```
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+mod1 <- lm( y ~ (.)^2, data = soup)
+summary(mod1)
+```
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+modc <- lm(y ~ (.)^2, data = soupc)
+library(daewr)
+LGB(coef(modc)[-1], rpt = FALSE)
+```
+
+## Exemplo
+
+- Efeitos que parecem ser significativos:
+    + E (Tempo de Atraso entre a mistura e o empacotamento)
+    + BE (a interação entre Temperatura e Tempo de Retardo)
+    + DE (a interação entre o Tempo de Atraso e o Tempo de Atraso)
+- Se a o princípio hierárquico da ordenação puder ser assumida, esta é a interpretação correta, e as interações de três e quatro fatores podem ser consideradas insignificantes.
+
+## Exemplo
+
+- Devido à atribuição não convencional de 7 ao nível baixo do fator E e 1 ao nível alto, ele nos diz que, em média, o tempo de atraso entre a mistura e a embalagem diminui a variabilidade dentro de lote.
+- Como as interações BE e DE também parecem significativas, o efeito principal médio do fator E não conta toda a história.
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+delay <- as.numeric(sub(-1, 7, soup$delay))
+temp <- soup$Temp
+interaction.plot(delay, temp, soup$y,
+                 type = "b", pch = c(24,18,22),
+                 leg.bty = "o",
+                 main = "Interaction Plot for Mixing Temperature by Delay time",
+                 xlab = "Delay Time (days)",
+                 ylab = "Average S.D. Fill Weight")
+```
+
+## Exemplo
+
+- Pode ser visto que o Tempo de Atraso tem puco efeito na variabilidade dentro do lote quando o misturador é arrefecido com água de resfriamento durante a mistura.
+- No entanto, a variabilidade dentro do lote diminui substancialmente aumentando o tempo de atraso entre a mistura e a embalagem quando a mistura foi feita à temperatura ambiente.
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+BatchWt <- ((as.numeric(soup$BatchWt) - 1.5)/.5) * 250 + 1750
+interaction.plot(delay, BatchWt, soup$y,
+                 type = "b", pch = c(18, 24, 22), leg.bty = "o",
+                 main = "Interaction Plot for Batch Weight by Delay time",
+                 xlab = "Delay Time (days)",
+                 ylab = "Average S.D. Fill Weight")
+```
+
+## Exemplo
+
+- Pode-se observar que aumentar o tempo de atraso entre a mistura e o acondicionamento tem pouco efeito na variabilidade dentro de um lote para lotes pequenos (1500 lb), enquanto aumentar o tempo de atraso entre a mistura e a embalagem diminui a variabilidade dentro do lote para lotes maiores (2000 lb).
+
+## Exemplo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+IAPlot(soup, sel=c(2,4,5), abbrev=7)
+```
+
+## Exemplo
+
+- Com base nos resultados deste estudo, a variação mínima de mistura dentro de um lote pode ser obtida usando:
+    + o tamanho de lote maior (2000 lb),
+    + a temperatura ambiente na mistura
+    + tempo de 7 dias entre a mistura e a embalagem.
+<!-- Ele não respondeu a uma nova pergunta motivada pelos resultados: demora 7 dias entre a mistura e a embalagem ou um atraso de 3 ou 4 dias pode reduzir a variabilidade? No entanto, a equipe de produção e pesquisa concordou que os resultados atuais faziam sentido, já que a uniformidade da mistura se relacionava com a dureza do óleo vegetal, que é afetada pela temperatura e agitação. -->
+- A equipe de produção implementou as condições ideais.
+<!-- enquanto a pesquisa continuava investigando a nova questão. -->
+
+## Conclusões
+
+- É interessante pensar que nenhuma das interações teria sido detectada se tivessem sido realizados experimentos com um fator de cada vez, ao invés do plano fatorial fracionário.
+- As conclusões de experimentos do tipo com um fator de cada vez não podem ser reproduzíveis porque não se perceberia que os efeitos (ou ausência de efeitos) vistos poderiam depender de outros fatores que são considerados insignificantes.
+
+# Delineamentos fatoriais fracionários $2^{k-2}$, $2^{k-p}$
+
+## Delineamentos fatoriais fracionários $2^{k-p}$
+
+- Em delineamentos $2^{k − 1}$, apenas metade das execuções experimentais são feitas.
+    + Cada efeito que pode ser estimado é confundido com uma interação.
+- Em um delineamento de fração $\frac{1}{4} = 2^{-2}$, $2^{k − 2}$, apenas um quarto das execuções experimentais do delineamento completo de $2^k$ é executado.
+    + Cada efeito que pode ser estimado é confundido com __três outras interações__.
+- Em um delineamento de fração $\frac{1}{8} = 2^{-3}$, apenas um oitavo das execuções do fatorial completo é feito.
+    + Cada efeito estimado será confundido com outras __sete interações__, e assim por diante.
+
+## Delineamentos fatoriais fracionários $2^{k-p}$
+
+- Esses delineamentos podem soar confusos no início devido ao grande número de efeitos confundidos com cada efeito estimável.
+    + No entanto, eles são usados com bastante frequência na prática, e seguindo o __princípio de dispersão de efeito__ e o __princípio de ordenação hierárquica__, conclusões úteis podem geralmente ser alcançadas após apenas uma fração das execuções totais necessárias para um fatorial completo.
+
+## Construindo um delineamento fatorial $2^{k-2}$
+
+1. Comece com um delineamento de base em $2^{k-2}$ fatores.
+2. Acrescente dois fatores adicionais, fazendo com que seus níveis de fator codificado sejam iguais a duas interações entre as primeiras $k - 2$ colunas.
+
+## Construindo um delineamento fatorial $2^{k-2}$
+
+![](images/fracionario_um_quarto.png)
+
+
+## Construindo um delineamento fatorial $2^{k-2}$
+
+- Existem __dois geradores__ para o delineamento criado, $D = AB$ e $E = AC$.
+- Destes pode ser visto que $I = ABD$ e $I = ACE$.
+    + Além disso, desde $I^2 = I$, uma terceira igualdade, chamada de __interação generalizada__, é $I = ABD (ACE)$ ou $I = BCDE$.
+- Combinando as três equações obtidas dos dois geradores e a interação generalizada resulta na relação de definição para o delineamento $I = ABD = ACE = BCDE$.
+
+## Construindo um delineamento fatorial $2^{k-2}$
+
+- O padrão de confusão, ou estrutura de aliases, para o delineamento é encontrado multiplicando-se através da relação de definição por cada efeito que pode ser estimado:
+
+\begin{eqnarray*}
+A + BD + CE + ABCDE\\
+B + AD + ABCE + CDE\\
+C + ABCD + AE + BDE \\
+D + AB + ACDE + BCD\\
+E + ABDE + AC + BCD\\
+BC + ACD + ABE + DE\\
+BE + ADE + ABC + CD
+\end{eqnarray*}
+
+## Construindo delineamentos fatoriais $2^{k-p}$
+
+- A construção de frações de um oitavo e superiores é semelhante.
+- Para construir uma fração de um oitavo de um delineamento $2^6$ ou $2^{6-3}$, comece com um projeto de base em $6 - 3 = 3$ fatores, depois acrescente três fatores adicionais, confundindo-os com interações.
+
+## Construindo delineamentos fatoriais $2^{k-p}$
+
+- Por exemplo, se escolhermos os geradores $D = AB$, $E = AC$ e $F = BC$, o código `R` usando `FrF2`  pode ser usado para gerar o delineamento.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+# library(FrF2)
+frac <- FrF2(nruns = 8,
+              nfactors = 6,
+              generators = c("AB", "AC", "BC"))
+frac
+```
+
+## Construindo delineamentos fatoriais $2^{k-p}$
+ 
+- Existem oito execuções nesse delineamento, e sete efeitos além da média geral podem ser estimados.
+- Cada efeito será confundido com sete interações.
+- Para descobrir quais interações são confundidas com cada efeito que pode ser estimado, primeiro encontre a relação de definição.
+    + Dos geradores $I = ABD = ACE = BCF$.
+    + As interações generalizadas de dois fatores são $ABD (ACE) = BCDE$, $ABD (BCF) = ACDF$ e $ACE (BCF) = ABEF$.
+    + A interação generalizada de três fatores é $ABD (ACE) (BCF) = DEF$. Combinando as equações encontradas entre os geradores e as interações generalizadas, a relação de definição é
+
+$$
+I = ABD = ACE = BCF = BCDE = ACDF = ABEF = DEF
+$$
+
+## Construindo delineamentos fatoriais $2^{k-p}$
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+y <- runif(8, 0, 1)
+aliases( lm( y~ (.)^6, data = frac))
+```
+
+# Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+
+## Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+
+- Há mais de uma alternativa ao selecionar os geradores para um delineamento $2^{k − p}$.
+- Por exemplo, para criar uma fração $1/4$ de um delineamento $2^{6}$, os geradores $E = ABC$ e $F = ABD$ poderiam ser usados, ou os geradores $E = AB$ e $F = ACD$ poderiam ser usados.
+
+## Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+
+- A primeira seleção resulta na relação de definição e na estrutura de aliases (somente para os principais efeitos) mostrados abaixo:
+
+\begin{eqnarray*}
+I = ABCE = ABDF = CDEF\\
+A + BCE + BDF + ACDEF\\
+B + ACE + ADF + BCDEF\\
+C + ABE + ABCDF +DEF\\
+D + ABCDE + ABF + CEF\\
+E + ABC + ABDEF + CDF\\
+F + ABCEF + ABD + CDE
+\end{eqnarray*}
+
+## Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+
+- O segundo conjunto de geradores resulta na relação de definição e estrutura de alias (apenas para os principais efeitos) abaixo:
+
+\begin{eqnarray*}
+I = ABE = ACDF = BCDEF\\
+A + BE + CDF + ABCDEF\\
+B + AE + ABCDF + CDEF\\
+C + ABCE + ADF + BDEF\\
+D + ABDE + ABF + CEF\\
+E + ABC + ACF + ABEF\\
+F + ABEF + ACD + BCDE
+\end{eqnarray*}
+
+## Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+
+- Ambos os geradores resultam em fatoriais fracionários de 16 execuções,
+    + Qual dos dois delineamentos devemos escolher?
+
+## Critérios para escolha dos geradores de delineamentos $2^{k − p}$
+    
+- O primeiro conjunto de geradores pode ser preferível, pois cada efeito principal é confundido com __interações de três fatores__ e __interações de ordem mais alta__.
+- O segundo conjunto de geradores resulta em um delineamento onde os efeitos principais $A$ e $B$ são confundidos com uma __interação de dois fatores__ cada.
+- O primeiro delineamento tem uma chance menor de confusão, pois o __princípio hierárquico de ordenação__ nos diz que as __interações de três fatores__ são __menos prováveis__ de serem importantes do que as interações de dois fatores.
+
+## Critérios
+
+- Três critérios gerais foram propostos para guiar a escolha entre os vários conjuntos possíveis de geradores para qualquer possível delineamento de $2^{k − p}$.
+    1. Critério da resolução.
+    2. Critério da aberração.
+    3. Critério dos efeitos claros.
+
+## Critério da resolução
+
+- Box e Hunter (1961) propuseram o __critério da resolução__.
+- A __resolução__ do delineamento é definida como o comprimento da palavra mais curta na relação de definição.
+
+$$
+I = ABCE = ABDF = CDEF
+$$
+
+- A palavra mais curta tem comprimento 4.
+    + Assim, é um delineamento de resolução IV.
+
+$$
+I = ABE = ACDF = BCDEF    
+$$
+
+- A palavra mais curta para a segunda relação de definição mostrada acima tem comprimento 3.
+    + É um delineamento de resolução III.
+- __Critério:__ se o número de execuções em dois delineamentos for o mesmo, o delineamento com a resolução mais alta será preferido.
+
+## Critério da resolução
+
+- Em um delineamento de resolução $R$, nenhum efeito envolvendo $i$ fatores é confundido com efeitos de ordem menor que $R - i$.
+- Em delineamentos com resolução V
+    + os efeitos principais são confundidos com interações de quatro fatores e interações de ordem mais alta
+    + as interações de dois fatores são confundidas com interações de três fatores e interações de ordem mais alta
+- Portanto, se todas as interações de três fatores e ordem mais alta puderem ser consideradas insignificantes, todos os efeitos principais e interações de dois fatores podem ser estimados a partir de um delineamento de resolução V.
+
+## Critério da resolução
+
+- Nos delineamentos da resolução IV
+    + os efeitos principais são confundidos com as interações de três fatores e ordem superior.
+- Em um delineamento de resolução III
+    + os efeitos principais são confundidos com interações de dois fatores.
+- Os delineamentos de resolução III são normalmente usados apenas em experimentos de triagem, onde o objetivo é descobrir quais fatores são importantes o suficiente para serem mais estudados em experimentos de acompanhamento.
+
+## Resolução e propriedade da projeção
+
+- A __propriedade da projeção__ de um fatorial fracionário é outro atributo que pode ser determinado a partir de sua resolução.
+- Em um delineamento de resolução $R$, qualquer subconjunto de fatores $k = R - 1$ formará um delineamento completo de $2^k$ (com possível replicação de algumas execuções).
+- Portanto, se um experimento for iniciado com um planejamento fatorial fracionário de resolução $R$ e apenas $R - 1$ dos fatores parecerem signicativos, os dados poderão ser reanalisados, incluindo apenas os fatores significativos $R - 1$.
+- Como o delineamento desses fatores é um fatorial completo, as interações de todas as ordens possíveis entre os fatores $R - 1$ podem ser examinadas.
+
+## Critério da aberração
+
+- Quando dois ou mais delineamentos, criados com diferentes conjuntos de geradores, têm o mesmo número de execuções e a mesma resolução, Fries e Hunter (1980) propuseram outro critério para decidir qual projeto é preferível.
+- Eles chamaram esse __critério da aberração mínima__.
+- Se o número de palavras de comprimento $r$ na relação de deﬁnição de um deselineamento é definido como $A_r$, então um delineamento $d_1$ é dito ter menos aberração do que um delineamento $d_2$ se $r$ é o menor inteiro tal que $A_r(d_1) \neq A_r(d_2)$ e $A_r(d_1) < A_r(d_2)$.
+
+## Critério da aberração
+
+- __Exemplo:__ se $d_1$ é um delineamento de resolução IV $2^{7-2}$ criado com os geradores $F = ABCD$ e $G = ABCE$, ele tem menos aberração do que o delineamento $d_2$, criado com os geradores $F = ABC$ e $G = ADE$.
+    1. Relação de definição para $d_1$ ($I = ABCDF = ABCEG = DEFG$) tem apenas uma palavra de comprimento 4 ($A_4(d_1) = 1$)
+    2. Relação de definição para $d_2$ ($I = ABCF = ADEG = BCDEFG$) tem duas palavras de comprimento 4 ($A_4(d_2) = 2$).
+
+## Critério da aberração
+
+- Para quaisquer $k$ e $p$ existe sempre um delineamento de aberração mínima de $2^{k − p}$ que tenha menos aberração do que qualquer outro delineamento de $2^{k − p}$.
+- __Critério:__ Para dois delineamentos com a mesma resolução, o delineamento de aberração mínima terá menos confusão dos efeitos principais com interações de ordem mais baixa e é geralmente preferido.
+
+## Critério dos efeitos claros
+
+- Um critério final que é útil ao selecionar os geradores para um delineamento $2^{k − p}$ é o número de __efeitos claros__.
+- Chen et al. (1993) definem um efeito como claro se nenhum dos seus aliases são efeitos principais ou interações de dois fatores.
+- Em alguns casos, um delineamento que não seja o delineamento de aberração mínima pode ter efeitos mais claros do que o delineamento de aberração mínima.
+    + __Exemplo:__ Wu e Hamada (2000) explicam que o delineamento $2^{6−2}$ com relação de definição $I = ABCE = ABDF = CDEF$ tem todos os seis efeitos principais claros, enquanto o delineamento $2^{6−2}$ com relação de definição $I = ABE = ACDF = BCDEF$ tem três efeitos principais ($C$, $D$, e $F$) claros junto com seis interações de dois fatores $BC$, $BD$, $BF$, $CE$, $DE$ e $EF$.
+- Nos casos em que se acredita que algumas interações de dois fatores sejam importantes _a priori_, o segundo delineamento pode ser preferido em relação ao primeiro.
+
+## Critério da aberração mínima no `R`
+
+- A função `FrF2` no pacote `FrF2` do `R` pode criar delineamentos de aberração mínima.
+- Se o usuário não especificar geradores ao chamar a função `FrF2`, como no exemplo anterior, a função `FrF2` selecionará automaticamente o conjunto de geradores que resultarão em um delineamento de aberração mínima.
+
+## Critério da aberração mínima no `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+des1 <- FrF2( 16, 8 )
+y <- runif( 16, 0, 1 )
+library(DoE.base)
+generators(des1)
+aliases( lm( y ~ (.)^3, data = des1) )
+```
+
+## Critério dos efeitos claros no `R`
+
+- A função `FrF2` também pode criar delineamentos com o máximo número de efeitos claros.
+- Por exemplo, a chamada `FrF2(32,9)` produz o delineamento de aberração mínima $2^{9−4}$ que tem nove efeitos principais claros e oito interações claras de dois fatores.
+- No entanto, a chamada `FrF2(32,9, MaxC2 = TRUE)` produz um delineamento $2^{9-4}$ que tem todos os nove efeitos principais e 15 interações claras de dois fatores.
+
+## Exemplo (*P. variotii*)
+
+- Considere o delineamento e análise de um fatorial fracionário de $2^{8−4}$.
+- __AlmeidaeSilva et al. (1998)__ realizaram um experimento para encontrar as condições ótimas para a cultura de *Paecilomyces variotii* (um fungo comumente encontrado no ar e em solos de países tropicais) em hidrolisado hemicelulósico de eucalipto com vistas a __produzir proteína microbiana__.
+
+## Exemplo (*P. variotii*)
+
+![](images/pt_1.png)
+
+## Exemplo (*P. variotii*)
+
+![](images/eucalipto2.jpg)
+
+## Exemplo (*P. variotii*)
+
+- Apenas 51,6% da massa seca total de madeira de eucalipto é utilizada pela indústria brasileira, enquanto o restante (galhos, folhas, pequenas árvores, etc.) é deixado nos campos.
+- A fração de hemicelulose deste resíduo pode ser facilmente removida por tratamento com ácido, e o hidrolisado resultante é rico em açúcares fermentáveis.
+- O fungo *P. variotii* foi selecionado entre 21 espécies de leveduras e fungos lamentosos por seu desempenho no hidrolisado de hemicelulose de eucalipto.
+- A biomassa proteica produzida por este fungo durante 72 horas de fermentação tem um perfil de aminoácido que é igual ou superior aos produtos convencionais utilizados para a __alimentação animal__.
+- O __objetivo dos experimentos__ foi estudar a influência de inibidores, nutrientes e tempo de fermentação no crescimento de biomassa produzido por P. variotii.
+
+## Exemplo (*P. variotii*)
+
+![](images/Tab6_5.png)
+
+## Exemplo (*P. variotii*)
+
+- Um planejamento fatorial fracionário $2^{8−4}$ foi utilizado com os geradores $E = BCD$, $F = ACD$, $G = ABC$ e $H = ABD$. 
+- Este é o delineamento de resolução IV de aberração mínima.
+    + Os efeitos claros neste delineamento são os oito efeitos principais.
+    + Há também sete sequências confundidas de interações de dois fatores que podem ser estimadas.
+
+\begin{eqnarray*}
+CG + DH + AB + EF\\
+AC + BG + DF + EH\\
+CF + AD + EG + BH\\
+CH + DG + AE + BF\\
+CD + GH + AF + BE\\
+BC + AG + DE + FH\\
+CE + FG + AH + BD
+\end{eqnarray*}
+
+## Exemplo (*P. variotii*)
+### Exercício
+
+1. Confira que este é um delineamento de resolução IV.
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+culture <- FrF2( 16, generators = c("BCD", "ACD", "ABC", "ABD"), randomize = FALSE)
+y1 <- c(5.75, 6.7, 11.12, 10.67, 4.92, 5.35, 2.81, 10.83, 6.08, 7.27, 9.68, 4.2, 3.9, 3.78, 11.57, 7.39)
+culture <- add.response(culture, y1)
+culture
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+modf <- lm( y1 ~ (.)^2, data = culture)
+summary(modf)
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+cfs <- coef(modf)[2:16]
+names <- names(cfs)
+halfnorm(cfs, names, alpha = .25, refline = TRUE)
+```
+
+## Exemplo (*P. variotii*)
+
+- Os autores do artigo acharam que o experimento lhes dava evidências de que o fator A (o inibidor) tinha pouco efeito, e confirmaram isso citando outros relatórios publicados.
+- Eles também sentiram que o experimento mostrou que os efeitos principais D (sulfato de magnésio) e F (nitrito de potássio) eram insignificantes.
+- No entanto, devido ao confundimento de interações de dois fatores com o segundo maior efeito (em valor absoluto) e ao fato de que nada se destacou claramente no gráfico _half-normal_, não foi possível tirar conclusões definitivas.
+
+## Exemplo (*P. variotii*)
+
+- Eles decidiram executar outro experimento de acompanhamento $2^{5-1}$ de resolução V com os fatores B, C, E, G e H com relação de deinição $I = BCEGH$ e os fatores A, D e F mantidos constantes no ponto médio dos níveis utilizados no primeiro experimento.
+- Este foi um delineamento de 16 execuções, mas se fosse possível presumir com segurança que os principais efeitos A, D e F eram insignificantes no primeiro conjunto de dezesseis experimentos, então __oito dos dezesseis testes__ para o experimento de acompanhamento proposto já estavam concluídos.
+    + A seguir, as execuções 3, 4, 7, 8, 11, 12, 15 e 16 já foram realizadas no experimento anterior.
+    
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+culture2 <- FrF2( 16, 5, factor.names = c("B", "C", "E", "G", "H"), randomize = FALSE)
+y <- c(3.37, 3.55, 3.78, 2.81, 5.53, 10.43, 5.35, 11.57, 2.93, 7.23, 3.9, 10.83, 11.69, 10.59, 4.92, 7.39)
+culture2 <- add.response( culture2, y )
+culture2
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+moda <- lm(y ~ (.)^2, data = culture2)
+summary(moda)
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+cfs <- coef(moda)[2:16]
+effects <- cfs
+names <- names(cfs)
+halfnorm(cfs, names, alpha = .2, refline = FALSE)
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+RiceBran <- 10*((as.numeric(culture2$B)-1.5 ) / .5) + 20
+FermTime <- 12*((as.numeric(culture2$H)-1.5) / .5) + 84
+interaction.plot(FermTime, RiceBran, culture2$y, type = "b", pch=c(18,24,22), leg.bty="o",
+                 main="Interaction Plot for Fermentation Time and Level of Rice Bran",
+                 xlab = "Fermentation Time(hrs)", ylab = "Biomass")
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+Urea <- 1*((as.numeric(culture2$C)-1.5 ) / .5) + 1
+AmonSulf <- 1*((as.numeric(culture2$E)-1.5) / .5) + 1
+interaction.plot(AmonSulf, Urea, culture2$y, type = "b", pch=c(18,24,22), leg.bty="o",
+                 main="Interaction Plot of Urea and Ammonium Sulfate",
+                 xlab = "Ammonium Sulfate(g/L)", ylab = "Biomass")
+```
+
+## Exemplo (*P. variotii*): `R`
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+Urea <- 1*((as.numeric(culture2$C)-1.5 ) / .5) + 1
+FermTime <- 12*((as.numeric(culture2$H)-1.5) / .5) + 84
+interaction.plot(FermTime, Urea, culture2$y, type = "b", pch=c(18,24,22), leg.bty="o",
+                 main="Interaction Plot of Fermentation Time and Urea",
+                 xlab = "Fermentation Time(hrs)", ylab = "Biomass")
+```
+
+## Princípio da hereditariedade do efeito
+
+- Embora seja possível ter uma interação entre dois fatores que não tenham efeitos principais significativos (como o exemplo mostrado anteriormente), isso é raro.
+- No estudo de Li et al. (2006) de 113 experimentos fatoriais publicados, isso aconteceu menos de 1% das vezes. - Normalmente, as interações ocorrem entre fatores em que pelo menos um dos dois efeitos principais é significativo.
+- Isto foi descrito como o __princípio da hereditariedade do efeito__ por Hamada e Wu (1992).
+
+## Exemplo (*P. variotii*)
+
+- Neste experimento, uma vez que a interação de dois fatores entre o tempo de fermentação e a uréia é confundida com a interação de três fatores entre farelo de arroz, sulfato de amônio e fosfato de sódio ($CH = BEG$), e todos os três últimos fatores têm efeitos principais significantes, é possível que o grande efeito rotulado como CH no gráfico normal seja, na verdade, a interação de três fatores.
+- Nesse caso, o princípio da hereditariedade do efeito pode ofuscar o princípio hierárquico de ordenação.
+
+## Exemplo (*P. variotii*)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+culture3 <- culture2[culture2$B == -1]
+SodPhos <- 1*((as.numeric(culture3$G)-1.5 ) / .5) + 1
+AmonSulf <- 1*((as.numeric(culture3$E)-1.5) / .5) + 1
+interaction.plot(AmonSulf, SodPhos, culture3$y, type = "b", pch=c(18,24,22), leg.bty="o",
+                 main="Rice Bran = 10g/L",
+                 xlab = "Ammonium Sulfate(g/L)", ylab = "Biomass")
+```
+
+## Exemplo (*P. variotii*)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, echo=FALSE}
+culture4 <- culture2[culture2$B == 1]
+SodPhos <- 1*((as.numeric(culture4$G)-1.5 ) / .5) + 1
+AmonSulf <- 1*((as.numeric(culture4$E)-1.5) / .5) + 1
+interaction.plot(AmonSulf, SodPhos, culture4$y, type = "b", pch=c(18,24,22), leg.bty="o",
+                 main="Rice Bran = 30g/L",
+                 xlab = "Ammonium Sulfate(g/L)", ylab = "Biomass")
+```
+
+## Exemplo (*P. variotii*)
+
+- Pode-se observar que a adição de 2,0 g/L de sulfato de amônio ao meio de crescimento aumenta a biomassa produzida em geral.
+- No entanto, este efeito é maior quando há 30 g/L de farelo de arroz e nenhum fosfato de sódio no meio de crescimento.
+- O resultado ótimo parece ser com um tempo de fermentação de 72 horas, 30 g/L de farelo de arroz, 2,0 g/L de sulfato de amônio e 0,0 g/L de uréia no meio de crescimento.
+    - Nesta combinação, a produção de biomassa foi estimada em 11,57 g/L.
+    
+## Recapitulando
+
+- Os pesquisadores começaram com oito fatores com dois níveis cada.
+    + Seria necessário $2^8 = 256$ experimentos para completar um experimento fatorial completo.
+- O princípio de dispersão de efeito e o princípio hierárquico de ordenação sugerem que provavelmente este experimento não é necessário.
+    + Com oito fatores, é duvidoso que todos os efeitos principais e um grande número de interações seriam significativos.
+
+## Recapitulando
+
+- Uma série de dois experimentos fatoriais fracionários, empregando um total de 24 execuções, revelou que quatro dos principais efeitos são significativos e no máximo três interações.
+- Gráficos de interação ajudaram a fazer uma interpretação dos resultados e a identificação de níveis de fatores para resultados ótimos.
+= A interpretação das interações foi crítica para a identificação de resultados ótimos e nunca teria sido descoberta se um plano de um fator por vez tivesse sido utilizado.
+
+# Fatoriais fracionários aumentados
+
+## Fatoriais fracionários aumentados
+
+- Experimentos adicionais podem ser realizados para __"desconfundir"__ certos efeitos principais ou interações e aumentar as chances de descobrir o modelo correto.
+
+## Aumentando através de delineamentos dobrados ou imagem espelhada
+
+- Em um delineamento fatorial fracionário de resolução III, os efeitos principais estão confundidos com interações de dois fatores.
+    + Mais de um efeito significativo: devido aos efeitos principais ou interações de dois fatores?
+
+## Aumentando através de delineamentos dobrados ou imagem espelhada
+
+- __Exemplo:__ em um delineamento de resolução III com oito execuções e seis fatores (designado por $2_{III}^{6-3}$) com geradores $D=AB$, $E=AC$, $F=BC$, a relação definidora é
+
+$$
+I = ABD = ACE = BCF = DEF = BCDE = ACDF = ABEF
+$$
+
+## Aumentando através de delineamentos dobrados ou imagem espelhada
+
+- Suponha que $B$  e $D$ pareçam significativos.
+- Princípio da hereditariedade do efeito nos diz que:
+    + $D$ é confundido com $AB$ e $EF$, logo $B$ e $AB$ podem ser os efeitos significantes.
+    + $B$ é confundido com $AD$ e $CF$, logo $D$ e $AD$ podem ser os efeitos significantes.
+- Sem experimentos adicionais não há como determinar qual das três explicações dos dados está correta.
+
+## Aumentando através de delineamentos dobrados
+
+- Uma maneira de quebrar o confundimento entre os efeitos principais e as interações de dois fatores é executar um conjunto adicional de experimentos.
+    + O mesmo conjunto que o primeiro, exceto que os níveis dos fatores codificados de um ou mais fatores foram revertidos.
+    + Este conjunto é chamado de fração dobrada (_foldover_; _fold-over_; complementar; alternativa).
+
+## Aumentando através de delineamentos dobrados
+
+- __No exemplo__, os sinais foram revertidos para o fator $B$.
+
+$$
+I = -ABD = ACE = -BCF = DEF = -BCDE = ACDF = -ABEF
+$$
+
+- Combinando as duas frações temos
+
+$$
+I = ACE = DEF = ACDF
+$$
+
+## Aumentando através de delineamentos dobrados
+
+![](images/Tab6_6.png)
+
+## Aumentando através de delineamentos dobrados
+
+- O novo delineamento ainda é um delineamento de resolução III, mas $B$ é um efeito claro e $D$ não é mais confundido com $AB$.
+
+## Aumentando através de delineamentos de imagem espelhada
+
+- __Delineamento de imagem espelhada:__ se um delineamento de resolução III for aumentado com outro delineamento de resolução III, com os níveis de fatores codificados revertidos para __todos os fatores__, o delineamento combinado terá resolução IV.
+    + Todos os efeitos principais serão claros de interações de dois fatores.
+
+## Fatoriais fracionários aumentados (`R`)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+des <- FrF2(8, 6, generators = c("AB", "AC", "BC"), randomize = FALSE)
+des
+```
+
+## Fatoriais fracionários aumentados (`R`)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+desa <- fold.design(des, columns = c(2)) # vetor de caracteres dá erro
+desa
+```
+
+## Fatoriais fracionários aumentados (`R`)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+desa <- fold.design(des, columns = c(4))
+desa
+```
+
+## Fatoriais fracionários aumentados (`R`)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+desa <- fold.design(des, columns = c(2,4))
+desa
+```
+
+## Fatoriais fracionários aumentados (`R`)
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+desa <- fold.design(des, columns = 'full')
+desa
+```
+
+## Experimentação sequencial
+
+- Ao criar um delineamento de resolução III pela combinação de um delineamento de resolução III e seu espelho é possível adicionar um __fator de bloco__ que considera qualquer diferença na resposta média para dois conjuntos de experimentos.
+    + Consequentemente, os experimentos podem ser realizados de __maneira sequencial__.
+
+## Experimentação sequencial
+
+- Delineamento de resolução III original é realizado e os dados são analisados.
+    + Se existir apenas um efeito que parece significante, __não há necessidade__ de experimentos adicionais.
+    + Se dois ou mais fatores parecem ser significantes, a fração espelhada pode completar o delineamento para clarear todos os efeitos principais das interações de dois fatores.
+- O fator adicional __(bloco/fração)__ pode considerar qualquer mudança no ambiente experimental.
+
+## Exemplo
+
+- Considere dois delineamentos usados para __otimizar um filtro de água potável__.
+- Altas concentrações de arsênico são relatadas em águas subterrâneas em países como Argentina, Bangladesh, Chile, China, Índia, Japão, México, Mongólia, Nepal, Polônia, Taiwan, Vietnã e algumas partes dos Estados Unidos.
+    + Estudos mostram que pessoas expostas a altos níveis de arsênico são propensas a desenvolver várias formas de câncer.
+- Areia revestida com óxido de ferro (IOCS) tem sido usada para remover o arsênico das águas subterrâneas em sistemas simples de filtragem doméstica em Bangladesh.
+- Ramakrishna et al. (2006) realizaram um estudo com o objetivo de estudar sistematicamente os efeitos de vários fatores na taxa de remoção de arsênico por IOCS.
+
+## Exemplo
+
+- Os experimentos consistiram em fazer uma solução de revestimento composta por nitrato férrico e hidróxido de sódio, com adição de NAOH para ajustar o pH.
+- Esta solução foi envelhecida e depois vertida sobre areia limpa e seca e misturada. - A mistura foi seca durante 12 horas e depois usada para filtrar soluções aquosas misturadas com uma concentração conhecida de arsênico.
+- A resposta foi a porcentagem de arsênico removida.
+
+## Exemplo
+
+![](images/Tab6_7.png)
+
+## Exemplo
+
+- Um delineamento fatorial $2^{7−4}_{III}$, com geradores $D = AB$, $E = AC$, $F = BC$ e $G = ABC$, foi utilizado para o primeiro conjunto de experimentos.
+
+![](images/Tab6_8.png)
+
+## Para casa
+
+- Analise esta fração do delineamento.
+- Se exisitirem, quais efeitos são significantes?
+- Considere aumentar o delineamento com a sua fração espelhada.
+    + Apresente o delineamento aumentado.
+- Utilize as seguintes repostas (ordem padronizada):
+
+$$
+y = (16,20; 52,85; 9,05; 31,1; 7,40; 9,90; 10,85; 48,75)
+$$
+
+## É o final?
+
++ Delineamentos de Plackett-Burman.
++ Arranjos ortogonais.
+
+![](images/stat_caco.gif)

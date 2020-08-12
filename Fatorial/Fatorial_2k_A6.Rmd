@@ -1,0 +1,392 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Delineamentos fatoriais com dois níveis
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+# Delineamentos fatoriais com dois níveis
+
+## Introdução
+
+- Conforme fatores adicionais são acrescentados a um planejamento fatorial, o número de combinações de tratamento no delineamento aumenta exponencialmente.
+- O último exemplo que vimos continha quatro fatores e 36 combinações de tratamento.
+- Se houvesse cinco fatores em um delineamento, cada um com quatro níveis, o número de combinações de tratamento seria $4 \times 4 \times 4 \times 4 \times 4 = 4^5 = 1024$.
+- É fácil perceber que não seriam necessários muitos fatores para tornar o projeto __impraticável__.
+
+## Introdução
+
+- Em outras palavras, ele teria muitas combinações de tratamento para executar em um período de tempo razoável.
+- No entanto, é __melhor reduzir o número de níveis__ de cada fator e permanecer com o planejamento fatorial __usando todos os fatores__ do que reverter para experimentos um a um ou dois de cada vez e perder a eficiência de experimentos fatorial.
+- Com experimentos separados, a capacidade de detectar interações de ordem superior e a capacidade de detectar interações entre qualquer par de fatores é perdida.
+
+## Introdução
+
+- Se cinco fatores em um planejamento fatorial fossem estudados com apenas dois níveis cada, o número de combinações de tratamento seria reduzido para $2^5 = 32$.
+- Por esta razão, os delineamentos fatoriais com dois níveis para cada fator, ou fatoriais de dois níveis, são populares.
+- Uma abreviatura para um fatorial de dois níveis com $k$ fatores é um __delineamento $2^k$__.
+
+## Introdução
+
+- Em fatoriais de dois níveis, se um fator tiver níveis quantitativos, os dois níveis são denotados simbolicamente por $(-)$ e $(+)$.
+    + $(-)$ representa o nível __mais baixo__ que o pesquisador consideraria.
+    + $(+)$ representa o nível __mais alto__ que o pesquisador consideraria.
+    + As quantidades altas e baixas são geralmente distanciadas o máximo possível, de modo a acentuar o sinal ou a diferença na resposta entre os dois níveis.
+- Se um fator tem níveis qualitativos, as designações $(-)$ e $(+)$ são arbitrárias, mas os dois níveis escolhidos normalmente seriam dois que o experimentador acredita que devam resultar na diferença máxima na resposta.
+
+## Efeitos principais e coeficientes de regressão
+
+O modelo para um experimento fatorial com três fatores pode ser escrito como:
+
+$$
+y_{ijkl} = \mu + \alpha_i +\beta_j + \gamma_k + \alpha\beta_{ij} + \alpha\gamma_{ik} + \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \epsilon_{ijkl},
+$$
+em que $\alpha_i$, $\beta_j$, e os demais, são efeitos tais como definimos anteriormente.
+
+## Efeitos principais e coeficientes de regressão
+
+- No caso em que cada fator tem apenas dois níveis representados por $(-)$ e $(+)$, $i$, $j$, $k$ e $l$ podem ser substituídos por um $(-)$ ou $(+)$ e $\alpha_{-} = -\alpha_{+}$.
+    + $\alpha_{-} = \bar{y}_{-...} -  \bar{y}_{....}$
+    + $\alpha_{+} = \bar{y}_{+...} -  \bar{y}_{....}$
+    + $\bar{y}_{....} = (\bar{y}_{-...} +  \bar{y}_{+...})/2$
+- Uma igualdade semelhante será verdadeira para todos os efeitos e interações.
+- Como os dois efeitos para cada fator são o mesmo valor com sinais diferentes, um modo mais compacto de definir os efeitos principais para um fatorial de dois níveis é $E_A = \bar{y}_{+...} -  \bar{y}_{-...}$.
+
+## Efeitos principais e coeficientes de regressão
+
+![efeito_a](images/efeito_A.png)
+
+## Efeitos principais e coeficientes de regressão
+
+- A inclinação de regressão $\beta_A$ mostrada no lado direito da figura anterior é a __mudança vertical na resposta média__ para uma mudança de __uma unidade__ (ou seja, de $0$ a $+1$) no nível de fator em __unidades simbólicas__.
+- Portanto, a inclinação, $\beta_A$, é apenas metade do efeito $E_A$, ou a diferença em duas médias dividida por 2.
+
+## Efeitos principais e coeficientes de regressão
+
+- Ordenação (padrão) de Yates.
+    + __Para casa:__ pesquisar sobre o __algoritmo de Yates__.
+    
+![efeito_a2](images/ordem_de_yates.png)
+
+## Efeitos principais e coeficientes de regressão
+
+- Uma das propriedades desejáveis de um plano fatorial $2^k$ é que os efeitos do fator não são obscurecidos por mudanças planejadas em outros fatores.
+    + Na lista de experimentos para o projeto $2^k$, mostrada na figura anterior, isso é evidente pelo fato de que, no alto nível de cada fator, há um número igual de altos e baixos níveis de todos os outros fatores.
+    + Também no nível baixo de cada fator, há um número igual de níveis altos e baixos de todos os outros fatores.
+- Assim, o efeito de um fator, ou diferença na resposta média entre o nível alto e baixo desse fator, representa o efeito desse fator sozinho, porque a influência de todos os outros fatores foi calculada.
+    + Matematicamente esta propriedade é chamada ortogonalidade.
+
+## Interações
+
+![efeito_ab](images/efeito_AB.png)
+
+## Interações
+
+- $X_A\cdot X_B$
+    + $(-)(-) = +$
+    + $(-)(+) = -$
+    + $\ldots$
+    
+![efeito_ab2](images/ordem_de_yates2.png)
+
+## Interações
+
+### Modelo s regressão
+
+\begin{eqnarray*}
+y &=& \beta_0 + \beta_AX_A + \beta_BX_B + \beta_CX_C\\
+&&\quad + \beta_{AB}X_AX_B + \beta_{AC}X_AX_C + \beta_{BC}X_BX_C\\
+&&\quad + \beta_{ABC}X_AX_BX_C + \epsilon.
+\end{eqnarray*}
+
+## Exemplo de um experimento fatorial $2^3$
+
+- Os estudantes de um laboratório de eletrônica da universidade muitas vezes reclamavam que as medições de voltagem feitas em um circuito construído em sala de aula eram inconsistentes.
+- O assistente de ensino do laboratório (TA) decidiu realizar uma experiência para tentar identificar a fonte da variação.
+- Os três fatores que ele variou foram:
+    + $A$ = a temperatura ambiente onde a medição de voltagem foi feita.
+    + $B$ = o tempo de aquecimento do voltímetro.
+    + $C$ = o tempo que a energia foi conectada ao circuito antes da medição ser feita. - A resposta foi a tensão medida em milivolts.
+
+## Exemplo de um experimento fatorial $2^3$
+
+- Os dois níveis para o fator $A$ foram:
+    + $-$ = 22ºC (temperatura ambiente).
+    + $+$ = 32ºC (próximo da temperatura em alguns ambientes industriais).
+- Um forno foi usado e o circuito foi autorizado a estabilizar por pelo menos cinco minutos antes das medições.
+- As configurações para os fatores $B$ e $C$ foram:
+    + $-$ = 30 segundos ou menos
+    + $+$ = 5 minutos.
+- O mesmo circuito foi medido para cada combinação de fatores de tratamento, de modo que a unidade experimental era nada mais do que a tentativa ou o momento no qual a combinação particular de níveis de fator de tratamento era aplicada para fazer a medição.
+- Duas réplicas de cada uma das oito combinações experimentais foram executadas em uma ordem aleatória para ajudar a evitar vieses.
+
+## Exemplo de um experimento fatorial $2^3$
+
+![exemplo](images/exemplo_2k.png)
+
+## Exemplo de um experimento fatorial $2^3$
+
+### Níveis dos fatores codificados
+
+$$
+X_A = \left(\frac{A - 27}{5}\right).
+$$
+
+- A função `contr.FrF2` do pacote `DoE.base` realiza esta codificação no `R`.
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+data(volt)
+head(volt)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(FrF2)
+modv <- lm( y ~ A*B*C, data = volt,
+            contrast = list(A = contr.FrF2,
+                            B = contr.FrF2,
+                            C = contr.FrF2))
+summary(modv)
+```
+
+## Exemplo
+
+- O efeito do fator $A$ é o dobro do coeficiente de regressão mostrado na saída do `R`.
+    + $E_A = 2 \times \hat{\beta}_A = 2(−16.8125) = −33.625$.
+- Isso significa que, em média, quando a temperatura ambiente é aumentada de 22ºC para 32ºC, a medição de tensão diminuirá em 33,6 milivolts.
+- __Pergunta:__ esta conclusão é válida?
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+C_Warmup <- volt$C
+with(volt, (interaction.plot(A, C_Warmup, y, type = "b",
+                             pch = c(24,22), leg.bty = "o",
+                             xlab = "Temperature",ylab = "Voltage")))
+```
+
+## Exemplo (R)
+
+```{r eval=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+IAPlot(modv, select = c(1,3))
+```
+
+## Exemplo
+
+- A ortogonalidade do delineamento permite uma equação de predição reduzida
+
+\begin{eqnarray*}
+\hat{y} &=& 666.563 - 16.813\left(\frac{Temp - 27}{5}\right)\\
+&&\quad - 6.688\left(\frac{CWarm - 2.75}{2.25}\right)\left(\frac{Temp - 27}{5}\right)
+\end{eqnarray*}
+
+## Exemplo (R)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+x1 <- seq(22, 32, by = 0.01)
+x2 <- seq(0.5, 5, by = 0.01)
+y <- matrix(0, nrow=length(x1), ncol=length(x2))
+for (i in 1:length(x1)){
+  for (j in 1:length(x2)){
+    y[i,j] <- 668.563 − 16.813*((x1[i]-27)/5) - 6.688*((x2[j]-2.75)/2.25)*((x1[i]-27)/5)
+  }
+}
+
+persp(x1, x2, y,
+      theta = 40, phi = 30, expand = 0.5,
+      col = "lightblue", ticktype = "detailed",
+      xlab = expression(x[A]), ylab = expression(x[B]), zlab = "y")
+```
+
+## Exemplo (R)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+contour(x1, x2, y,
+        main = "Gráfico de contorno",
+        xlab = expression(x[A]),
+        ylab = expression(x[B]),
+        col = "#005dc4", lwd = 2)
+```
+
+# Análise com uma replicação por célula
+
+## Análise com uma replicação por célula
+
+- Delineamentos fatoriais com uma replicação por célula são usualmente chamados de __delineamentos sem replicação__.
+- Quando há poder adequado para detectar efeitos com $n = 1$ replicação por célula, ou combinação de tratamento, não há necessidade de dobrar o trabalho experimental replicando cada experimento.
+- No entanto, em um delineamento fatorial não replicado, surge um problema já discutido.
+    + __Pergunta:__ qual é este problema?
+    
+## Análise com uma replicação por célula
+
+- Haverá zero graus de liberdade para calcular $SS_E$ e, portanto, nenhum teste $F$ para os efeitos.
+- No entanto, quando há múltiplos fatores em um fatorial de dois níveis, existem __ferramentas gráficas simples__ que permitem a detecção dos efeitos significativos.
+- Como nem todos os efeitos principais e interações em um experimento de $2^k$ devem ser significativos, os níveis de fatores insignificantes e combinações de níveis definidos pelas interações insignificantes são __equivalentes__ a ter replicações no delineamento.
+- Ferramentas gráficas permitem que os efeitos significativos (ou coeficientes de regressão equivalentes) sejam reconhecidos.
+
+## Exemplo
+
+![ex_semreplica](images/exemplo_2k_semreplica.png)
+
+## Exemplo
+
+- A figura anterior é um diagrama de um __processo químico contínuo__. 
+1. Neste processo, correntes contínuas de dois reagentes, A e B, são combinadas em uma junção chamada de mistura-T, onde elas começam a reagir.
+2. A mistura então flui para um reator e é combinada com solvente e um catalisador e a reação é completada.
+3. O resultado da reação flui para um tanque separador, onde o produto final flutua para o topo em uma fase de solvente, enquanto o catalisador e a água vão para o fundo do tanque.
+4. O catalisador é concentrado e enviado de volta ao reator, enquanto o produto, subprodutos e solvente são levados para uma coluna de destilação onde o produto é removido e o solvente é reciclado para o reator.
+
+## Exemplo
+
+- Um dos problemas vivenciados nesse processo foi a produção de __subprodutos__ (resíduos).
+- Com o tempo, esses resíduos entupiriam o reator e forçariam o desligamento do processo para limpeza.
+- Também exigiu uma etapa adicional do processo para purificar o produto final.
+- Os engenheiros decidiram conduzir experimentos para ver se poderiam __aumentar a conversão percentual__, o que __reduziria a quantidade de subprodutos__.
+
+## Exemplo
+
+- Os fatores que eles achavam que poderiam afetar a conversão percentual são:
+    + $A$: Excesso de Reagente A (sobre quantidade molar)
+    + $B$: Concentração do Catalisador
+    + $C$: Pressão no Reator
+    + $D$: Temperatura da Mistura Revestida-T
+
+## Exemplo
+
+- __Dois níveis__ de cada fator foram escolhidos.
+    + Estes foram espalhados tão largamente quanto os engenheiros julgaram viável, a fim de maximizar a chance de detectar os efeitos dos fatores com apenas dois níveis.
+- Durante a experimentação, os níveis dos fatores seriam alterados após um intervalo de tempo fixo.
+- A unidade experimental para isto seria os reagentes particulares, o catalisador e o solvente que entrava na zona de reação durante uma determinada rodada.
+- A resposta  $Y$ seria a __conversão percentual__ calculada a partir do produto produzido durante uma rodada.
+- Foi estabelecido que um delineamento sem replicação seria suficiente para detectar os efeitos.
+
+## Exemplo
+
+![ex_semreplica2](images/exemplo_2k_semreplica2.png)
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+data(chem)
+head(chem)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+modf <- lm( y ~ A*B*C*D, data = chem)
+anova(modf)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+summary(modf)
+```
+
+## Exemplo
+
+- Os coeficientes de regressão para os efeitos principais $A$ e $B$, juntamente com a interação $AB$, são os maiores efeitos, mas um gráfico deve ser usado para determinar quais são significativos.
+- Os efeitos em um delineamento fatorial de dois níveis são a diferença de duas médias.
+- Se as mudanças nos níveis dos fatores não causarem uma mudança na resposta, o efeito será apenas a diferença nas médias dos dados aleatórios (devido a flutuações aleatórias no erro experimental).
+
+## Exemplo
+
+- Se nenhum dos fatores ou interações causar mudanças na resposta, todo o __conjunto de efeitos__, ou __coeficientes de regressão__, devem aparecer como uma amostra da distribuição normal com média zero devido ao Teorema Central do Limite.
+- Portanto, se fizermos um gráfico de probabilidade normal dos efeitos, os __efeitos insignificantes__ deverão estar ao longo de uma linha reta e quaisquer __efeitos significativos__ ou interações deverão aparecer como valores discrepantes no gráfico.
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+fullnormal(coef(modf)[-1], alpha = 0.025)
+abline(h =  seq(-5, 15, by = 5), col = "lightgrey", lty = 3)
+abline(h =  1.96 * c(-1, 1), col = "red", lty = 3)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+LGB( coef(modf)[-1], rpt = FALSE)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+LGB( coef(modf)[-1], rpt = TRUE, plt = FALSE)
+```
+
+## Exemplo
+
+- __Pergunta:__ o que podemos concluir?
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+with(chem, 
+     (interaction.plot( A, B, y, type = "b",
+                        pch = c(18,24),
+                        main = "Interaction Plot of Catalyst by Excess A",
+                        xlab = "Excess Reactant A",
+                        ylab = "Percent Conversion")))
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(BsMD)
+LenthPlot(modf, main = "Lenth Plot of Effects")
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+X <- model.matrix(modf)[ , 2:16]
+y <- chem$y
+Chem.BsProb <- BsProb( X = X, y = y,
+                       blk = 0, mFac = 15,
+                       mInt = 1, p = 0.2,
+                       g = 2.49, ng = 1,
+                       nMod = 10)
+summary(Chem.BsProb)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+plot( Chem.BsProb, main = "Bayes Plot of Effects" )
+```
+
+## Veja também
+
+- __R Commander:__ jlawson.byu.edu
+- Por que não utilizamos o teste de Tukey com 1 grau de liberdade para testar a suposição de não aditividade (ausência de interação)?
+
+![statcaco](images/stat_caco.gif)

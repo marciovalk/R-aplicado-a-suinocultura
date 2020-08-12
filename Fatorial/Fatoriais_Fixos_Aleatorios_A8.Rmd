@@ -1,0 +1,215 @@
+---
+title: |
+  | MAT02014 - Planejamento de Experimentos II
+  | Delineamentos com fatores fixos e aleatórios
+author: |
+  | Rodrigo Citton P. dos Reis
+  | `rodrigocpdosreis@gmail.com`
+  |
+  | Universidade Federal do Rio Grande do Sul
+  | Instituto de Matemática e Estatística
+  | Departamento de Estatística
+date: |
+  | Porto Alegre, 2018
+output:
+  revealjs::revealjs_presentation:
+    css: estilo.css
+    theme: night
+    highlight: kate
+    center: true
+    self_contained: false
+    reveal_plugins: ["chalkboard","zoom"]
+  beamer_presentation:
+    theme: "AnnArbor"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+    includes: 
+      in_header: mystyle.tex
+    keep_tex: true
+---
+
+## Introdução
+
+- Algumas vezes, nos delineamentos fatoriais cruzados, (efeitos de) fatores aleatórios são também introduzidos no modelo __pela forma que o experimento é conduzido__.
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+![](images/algodao.jpg)
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+![](images/algodao2.jpg)
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+- Experimento comparando diferentes __formulações__ e __métodos de aplicação__ de um pesticida às folhas de plantas de algodão.
+- O objetivo era __aumentar a quantidade de pesticida ativo__ restante nas folhas da planta de algodão uma semana após a aplicação.
+- O pesticida que está sendo estudado degrada na luz solar e um certo aditivo para a formulação retarda esse processo.
+- Diferentes técnicas de aplicação podem diferir na quantidade de pesticida entregue às folhas da planta.
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+- Os __fatores de tratamento__ neste experimento foram:
+    + __duas formulações__ diferentes do pesticida;
+    + __dois métodos de aplicação__ diferentes;
+- Experimento fatorial $2^2$.
+- A __unidade experimental__ era uma fileira de 20 pés de algodão chamada de parcela, porque essa era uma área conveniente dentro da qual a aplicação de pesticidas podia ser controlada.
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+![](images/algodao_parcela.jpg)
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+- Oito parcelas foram selecionadas e duas foram aleatoriamente designadas para cada uma das quatro combinações de tratamento, resultando em __duas repetições__ por combinação de tratamento.
+- Uma semana após a aplicação, os pesquisadores estavam prontos para determinar o resíduo de pesticida remanescente nas folhas da planta.
+- No entanto, havia muito material vegetal em um lote inteiro para ser enviado ao laboratório para análise.
+- Portanto, __duas amostras de folhas__ em uma quantidade conveniente para análise laboratorial de resíduos de pesticidas foram selecionadas de cada parcela.
+
+## Exemplo
+### Resíduos de pesticidas em plantas de algodão
+
+![](images/Tab_misto.png)
+
+## Exemplo
+
+- A formulação, a técnica de aplicação e sua interação são __fatores fixos__ porque os pesquisadores estavam interessados em comparar a resposta média entre os níveis desses fatores.
+- A parcela, por outro lado, é um __fator aleatório__ que representa diferenças em unidades experimentais.
+    + Está aninhado nas combinações de formulação por técnica de aplicação. - Não há interesse em comparar unidades experimentais dentro de cada combinação de formulação e aplicação.
+    + Em vez disso, múltiplas parcelas por combinação de tratamento foram incluídas no delineamento, de modo que a __variação causada por diferentes parcelas__ pudesse ser estimada e usada para avaliar a significância dos efeitos de formulação e aplicação.
+
+## Exemplo
+
+- As amostras replicadas (as folhas de algodão; subamostras) de cada parcela foram por conveniência na condução do experimento.
+- A maneira mais simples de analisar os dados seria calcular a média das duas subamostras e proceder conforme uma análise de delineamentos fatoriais cruzados.
+- No entanto, se as subamostras puderem ser consideradas independentes e for desejável incluir todos os dados na análise, um termo adicional para amostra deve ser incluído no modelo.
+- Amostra é outro __efeito aleatório__, uma vez que não há interesse específico em comparar a resposta entre as duas amostras de cada parcela.
+
+## Exemplo
+
+![](images/dasmodel.jpg)
+
+$$
+y_{ijkl} = \mu + \alpha_i + \beta_j + \alpha\beta_{ij} + p_{(ij)k} + \epsilon_{ijkl},
+$$
+
+em que $y_{ijkl}$ é o resíduo de pesticida encontrado na $l$-ésima amostra retirada da $k$-ésima parcela, tratado com nível de formulação $i$ e técnica de aplicação $j$.
+
+## Exemplo
+
+- Em geral $i = 1, \ldots,a, j = 1,\ldots, b, k = 1,\ldots, r$ e $l = 1,\ldots, s$.
+    + Neste exemplo específico, $a = 2$, $b = 2$, $r = 2$, e $s = 2$;
+    + $\alpha_i$ é o efeito da formulação;
+    + $\beta_j$ é o efeito da aplicação;
+    + $\alpha\beta_{ij}$ é o efeito de interação;
+    + $p_{(ij)k}$ é o efeito de parcela aleatória;
+    + $\epsilon_{ijkl}$ é o efeito da amostra aleatória.
+    
+## Exemplo (modelo na forma matricial)
+
+![](images/dasmodel.jpg)
+
+$$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\gamma} + \boldsymbol{\epsilon},
+$$
+
+## Exemplo (modelo na forma matricial)
+
+![](images/dasmodel_misto.png)
+
+## Exemplo (modelo na forma matricial)
+
+- $\boldsymbol{\beta}$ é um vetor de efeitos fixos.
+- $\boldsymbol{\gamma}$ e $\boldsymbol{\epsilon}$ representam vetores de efeitos aleatórios.
+- $\boldsymbol{\gamma}\sim MVN(\mathbf{0}, \sigma^2_p\mathbf{I}_{abr})$ independente de $\boldsymbol{\epsilon}\sim MVN(\mathbf{0}, \sigma^2\mathbf{I}_{abrs})$.
+    + $\mathbf{y}\sim MVN(\mathbf{X}\boldsymbol{\beta}, \mathbf{V})$, em que $\mathbf{V} = \mathbf{Z}\sigma^2_p\mathbf{I}_{abr}\mathbf{Z}^{'} + \sigma^2\mathbf{I}_{abrs}$.
+- Estimador de mínimos quadrados de $\boldsymbol{\beta}$ seria $\hat{\boldsymbol{\beta}} = (\mathbf{X}^{'}\mathbf{V}^{-}\mathbf{X})^{-}\mathbf{X}^{'}\mathbf{V}^{-}\mathbf{y}$.
+    + __Problema:__ $\sigma^2$ e $\sigma^2_p$ são desconhecidos, logo $\mathbf{V}$ também é.
+    + __Solução:__ tratar $\boldsymbol{\beta}$ e $\boldsymbol{\gamma}$ como fixos.
+    
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(daewr)
+data(pesticide)
+head(pesticide)
+tail(pesticide)
+```
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+mod4 <- aov(residue ~ form + tech + form:tech + plot:form:tech,
+            data = pesticide)
+summary(mod4)
+```
+
+- Testes $F$ e valores de $p$ estão incorretos!
+
+## Exemplo
+
+![](images/Tab5_15.png)
+
+- $\tau^2$ são formas quadráticas dos efeitos fixos ($\alpha_i$, $\beta_j$ e $\alpha\beta_{ij}$).
+- Quadrado médio correto a ser usado no denominador do teste $F$ para testar estes efeitos fixos é o termo de parcela (_Plot_), na qual a esperança é $\sigma^2 + \sigma^2_p$.
+
+## Exemplo (R)
+
+- Valores de $F$ corretos:
+
+![](images/teste_f_correto.png)
+
+```{r, message=FALSE, warning=FALSE, paged.print=FALSE}
+pf(0.03, 1, 4, lower.tail = FALSE)
+```
+
+- __O que concluímos?__
+
+## Exemplo (R)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Example 23 p. 178
+library(lme4)
+c1 <- c( -.5, .5 )
+mod5 <- lmer(residue ~ 1 + form + tech + form:tech + (1|plot:form:tech), 
+             contrasts = list( form = c1, tech = c1),
+             data = pesticide)
+summary(mod5)
+```
+
+## Exemplo (R): testes F para os fatores fixos
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Example 25 p. 179
+anova(mod5)
+```
+
+## Exemplo (R): comparações ajustadas
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Example 24 p. 178
+library(lsmeans)
+lsmeans(mod5, pairwise ~ tech, adjust = c("tukey"))
+```
+
+## Exemplo (R): EBLUPs
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+qqnorm( ranef(mod5)$`plot:form:tech`[[1]],
+        main = "", ylab = "EBLUP",
+        xlab = "Normal Score" )
+```
+
+## Conclusões
+
+- Modelos como o que vimos são chamados de __modelos de efeitos mistos__.
+- Neste exemplo, a aplicação do pesticida a cada parcela pode induzir uma correlação entre sub-amostras da mesma parcela.
+    + Embora a suposição de independência seja violada, o teste $F$ em efeitos fixos utilizando o quadrado médio da parcela como o denominador ainda é válido.
+
+![coto](images/cotonete.jpg)
