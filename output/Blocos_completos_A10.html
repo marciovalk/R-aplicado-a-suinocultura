@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MAT02014 - Planejamento de Experimentos II</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Rodrigo Citton P. dos Reis      Departmento de Estatística" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="svm-xaringan-style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# MAT02014 - Planejamento de Experimentos II
+## Delineamentos em Blocos Casualizados
+### Rodrigo Citton P. dos Reis<br /> <br /> <br /> Departmento de Estatística
+
+---
+
+
+
+
+# Introdução
+
+As **unidades experimentais** devem ser o mais semelhantes possíveis.
+
+Unidades experimentais homogêneas.
+
++ **Redução da variância**, `\(\sigma^2_{\epsilon}\)`, do erro experimental.
+    - **Aumenta o poder** para detectar efeitos dos fatores de tratamento.
+---
+
+# Introdução
+
+Por outro lado, a maioria dos pesquisadores gostaria que as conclusões de seu trabalho tivessem ampla aplicabilidade.
+
+- Um experimentador gostaria de comparar vários métodos de exercício aeróbico para ver como eles afetam o nível de estresse e ansiedade de indivíduos.
+    + Como existe uma grande variabilidade nos níveis de estresse e ansiedade na população geral (**heterogeneidade**), seria difícil ver qualquer diferença entre os vários métodos de exercício, a menos que os indivíduos recrutados para o estudo fossem um grupo homogêneo.
+    + No entanto, o pesquisador gostaria de tirar conclusões gerais de seu estudo para pessoas de todos os níveis de estresse na população em geral.
+
+---
+
+# Introdução
+
+**Bloqueio** pode ser usado para alcançar os dois objetivos.
+
+- Controle do erro.
+- Em um **delineamento de blocos casualizados**, um grupo de unidades experimentais heterogêneas é utilizado para que as conclusões possam ser mais gerais.
+    + Essas unidades experimentais heterogêneas são agrupadas em subgrupos homogêneos antes de serem aleatoriamente designadas para os níveis de fator de tratamento.
+- O ato de agrupar as unidades experimentais em grupos homogêneos (os **blocos**) é chamado de **bloqueio** (bloqueamento/blocagem).
+- A atribuição aleatória de níveis de fator de tratamento a unidades experimentais dentro de blocos tem o mesmo efeito de usar apenas unidades homogêneas, mas permite que as conclusões sejam generalizadas para toda a classe de unidades experimentais heterogêneas.
+
+---
+class: inverse, middle, center
+
+# Introdução
+## Lotes de terra
+
+.center[![](images/plot-land.jpg)]
+
+---
+
+class: inverse, middle, center
+
+# Introdução
+## Ninhadas
+
+.center[![](images/pig-littermate.jpg)]
+
+---
+
+# Introdução
+
+**Em um delineamento em blocos completos casualizados** (BCC), com um fator de tratamento
+
+- `\(t\)` níveis de tratamento;
+- `\(b\)` blocos;
+- cada bloco tem exatamente `\(t\)` unidades experimentais;
+- Total de `\(t\times b\)` unidades experimentais.
+    + Dentro de blocos, as `\(t\)` unidades experimentais são homogêneas tanto quanto o possível.
+    + Entre blocos, as unidades variam o suficiente para permitir que as conclusões sejam generalizadas.
+- A **aleatorização** das unidades experimentais para níveis de fator de tratamento é realizada dentro de cada bloco.
+
+---
+class: inverse, middle, center
+
+# Introdução
+## Bloqueio é um oferecimento de
+
+.center[![](images/Fisher.png)]
+
+---
+
+# Introdução
+
+Se houver mais de `\(t\)` unidades experimentais dentro de cada bloco, de modo que os níveis dos fatores de tratamento sejam replicados `\(r\)` vezes dentro de cada bloco, haverá um total de unidades experimentais `\(r \times t \times b\)`.
+
+- Nessa situação, chamamos o delineamento de um delineamento de **blocos completos geral** (BCG).
+- Normalmente, o BCC é preferível ao BCG porque os blocos menores de unidades experimentais permitem maior homogeneidade dentro dos blocos
+    + Menor erro experimental
+        - Testes e estimativas mais precisos.
+
+---
+
+# Criando um BCC no `R`
+## Exemplo
+
+Uma estudante queria investigar **"métodos da Vovó"** para prolongar a vida das flores cortadas.
+
+.center[![](images/A_student_studying_at_a_desk_decorated_with_flowers_110819-195419-852009.jpg)]
+
+---
+
+background-image: url(images/tenor.gif)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+background-image: url(images/oldwivetale.jpg)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+background-image: url(images/giphy.gif)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+# Criando um BCC no `R`
+
+Os níveis foram:
+
+1. Água da torneira
+2. Água da torneira com uma colher de açúcar adicionada
+3. Água da torneira com uma xícara de água carbonatada
+4. Água da torneira com uma xícara de 7-up
+
+## Um oferecimento de 
+
+.center[![](images/seven_up.png)]
+
+---
+
+# Criando um BCC no `R`
+
+As unidades experimentais eram flores individuais e a resposta foi o tempo em dias até a flor murchar. 
+
+A estudante queria as conclusões de seu estudo para aplicar em diversos tipos de flores, então ela usou um BCC.
+
+.center[![](images/flores-livro.jpg)]
+
+---
+
+# Criando um BCC no `R`
+
+Os blocos foram os seguintes tipos de flores:
+
+1. Rosa (*Rose*)
+2. Cravo (*Carnantion*)
+3. Daisy (*Daisy*)
+4. Tulipa (*Tulip*)
+
+---
+
+# Criando um BCC no `R`
+
+
+```r
+f &lt;- factor(c(1, 2, 3, 4))
+b1t &lt;- sample(f, 4)
+b2t &lt;- sample(f, 4)
+b3t &lt;- sample(f, 4)
+b4t &lt;- sample(f, 4)
+t &lt;- c(b1t, b2t, b3t, b4t)
+t
+```
+
+```
+##  [1] 4 3 1 2 4 3 1 2 3 4 1 2 2 1 3 4
+```
+
+
+```r
+block &lt;- factor( rep(c("carnation", "daisy", "rose", "tulip"),
+                     each = 4))
+block
+```
+
+```
+##  [1] carnation carnation carnation carnation daisy     daisy     daisy    
+##  [8] daisy     rose      rose      rose      rose      tulip     tulip    
+## [15] tulip     tulip    
+## Levels: carnation daisy rose tulip
+```
+
+---
+
+# Criando um BCC no `R`
+
+
+```r
+flnum &lt;- rep(f, 4)
+plan &lt;- data.frame(TypeFlower = block, FlowerNumber = flnum,
+                 treatment = t)
+plan
+```
+
+```
+##    TypeFlower FlowerNumber treatment
+## 1   carnation            1         4
+## 2   carnation            2         3
+## 3   carnation            3         1
+## 4   carnation            4         2
+## 5       daisy            1         4
+## 6       daisy            2         3
+## 7       daisy            3         1
+## 8       daisy            4         2
+## 9        rose            1         3
+## 10       rose            2         4
+## 11       rose            3         1
+## 12       rose            4         2
+## 13      tulip            1         2
+## 14      tulip            2         1
+## 15      tulip            3         3
+## 16      tulip            4         4
+```
+
+
+```r
+write.table(plan, file = "RCBPlan.csv",
+            sep = ",", row.names = FALSE)
+```
+
+---
+
+# Criando um BCC no `R`
+## Uma forma alternativa via pacote `agricolae`
+
+
+```r
+library(agricolae)
+```
+
+```
+## Warning: package 'agricolae' was built under R version 3.4.4
+```
+
+```r
+treat &lt;- c(1, 2, 3, 4)
+outdesign &lt;- design.rcbd(treat, 4,
+                         seed = 11)
+bcc &lt;- outdesign$book
+levels(bcc$block) &lt;- c("carnation", "daisy", "rose", "tulip")
+bcc
+```
+
+```
+##    plots     block treat
+## 1    101 carnation     4
+## 2    102 carnation     1
+## 3    103 carnation     2
+## 4    104 carnation     3
+## 5    201     daisy     2
+## 6    202     daisy     4
+## 7    203     daisy     3
+## 8    204     daisy     1
+## 9    301      rose     4
+## 10   302      rose     2
+## 11   303      rose     1
+## 12   304      rose     3
+## 13   401     tulip     1
+## 14   402     tulip     4
+## 15   403     tulip     2
+## 16   404     tulip     3
+```
+---
+
+# Modelo para o BCC
+
+O modelo para a análise de um delineamento BCC é
+
+`$$y_{ij} = \mu + b_i + \tau_j + \epsilon_{ij},$$`
+
+- `\(b_i\)` é o efeito de bloco;
+- `\(\tau_j\)` é o efeito de tratamento;
+- `\(\epsilon_{ij}\stackrel{iid}{\sim}N(0,\sigma^2_{\epsilon})\)`.
+
+---
+
+# Modelo para o BCC
+
+- Este modelo **não** inclui um termo de interação entre blocos e tratamento.
+- `\(t\times b\)` unidades experimentais
+    + Zero `\(gl\)` para a `\(ssE\)` se um termo de interação blocos e tratamento fosse incluído no modelo.
+- No entanto, a interação bloco por tratamento é de fato o termo de erro correto **para testar os efeitos do tratamento**.
+    + O experimentador quer generalizar suas conclusões sobre os efeitos do tratamento sobre todas as unidades experimentais.
+    + Os efeitos médios do tratamento devem ser maiores do que quaisquer diferenças nos efeitos do tratamento entre os blocos de unidades experimentais.
+    + A diferença nos efeitos do tratamento entre os blocos é exatamente o que a interação mede e é, portanto, o termo de erro correto.
+- Ao deixar a interação fora do modelo, a `\(ssE\)` torna-se idêntica à soma de quadrados da interação.
+    
+---
+
+background-image: url(images/hillary-p-value.gif)
+background-size: 90%
+class: center, bottom, inverse
+
+---
+
+# Modelo para o BCC
+## Tabela de ANOVA
+
+.center[![](images/Tab4_1.png)]
+
+---
+
+# Modelo para o BCC
+## Tabela de ANOVA
+
+- Os graus de liberdade para o erro `\((b − 1) (t − 1)\)` são menores do que seriam em um delineamento completamente casualizado com `\(b\)` replicações de cada nível de tratamento.
+    + Se os grupos de unidades experimentais dentro dos blocos forem mais homogêneos, o `\(msE\)` deve ser menor e o poder de detectar diferenças entre os níveis de tratamento é maior.
+
+---
+
+# Modelo para o BCC
+## Eficiência relativa
+
+A estimativa da variância das unidades experimentais dentro de cada bloco é dada por
+`$$\hat{\sigma}_{bcc}^2 = \frac{ssE}{(b-1)(t-1)}.$$`
+
+A estimativa da variância do grupo inteiro de unidades experimentais heterogêneas pode ser feita a partir dos quadrados médios na tabela de ANOVA do BCC
+`$$\hat{\sigma}_{dcc}^2 = \frac{ssBlk + ssE}{t(b-1)}.$$`
+
+- Se `\(msBlk\)` é zero, pode ser visto que `\(\hat{\sigma}_{dcc}^2&lt;\hat{\sigma}_{bcc}^2\)`.
+- A razão de `\(\hat{\sigma}_{dcc}^2\)` e `\(\hat{\sigma}_{bcc}^2\)` é uma medida de eficácia do bloqueio.
+
+---
+
+# Modelo para o BCC
+## Eficiência relativa
+
+- `\(\nu_{bcc} = (b-1)(t-1)\)`
+- `\(\nu_{dcc} = t(b-1)\)`
+
+A **eficiência relativa** do BCC é dada pela fórmula:
+
+`$$RE = \frac{(\nu_{bcc}+1)(\nu_{dcc}+3)}{(\nu_{bcc}+3)(\nu_{dcc}+1)}\frac{\hat{\sigma}_{dcc}^2}{\hat{\sigma}_{bcc}^2}$$`
+
+- `\(RE\)` pode ser usado para determinar o número de observações que seriam necessárias em um DCC, com unidades experimentais heterogêneas, para que as variâncias para as médias de tratamento sejam equivalentes àquelas obtidas com o BCC.
+    + Se `\(b\times t\)` unidades experimentais foram usadas no BCC, então `\(RE \times (b \times t)\)` unidades experimentais seriam necessárias em um DCC, sem bloqueio, para alcançar variacias equivalentes das médias de tratamentos.
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+## Efeito do fármaco sulfato d-anfetamina sobre o comportamento de ratos
+
+- O comportamento em estudo foi a **taxa** em que os ratos privados de água pressionaram uma alavanca para obter água.
+- A **resposta foi a taxa de pressão da alavanca** definida como o **número de pressões da alavanca dividido pelo tempo decorrido da sessão**.
+- Os níveis do fator de tratamento eram cinco dosagens diferentes da droga em miligramas por quilograma de peso corporal, incluindo uma dosagem de controle consistindo em solução salina.
+
+---
+
+background-image: url(images/ratos1.jpg)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+background-image: url(images/rato.gif)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+## Efeito do fármaco sulfato d-anfetamina sobre o comportamento de ratos
+
+- Um experimento consistiu em injetar um rato com uma dosagem de droga, e depois de uma hora uma sessão experimental começou onde um rato receberia água toda vez que uma segunda alavanca fosse pressionada.
+- A unidade experimental nesses experimentos **não era um rato**, mas o estado de um único rato durante um experimento, uma vez que um rato individual poderia ser usado em vários experimentos injetando-o repetidamente com diferentes doses do fármaco (após um período apropriado de **lavagem**; *washout*) e observando o comportamento de pressionar a alavanca.
+- Como havia grande variabilidade na taxa de pressão de alavanca entre os ratos, foi utilizado um BCC, e **um rato representou o fator de bloqueio**.
+- Cada rato recebeu todas as cinco doses em uma ordem aleatória com um período de *washout* apropriado entre elas.
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+
+
+```r
+library(daewr)
+```
+
+```
+## Warning: package 'daewr' was built under R version 3.4.4
+```
+
+```r
+data(drug)
+drug
+```
+
+```
+##    rat dose rate
+## 1    1    0 0.60
+## 2    1  0.5 0.80
+## 3    1    1 0.82
+## 4    1  1.5 0.81
+## 5    1    2 0.50
+## 6    2    0 0.51
+## 7    2  0.5 0.61
+## 8    2    1 0.79
+## 9    2  1.5 0.78
+## 10   2    2 0.77
+## 11   3    0 0.62
+## 12   3  0.5 0.82
+## 13   3    1 0.83
+## 14   3  1.5 0.80
+## 15   3    2 0.52
+## 16   4    0 0.60
+## 17   4  0.5 0.95
+## 18   4    1 0.91
+## 19   4  1.5 0.95
+## 20   4    2 0.70
+## 21   5    0 0.92
+## 22   5  0.5 0.82
+## 23   5    1 1.04
+## 24   5  1.5 1.13
+## 25   5    2 1.03
+## 26   6    0 0.63
+## 27   6  0.5 0.93
+## 28   6    1 1.02
+## 29   6  1.5 0.96
+## 30   6    2 0.63
+## 31   7    0 0.84
+## 32   7  0.5 0.74
+## 33   7    1 0.98
+## 34   7  1.5 0.98
+## 35   7    2 1.00
+## 36   8    0 0.96
+## 37   8  0.5 1.24
+## 38   8    1 1.27
+## 39   8  1.5 1.20
+## 40   8    2 1.06
+## 41   9    0 1.01
+## 42   9  0.5 1.23
+## 43   9    1 1.30
+## 44   9  1.5 1.25
+## 45   9    2 1.24
+## 46  10    0 0.95
+## 47  10  0.5 1.20
+## 48  10    1 1.18
+## 49  10  1.5 1.23
+## 50  10    2 1.05
+```
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+
+
+```r
+mod1 &lt;- aov( rate ~ rat + dose, data = drug )
+summary(mod1)
+```
+
+```
+##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## rat          9 1.6685 0.18538   22.20 3.75e-12 ***
+## dose         4 0.4602 0.11505   13.78 6.53e-07 ***
+## Residuals   36 0.3006 0.00835                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+
+
+```r
+contrasts(drug$dose) &lt;- contr.poly(5)
+mod2 &lt;- aov( rate ~ rat + dose, data = drug)
+summary.aov(mod2, split = list(dose = list("Linear" = 1,
+           "Quadratic" = 2,"Cubic" = 3, "Quartic" = 4)))
+```
+
+```
+##                   Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## rat                9 1.6685  0.1854  22.205 3.75e-12 ***
+## dose               4 0.4602  0.1151  13.781 6.53e-07 ***
+##   dose: Linear     1 0.0610  0.0610   7.308   0.0104 *  
+##   dose: Quadratic  1 0.3943  0.3943  47.232 4.83e-08 ***
+##   dose: Cubic      1 0.0041  0.0041   0.491   0.4882    
+##   dose: Quartic    1 0.0008  0.0008   0.094   0.7613    
+## Residuals         36 0.3006  0.0083                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+
+
+```r
+R &lt;- do.call("cbind", split(drug$rate, drug$rat))
+y &lt;- apply(R, 1, mean )
+x &lt;- as.double( levels(drug$dose) )
+plot( x, y, xlab = "dose", ylab = "average lever press rate" )
+xx &lt;- seq( 0.0, 2.0, .1 )
+rate.quad &lt;- lm( y ~ poly( x, 2) )
+lines(xx, predict( rate.quad, data.frame( x = xx) ))
+```
+
+---
+
+![](Blocos_completos_A10_files/figure-html/unnamed-chunk-10-1.svg)&lt;!-- --&gt;
+
+---
+
+# Um exemplo de um experimento com delineamento BCC
+
+- `\(\hat{\sigma}_{bcc}^2=\)` 0.00835.
+- `\(\hat{\sigma}_{dcc}^2=\)` 0.04376.
+- `\(RE=\)` 5.18846
+    + Isso significa que o bloqueio reduziu a variância das unidades experimentais em aproximadamente **80%** = `\(1 - \frac{0.0083487}{0.043758}\)`, e que levaria aproximadamente **cinco vezes** mais experimentos para ter as variâncias equivalentes para as médias de tratamento se cada rato tivesse sido usado para apenas um ensaio num DCC.
+
+---
+
+# Delineamentos fatoriais em blocos
+
+O bloqueio é ainda mais eficaz quando combinado com um planejamento fatorial.
+
+- O número de unidades experimentais em cada bloco **deve ser igual** ao número de combinações dos níveis de todos os fatores.
+- **Fatorial em blocos completos casualizados** (FBCC).
+
+---
+
+class: inverse, middle, center
+
+## Mais um exemplo com ...
+.center[![](images/Beakman-World-7.jpg)]
+
+---
+
+# Delineamentos fatoriais em blocos
+
+- Determinar se o BHA (um antioxidante comum usado em alimentos processados) induzia atividade da enzima hepática EROD em camundongos e se essa atividade era independente da linhagem de camundongos.
+- Foi parte de um estudo maior para determinar se os antioxidantes ajudam a proteger contra o câncer.
+
+---
+
+# Delineamentos fatoriais em blocos
+
+- Os fatores neste experimento foram
+    + **A:** se um rato foi tratado com BHA ou não
+    + **B:** a estirpe do rato.
+- Como não se pode atribuir um determinado rato a uma determinada estirpe, a unidade experimental não é o rato, mas o teste ou as condições existentes no laboratório quando uma experiência específica foi executada.
+- Uma execução consistiu em selecionar um rato de uma estirpe específica; em seguida, o BHA foi incorporando na dieta (por um período de 3 semanas) ou não (dependendo do que foi especificado); e finalmente **humanamente** sacrificando o rato ...
+
+---
+
+background-image: url(images/labmicecookies2-1-t.jpg)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+background-image: url(images/dead_rat_by_makinita-d8kt7pr.gif)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+class: inverse, middle, center
+
+.center[![](images/Walt-Disney.jpg)]
+## Walt Disney disse que este não é o fim ...
+
+---
+
+background-image: url(images/deadgif.gif)
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+# Delineamentos fatoriais em blocos
+
+- ... e realizar uma autópsia para determinar o nível de atividade da enzima EROD no fígado.
+- Resultados de experiências *in vivo* podem variar substancialmente de tempos em tempos no mesmo laboratório.
+    + **Diferenças nos reagentes utilizados para a análise enzimática, calibração de instrumentos e fatores ambientais na criação de animais.**
+- As experiências foram bloqueadas no tempo.
+- Dois ratos foram selecionados de cada uma das quatro estirpes, um foi escolhido aleatoriamente para receber BHA na dieta, e oito ensaios foram realizados simultaneamente.
+    + Isso representou um bloco.
+    + Três meses depois, todo o processo foi repetido para um segundo bloco de execuções.
+
+---
+
+# Delineamentos fatoriais em blocos
+
+
+```r
+library(daewr)
+data(bha)
+bha
+```
+
+```
+##    block strain   treat    y
+## 1      1    A/J treated 18.7
+## 2      1    A/J control  7.7
+## 3      2    A/J treated 16.7
+## 4      2    A/J control  6.4
+## 5      1 129Ola treated 17.9
+## 6      1 129Ola control  8.4
+## 7      2 129Ola treated 14.4
+## 8      2 129Ola control  6.7
+## 9      1    NIH treated 19.2
+## 10     1    NIH control  9.8
+## 11     2    NIH treated 12.0
+## 12     2    NIH control  8.1
+## 13     1 BALB/c treated 26.3
+## 14     1 BALB/c control  9.7
+## 15     2 BALB/c treated 19.8
+## 16     2 BALB/c control  6.0
+```
+
+---
+
+# Delineamentos fatoriais em blocos
+
+
+```r
+mod3 &lt;- aov( y ~ block + strain * treat, data = bha)
+summary(mod3)
+```
+
+```
+##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## block         1   47.6    47.6  18.372  0.00363 ** 
+## strain        3   33.0    11.0   4.240  0.05274 .  
+## treat         1  422.3   422.3 162.961 4.19e-06 ***
+## strain:treat  3   40.3    13.4   5.189  0.03368 *  
+## Residuals     7   18.1     2.6                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+# Delineamentos fatoriais em blocos
+
+![](Blocos_completos_A10_files/figure-html/unnamed-chunk-13-1.svg)&lt;!-- --&gt;
+
+```
+## NULL
+```
+
+---
+
+background-image: url(images/final.gif)
+background-size: 60%
+class: center, bottom, inverse
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
