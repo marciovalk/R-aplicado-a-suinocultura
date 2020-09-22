@@ -11,7 +11,7 @@
   <meta property="og:title" content="Capítulo 3 Visualização de dados com o R | R aplicado à suinocultura" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="Figuras/cover.jpg" />
+  <meta property="og:image" content="Figuras/capa4.jpg" />
   <meta property="og:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
   
 
@@ -19,12 +19,12 @@
   <meta name="twitter:title" content="Capítulo 3 Visualização de dados com o R | R aplicado à suinocultura" />
   
   <meta name="twitter:description" content="Esse material tem por objetivo dar suporte ao uso do R em análise de dados na área da suinocultura" />
-  <meta name="twitter:image" content="Figuras/cover.jpg" />
+  <meta name="twitter:image" content="Figuras/capa4.jpg" />
 
 <meta name="author" content="Marcio Valk" />
 
 
-<meta name="date" content="2020-07-31" />
+<meta name="date" content="2020-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,8 +132,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li><a href="index.html#section"></a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="tuto.html"><a href="tuto.html"><i class="fa fa-check"></i><b>1</b> Tutorial básico <code>R</code> e <code>RStudio</code></a><ul>
 <li class="chapter" data-level="1.1" data-path="tuto.html"><a href="tuto.html#apresentação-da-linguagem-r"><i class="fa fa-check"></i><b>1.1</b> Apresentação da linguagem <code>R</code></a></li>
@@ -217,11 +217,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ade.html"><a href="ade.html"><i class="fa fa-check"></i><b>4</b> Análise de experimentos</a><ul>
-<li class="chapter" data-level="4.1" data-path="ade.html"><a href="ade.html#anova-1-fator"><i class="fa fa-check"></i><b>4.1</b> ANOVA <em>1 Fator</em></a></li>
-<li class="chapter" data-level="4.2" data-path="ade.html"><a href="ade.html#delineamento-inteiramente-casualizados"><i class="fa fa-check"></i><b>4.2</b> Delineamento inteiramente casualizados</a></li>
-<li class="chapter" data-level="4.3" data-path="ade.html"><a href="ade.html#delineamento-em-blocos-ao-acaso"><i class="fa fa-check"></i><b>4.3</b> Delineamento em blocos ao acaso</a></li>
-<li class="chapter" data-level="4.4" data-path="ade.html"><a href="ade.html#fatorial"><i class="fa fa-check"></i><b>4.4</b> Fatorial</a></li>
-<li class="chapter" data-level="4.5" data-path="ade.html"><a href="ade.html#parcela-subdividida"><i class="fa fa-check"></i><b>4.5</b> Parcela subdividida</a></li>
+<li class="chapter" data-level="4.1" data-path="ade.html"><a href="ade.html#príncipios-e-definições-básicas"><i class="fa fa-check"></i><b>4.1</b> Príncipios e definições básicas</a></li>
+<li class="chapter" data-level="4.2" data-path="ade.html"><a href="ade.html#experimentos-com-delineamento-inteiramente-casualizados-com-um-fator"><i class="fa fa-check"></i><b>4.2</b> Experimentos com delineamento inteiramente casualizados com um fator</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ade.html"><a href="ade.html#granu"><i class="fa fa-check"></i><b>4.2.1</b> Granulometria ideal do grão de milho em ração para suínos</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ade.html"><a href="ade.html#replicação-e-randomização"><i class="fa fa-check"></i><b>4.2.2</b> Replicação e randomização</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ade.html"><a href="ade.html#exemplo-de-dados-de-delineamento-inteiramente-casualizados-com-um-fator"><i class="fa fa-check"></i><b>4.2.3</b> Exemplo de dados de delineamento inteiramente casualizados com um fator</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ade.html"><a href="ade.html#modelo-linear-para-delineamento-completamente-casualizados-com-um-fator"><i class="fa fa-check"></i><b>4.2.4</b> Modelo linear para delineamento completamente casualizados com um fator</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ade.html"><a href="ade.html#estimação"><i class="fa fa-check"></i><b>4.2.5</b> Estimação</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ade.html"><a href="ade.html#representção-matricial"><i class="fa fa-check"></i><b>4.2.6</b> Representção matricial</a></li>
+<li class="chapter" data-level="4.2.7" data-path="ade.html"><a href="ade.html#mínimos-quadrados-matricial-com-o-r"><i class="fa fa-check"></i><b>4.2.7</b> Mínimos quadrados matricial com o <code>R</code></a></li>
+<li class="chapter" data-level="4.2.8" data-path="ade.html"><a href="ade.html#função-lm"><i class="fa fa-check"></i><b>4.2.8</b> Função <code>lm()</code></a></li>
+<li class="chapter" data-level="4.2.9" data-path="ade.html"><a href="ade.html#estimação-da-variância-sigma2"><i class="fa fa-check"></i><b>4.2.9</b> Estimação da variância <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="4.2.10" data-path="ade.html"><a href="ade.html#teste-de-hipótese-para-efeito-dos-tratamentos"><i class="fa fa-check"></i><b>4.2.10</b> Teste de hipótese para efeito dos tratamentos</a></li>
+<li class="chapter" data-level="4.2.11" data-path="ade.html"><a href="ade.html#análise-de-variância---anova"><i class="fa fa-check"></i><b>4.2.11</b> Análise de variância - ANOVA</a></li>
+<li class="chapter" data-level="4.2.12" data-path="ade.html"><a href="ade.html#verificação-das-suposições-do-modelo-linear"><i class="fa fa-check"></i><b>4.2.12</b> Verificação das suposições do modelo linear</a></li>
+<li class="chapter" data-level="4.2.13" data-path="ade.html"><a href="ade.html#fatores-e-delineamentos-fatoriais"><i class="fa fa-check"></i><b>4.2.13</b> Fatores e delineamentos fatoriais</a></li>
+<li class="chapter" data-level="4.2.14" data-path="ade.html"><a href="ade.html#fatores-e-delineamentos-fatoriais-1"><i class="fa fa-check"></i><b>4.2.14</b> Fatores e delineamentos fatoriais</a></li>
+<li class="chapter" data-level="4.2.15" data-path="ade.html"><a href="ade.html#fatores-e-delineamentos-fatoriais-2"><i class="fa fa-check"></i><b>4.2.15</b> Fatores e delineamentos fatoriais</a></li>
+<li class="chapter" data-level="4.2.16" data-path="ade.html"><a href="ade.html#efeitos-principais"><i class="fa fa-check"></i><b>4.2.16</b> Efeitos principais</a></li>
+<li class="chapter" data-level="4.2.17" data-path="ade.html"><a href="ade.html#efeitos-principais-1"><i class="fa fa-check"></i><b>4.2.17</b> Efeitos principais</a></li>
+<li class="chapter" data-level="4.2.18" data-path="ade.html"><a href="ade.html#efeito-de-interação"><i class="fa fa-check"></i><b>4.2.18</b> Efeito de interação</a></li>
+<li class="chapter" data-level="4.2.19" data-path="ade.html"><a href="ade.html#efeito-de-interação-1"><i class="fa fa-check"></i><b>4.2.19</b> Efeito de interação</a></li>
+<li class="chapter" data-level="4.2.20" data-path="ade.html"><a href="ade.html#efeito-de-interação-2"><i class="fa fa-check"></i><b>4.2.20</b> Efeito de interação</a></li>
+<li class="chapter" data-level="4.2.21" data-path="ade.html"><a href="ade.html#representação-por-modelo-de-regressão"><i class="fa fa-check"></i><b>4.2.21</b> Representação por modelo de regressão</a></li>
+<li class="chapter" data-level="4.2.22" data-path="ade.html"><a href="ade.html#representação-por-modelo-de-regressão-ausência-de-interação"><i class="fa fa-check"></i><b>4.2.22</b> Representação por modelo de regressão (ausência de interação)</a></li>
+<li class="chapter" data-level="4.2.23" data-path="ade.html"><a href="ade.html#representação-por-modelo-de-regressão-presença-de-interação"><i class="fa fa-check"></i><b>4.2.23</b> Representação por modelo de regressão (presença de interação)</a></li>
+<li class="chapter" data-level="4.2.24" data-path="ade.html"><a href="ade.html#efeitos-principais-vs-efeito-de-interação"><i class="fa fa-check"></i><b>4.2.24</b> Efeitos principais <em>vs</em> efeito de interação</a></li>
+<li class="chapter" data-level="4.2.25" data-path="ade.html"><a href="ade.html#efeitos-principais-vs-efeito-de-interação-1"><i class="fa fa-check"></i><b>4.2.25</b> Efeitos principais <em>vs</em> efeito de interação</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ade.html"><a href="ade.html#delineamento-fatorial-com-dois-fatores"><i class="fa fa-check"></i><b>4.3</b> Delineamento fatorial com dois fatores</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="ade.html"><a href="ade.html#delineamento-fatorial-com-dois-fatores-1"><i class="fa fa-check"></i><b>4.3.1</b> Delineamento fatorial com dois fatores</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ade.html"><a href="ade.html#exemplo-da-bateria"><i class="fa fa-check"></i><b>4.4</b> Exemplo da bateria</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="ade.html"><a href="ade.html#exemplo-da-bateria-1"><i class="fa fa-check"></i><b>4.4.1</b> Exemplo da bateria</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ade.html"><a href="ade.html#exemplo-da-bateria-2"><i class="fa fa-check"></i><b>4.4.2</b> Exemplo da bateria</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ade.html"><a href="ade.html#exemplo-da-bateria-3"><i class="fa fa-check"></i><b>4.4.3</b> Exemplo da bateria</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="ade.html"><a href="ade.html#criando-um-planejamento-fatorial-com-dois-fatores-no-r"><i class="fa fa-check"></i><b>4.5</b> Criando um planejamento fatorial com dois fatores no <code>R</code></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="ade.html"><a href="ade.html#exemplo-da-bateria-4"><i class="fa fa-check"></i><b>4.5.1</b> Exemplo da bateria</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ade.html"><a href="ade.html#as-vantagens-dos-delineamentos-fatoriais"><i class="fa fa-check"></i><b>4.5.2</b> As vantagens dos delineamentos fatoriais</a></li>
+<li class="chapter" data-level="4.5.3" data-path="ade.html"><a href="ade.html#para-casa"><i class="fa fa-check"></i><b>4.5.3</b> Para casa</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ade.html"><a href="ade.html#anova-1-fator"><i class="fa fa-check"></i><b>4.6</b> ANOVA <em>1 Fator</em></a></li>
+<li class="chapter" data-level="4.7" data-path="ade.html"><a href="ade.html#delineamento-inteiramente-casualizados"><i class="fa fa-check"></i><b>4.7</b> Delineamento inteiramente casualizados</a></li>
+<li class="chapter" data-level="4.8" data-path="ade.html"><a href="ade.html#delineamento-em-blocos-ao-acaso"><i class="fa fa-check"></i><b>4.8</b> Delineamento em blocos ao acaso</a></li>
+<li class="chapter" data-level="4.9" data-path="ade.html"><a href="ade.html#fatorial"><i class="fa fa-check"></i><b>4.9</b> Fatorial</a></li>
+<li class="chapter" data-level="4.10" data-path="ade.html"><a href="ade.html#parcela-subdividida"><i class="fa fa-check"></i><b>4.10</b> Parcela subdividida</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Relatórios e artigos científicos com o rmarkdown</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#relatório-dinâmico-com-o-rmarkdown"><i class="fa fa-check"></i><b>5.1</b> Relatório dinâmico com o Rmarkdown</a></li>
@@ -499,17 +540,18 @@ Figura 3.16: Gráfico de barras simples e gráfico de barras colorido por Dieta
 <div id="histogramas" class="section level3">
 <h3><span class="header-section-number">3.4.4</span> Histogramas</h3>
 <p>Para construir histogramas mais elaborados no <code>R</code>, podemos usar o <code>ggplot</code> alterando oparâmetro <code>fill</code>. Ao colocarmos o parâmetro <code>fill=Dieta</code>, termeos o histograma colorido por Dieta.</p>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.3</code></pre>
 <p>Para esse exemplo vamos usar um banco de dados simulados especialmente para melhor visualização.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" title="1"><span class="co"># load(dados_sim)</span></a>
-<a class="sourceLine" id="cb372-2" title="2"><span class="kw">str</span>(dados_sim)</a></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" title="1"><span class="co"># load(dados_sim)</span></a>
+<a class="sourceLine" id="cb373-2" title="2"><span class="kw">str</span>(dados_sim)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:	4400 obs. of  4 variables:
 ##  $ Id   : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ Dias : int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Dieta: Factor w/ 4 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;: 3 3 3 2 3 2 2 2 3 1 ...
 ##  $ Peso : num  -4.131 5.205 -3.672 7.457 -0.408 ...</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" title="1"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x =</span> Peso)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb374-2" title="2"></a>
-<a class="sourceLine" id="cb374-3" title="3"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Peso,<span class="dt">fill=</span>Dieta))<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" title="1"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x =</span> Peso)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb375-2" title="2"></a>
+<a class="sourceLine" id="cb375-3" title="3"><span class="kw">filter</span>(dados_sim,Dias<span class="op">&gt;</span><span class="dv">100</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Peso,<span class="dt">fill=</span>Dieta))<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">25</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:ghs1"></span>
 <img src="R-aplicado-a-suinocultura_files/figure-html/ghs1-1.png" alt="Histograma simples e separado por Dieta" width="45%" /><img src="R-aplicado-a-suinocultura_files/figure-html/ghs1-2.png" alt="Histograma simples e separado por Dieta" width="45%" />
 <p class="caption">
@@ -520,10 +562,10 @@ Figura 3.17: Histograma simples e separado por Dieta
 </div>
 <div id="gráfico-de-séries-temporais" class="section level3">
 <h3><span class="header-section-number">3.4.5</span> Gráfico de séries temporais</h3>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" title="1">dados_sim <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb375-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso, <span class="dt">group=</span>Id, <span class="dt">color=</span>Dieta)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb375-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb375-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo para diferentes dietas&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1">dados_sim <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb376-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso, <span class="dt">group=</span>Id, <span class="dt">color=</span>Dieta)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb376-3" title="3"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb376-4" title="4"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo para diferentes dietas&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:gts2"></span>
 <img src="R-aplicado-a-suinocultura_files/figure-html/gts2-1.png" alt="Desenpenho dos indivíduos ao longo do tempo, colorido por Dieta." width="95%" />
 <p class="caption">
@@ -531,10 +573,10 @@ Figura 3.18: Desenpenho dos indivíduos ao longo do tempo, colorido por Dieta.
 </p>
 </div>
 <p>Para fazer o gráfico evolunido no tempo dos indivíduos somente da Dieta A, usamos o comando <code>pipe</code> para filtrar os dados. Além disso, usamos o <code>scale_color_discrete</code> para refazer a legenda do gráfico;</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1">dados_sim<span class="op">%&gt;%</span><span class="kw">filter</span>(Dieta<span class="op">==</span><span class="st">&quot;A&quot;</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb376-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb376-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo somente dieta A&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb376-4" title="4"><span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;DIETA&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1">dados_sim<span class="op">%&gt;%</span><span class="kw">filter</span>(Dieta<span class="op">==</span><span class="st">&quot;A&quot;</span>)<span class="op">%&gt;%</span><span class="kw">ggplot</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Desempenho por indivíduo somente dieta A&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb377-4" title="4"><span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;DIETA&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>))</a></code></pre></div>
 <div class="figure"><span id="fig:gts23"></span>
 <img src="R-aplicado-a-suinocultura_files/figure-html/gts23-1.png" alt="Desenpenho dos indivíduos ao longo do tempo somente para a dieta A." width="95%" />
 <p class="caption">
@@ -542,10 +584,10 @@ Figura 3.19: Desenpenho dos indivíduos ao longo do tempo somente para a dieta A
 </p>
 </div>
 <p>Usando o <code>facet_wrap()</code> podemos plotar o desempenho dos indivíduos ao longo do tempo, separando por Dietas.</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>dados_sim) <span class="op">+</span></a>
-<a class="sourceLine" id="cb377-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">colour=</span>Dieta)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb377-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sepando por dietas&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb377-4" title="4"><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Dieta, <span class="dt">ncol=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>dados_sim) <span class="op">+</span></a>
+<a class="sourceLine" id="cb378-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>( <span class="kw">aes</span>(<span class="dt">x=</span>Dias, <span class="dt">y=</span>Peso,<span class="dt">group=</span>Id,<span class="dt">colour=</span>Dieta)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb378-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sepando por dietas&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb378-4" title="4"><span class="st">     </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Dieta, <span class="dt">ncol=</span><span class="dv">2</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:gts03"></span>
 <img src="R-aplicado-a-suinocultura_files/figure-html/gts03-1.png" alt="Desenpenho dos indivíduos ao longo do tempo para todas as dietas em gráfico separados." width="95%" />
 <p class="caption">
